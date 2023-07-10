@@ -1,0 +1,42 @@
+.card,
+.navbar,
+.modal-content {
+	/* max-width: 300px; */
+	/* min-height: 200px; */
+	/* display: flex; */
+	/* flex-direction: column; */
+	/* justify-content: space-between; */
+
+	border-top: 1px solid rgba(255, 255, 255, 0.25);
+	border-left: 1px solid rgba(255, 255, 255, 0.25);
+	background-color: rgba(255, 255, 255, 0.45);
+	box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+
+	/* backdrop-filter: blur(100px); */
+}
+
+.darkModeCSS{
+	border-top-color: rgba(60, 63, 65, 0.25);
+	border-left-color: rgba(60, 63, 65, 0.25);
+	background-color: rgba(40, 41, 42, 0.45);
+	box-shadow: 0 0 10px 1px rgba(19, 19, 19, 0.25);
+}
+
+.card {
+	border-radius: 20px;
+}
+.modal-content {
+	border-top: 1px solid rgba(255, 255, 255, 0.25);
+	border-left: 1px solid rgba(255, 255, 255, 0.25);
+	background-color: rgba(255, 255, 255, 0.75);
+	box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+	backdrop-filter: blur(20px);
+}
+
+.bg-image {
+	background-image: url("https://e0.pxfuel.com/wallpapers/412/836/desktop-wallpaper-material-design-abstract-waves-colorful-backgrounds-geometric-art-creative-artwork-abstract-art-colorful-waves.jpg");
+	/* height: 100vh; */
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
