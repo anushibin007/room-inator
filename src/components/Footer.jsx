@@ -2,12 +2,12 @@ function Footer() {
 	return (
 		<p className="my-3">
 			An{" "}
-			<a href="https://gitlab.otxlab.net/ajosephr" target="_blank">
-				ajosephr
+			<a href="https://github.com/anushibin007" target="_blank">
+				anushibin007
 			</a>{" "}
 			Side Project // Contribute on{" "}
-			<a href="https://gitlab.otxlab.net/hcjt/room-inator" target="_blank">
-				GitLab
+			<a href="https://github.com/anushibin007/room-inator" target="_blank">
+				GitHub
 			</a>
 		</p>
 	);
