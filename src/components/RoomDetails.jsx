@@ -21,22 +21,13 @@ function RoomDetails(props) {
 							p: 3,
 							boxShadow: "lg",
 						}}
+						layout="fullscreen"
 					>
-						<ModalClose
-							variant="outlined"
-							sx={{
-								top: "calc(-1/4 * var(--IconButton-size))",
-								right: "calc(-1/4 * var(--IconButton-size))",
-								boxShadow: "0 2px 12px 0 rgba(0 0 0 / 0.2)",
-								borderRadius: "50%",
-								bgcolor: "background.surface",
-							}}
-						/>
+						<ModalClose />
 						<Typography
 							component="h2"
 							id="modal-title"
 							level="h4"
-							textGridor="inherit"
 							fontWeight="lg"
 							mb={3}
 						>
@@ -112,11 +103,7 @@ function RoomDetails(props) {
 								<Grid container spacing={2} xs={12}>
 									<Grid>
 										<Grid>
-											<Typography level="body-sm">
-												<ol
-													dangerouslySetInnerHTML={{ __html: room.di }}
-												></ol>
-											</Typography>
+											<ol dangerouslySetInnerHTML={{ __html: room.di }}></ol>
 										</Grid>
 									</Grid>
 								</Grid>
