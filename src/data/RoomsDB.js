@@ -54,7 +54,7 @@ const Rooms = [
 		l: "Dubai",
 		b: "Building 10",
 		f: 18,
-		n: "Conference Room 1",
+		n: "Conference Room 2",
 		s: 120,
 		i: ["https://picsum.photos/1024/1024"],
 		wb: true,
