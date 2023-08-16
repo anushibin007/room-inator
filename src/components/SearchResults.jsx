@@ -8,6 +8,8 @@ import CardContent from "@mui/joy/CardContent";
 import Typography from "@mui/joy/Typography";
 import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
 import BusinessIcon from "@mui/icons-material/Business";
+import StairsIcon from "@mui/icons-material/Stairs";
+import PeopleIcon from "@mui/icons-material/People";
 
 import RoomDetails from "./RoomDetails";
 
@@ -35,43 +37,75 @@ function SearchResults({ rooms, darkMode }) {
 
 	return (
 		<>
-			<Grid container spacing={5} id="search-results-wrapper" marginTop={5}>
+			<Grid container spacing={5} id="search-results-wrapper" marginTop={5} xs={12}>
 				{rooms.map((room) => (
-					<Grid key={room.id} xs={12} md="auto" lg={6} xl={3} xxl={3}>
-						<Card
-							variant="plain"
-							onClick={() => showModal(room)}
-							sx={{ minHeight: "280px", width: 320 }}
-						>
-							<CardCover>
-								<img src={`${room.i[0]}?random=${room.id}`} loading="lazy" />
-							</CardCover>
-							<CardCover
-								sx={{
-									background:
-										"linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)",
-								}}
-							/>
-							<CardContent sx={{ justifyContent: "flex-end" }}>
-								<Typography level="title-lg" textColor="#fff" mb={1}>
-									{room.n}
-								</Typography>
-								<Typography
-									startDecorator={<LocationOnRoundedIcon />}
-									textColor="neutral.300"
-									mb={1}
-								>
-									{room.l}
-								</Typography>
-								<Typography
-									startDecorator={<BusinessIcon />}
-									textColor="neutral.300"
-									mb={1}
-								>
-									{room.b}
-								</Typography>
-							</CardContent>
-						</Card>
+					<Grid
+						key={room.id}
+						container
+						alignItems="center"
+						justifyContent="space-evenly"
+						xs={12}
+						md={6}
+						lg={4}
+					>
+						<Grid xs={12}>
+							<Card variant="outlined" onClick={() => showModal(room)}>
+								<CardCover>
+									<img src={`${room.i[0]}?random=${room.id}`} loading="lazy" />
+								</CardCover>
+								<CardCover
+									sx={{
+										background:
+											"linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)",
+									}}
+								/>
+								<CardContent sx={{ justifyContent: "flex-end" }}>
+									<Grid container xs={12}>
+										<Grid xs={12}>
+											<Typography level="title-lg" textColor="#fff" mb={1}>
+												{room.n}
+											</Typography>
+										</Grid>
+										<Grid xs={6}>
+											<Typography
+												startDecorator={<LocationOnRoundedIcon />}
+												textColor="neutral.300"
+												mb={1}
+											>
+												{room.l}
+											</Typography>
+										</Grid>
+										<Grid xs={6}>
+											<Typography
+												startDecorator={<BusinessIcon />}
+												textColor="neutral.300"
+												mb={1}
+											>
+												{room.b}
+											</Typography>
+										</Grid>
+										<Grid xs={6}>
+											<Typography
+												startDecorator={<StairsIcon />}
+												textColor="neutral.300"
+												mb={1}
+											>
+												{room.f}
+											</Typography>
+										</Grid>
+										<Grid xs={6}>
+											<Typography
+												startDecorator={<PeopleIcon />}
+												textColor="neutral.300"
+												mb={1}
+											>
+												{room.s}
+											</Typography>
+										</Grid>
+									</Grid>
+								</CardContent>
+							</Card>
+						</Grid>
 					</Grid>
 				))}
 			</Grid>

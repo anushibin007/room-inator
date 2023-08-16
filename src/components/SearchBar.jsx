@@ -90,7 +90,7 @@ function SearchBar({ rooms, setRooms }) {
 	return (
 		<>
 			<Input
-				size="lg"
+				size="sm"
 				placeholder="Search"
 				aria-label="Search for rooms"
 				value={searchInput}

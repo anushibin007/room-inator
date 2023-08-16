@@ -20,17 +20,21 @@ function App() {
 	};
 	return (
 		<>
-			<Header
-				rooms={rooms}
-				setRooms={setRooms}
-				darkMode={darkMode}
-				toggleDarkMode={toggleDarkMode}
-			/>
-			<Grid container marginX={10}>
+			<Grid container paddingX={3}>
+				<Grid xs={12}>
+					<Header
+						rooms={rooms}
+						setRooms={setRooms}
+						darkMode={darkMode}
+						toggleDarkMode={toggleDarkMode}
+					/>
+				</Grid>
 				{
 					//<QuickFilters rooms={rooms} setRooms={setRooms} />
 				}
-				<SearchResults rooms={rooms} darkMode={darkMode} />
+				<Grid xs={12}>
+					<SearchResults rooms={rooms} darkMode={darkMode} />
+				</Grid>
 				{
 					//<Footer />
 				}
