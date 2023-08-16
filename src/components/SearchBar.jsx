@@ -72,8 +72,7 @@ function SearchBar({ rooms, setRooms }) {
 			return Rooms;
 		}
 
-		// TODO: Search partial words too
-		const indexSearchResult = lunrIndex.search(`${aSearchInput}`);
+		const indexSearchResult = lunrIndex.search(`*${aSearchInput}*`);
 		console.log(indexSearchResult);
 		var searchedRooms = [];
 		indexSearchResult.forEach((anIndexResult) => {
