@@ -37,13 +37,14 @@ function SearchResults({ rooms, darkMode }) {
 
 	return (
 		<>
-			<Grid container spacing={5} id="search-results-wrapper" marginTop={5} xs={12}>
+			<Grid container id="search-results-wrapper" marginTop={5} xs={12}>
 				{rooms.map((room) => (
 					<Grid
 						key={room.id}
 						container
 						alignItems="center"
 						justifyContent="space-evenly"
+						padding={2}
 						xs={12}
 						md={6}
 						lg={4}
