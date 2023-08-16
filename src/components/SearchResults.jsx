@@ -37,7 +37,7 @@ function SearchResults({ rooms, darkMode }) {
 
 	return (
 		<>
-			<Grid container id="search-results-wrapper" marginTop={5} xs={12}>
+			<Grid container id="search-results-wrapper" marginTop={1} xs={12}>
 				{rooms.map((room) => (
 					<Grid
 						key={room.id}
