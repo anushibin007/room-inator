@@ -50,7 +50,11 @@ function SearchResults({ rooms, darkMode }) {
 						lg={4}
 					>
 						<Grid xs={12}>
-							<Card variant="outlined" onClick={() => showModal(room)}>
+							<Card
+								variant="outlined"
+								onClick={() => showModal(room)}
+								sx={{ height: "250px" }}
+							>
 								<CardCover>
 									<img src={`${room.i[0]}?random=${room.id}`} loading="lazy" />
 								</CardCover>

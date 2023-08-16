@@ -34,73 +34,73 @@ function RoomDetails(props) {
 							{room.n}
 						</Typography>
 						<Grid container xs={12}>
-							<Grid container xs={12} md={6} spacing={1}>
-								<Grid container spacing={2} xs={12}>
+							<Grid container xs={12} md={3} spacing={1}>
+								<Grid container spacing={2} xs={12} alignItems="center">
 									<Grid xs={6}>
-										<Typography level="body-md">Country</Typography>
+										<Typography level="body-lg">Country</Typography>
 									</Grid>
 									<Grid xs={6}>
-										<Typography level="body-sm">{room.c}</Typography>
-									</Grid>
-								</Grid>
-								<Grid container spacing={2} xs={12}>
-									<Grid xs={6}>
-										<Typography level="body-md">Location</Typography>
-									</Grid>
-									<Grid xs={6}>
-										<Typography level="body-sm">{room.l}</Typography>
+										<Typography level="body-md">{room.c}</Typography>
 									</Grid>
 								</Grid>
-								<Grid container spacing={2} xs={12}>
+								<Grid container spacing={2} xs={12} alignItems="center">
 									<Grid xs={6}>
-										<Typography level="body-md">Building</Typography>
+										<Typography level="body-lg">Location</Typography>
 									</Grid>
 									<Grid xs={6}>
-										<Typography level="body-sm">{room.b}</Typography>
-									</Grid>
-								</Grid>
-								<Grid container spacing={2} xs={12}>
-									<Grid xs={6}>
-										<Typography level="body-md">Floor</Typography>
-									</Grid>
-									<Grid xs={6}>
-										<Typography level="body-sm">{room.f}</Typography>
+										<Typography level="body-md">{room.l}</Typography>
 									</Grid>
 								</Grid>
-								<Grid container spacing={2} xs={12}>
+								<Grid container spacing={2} xs={12} alignItems="center">
 									<Grid xs={6}>
-										<Typography level="body-md">Seating Capacity</Typography>
+										<Typography level="body-lg">Building</Typography>
 									</Grid>
 									<Grid xs={6}>
-										<Typography level="body-sm">{room.s}</Typography>
+										<Typography level="body-md">{room.b}</Typography>
 									</Grid>
 								</Grid>
-								<Grid container spacing={2} xs={12}>
+								<Grid container spacing={2} xs={12} alignItems="center">
 									<Grid xs={6}>
-										<Typography level="body-md">White Board</Typography>
+										<Typography level="body-lg">Floor</Typography>
 									</Grid>
 									<Grid xs={6}>
-										<Typography level="body-sm">
+										<Typography level="body-md">{room.f}</Typography>
+									</Grid>
+								</Grid>
+								<Grid container spacing={2} xs={12} alignItems="center">
+									<Grid xs={6}>
+										<Typography level="body-lg">Seating Capacity</Typography>
+									</Grid>
+									<Grid xs={6}>
+										<Typography level="body-md">{room.s}</Typography>
+									</Grid>
+								</Grid>
+								<Grid container spacing={2} xs={12} alignItems="center">
+									<Grid xs={6}>
+										<Typography level="body-lg">White Board</Typography>
+									</Grid>
+									<Grid xs={6}>
+										<Typography level="body-md">
 											{room.wb ? "✅" : "❌"}
 										</Typography>
 									</Grid>
 								</Grid>
-								<Grid container spacing={2} xs={12}>
+								<Grid container spacing={2} xs={12} alignItems="center">
 									<Grid xs={6}>
-										<Typography level="body-md">Projector</Typography>
+										<Typography level="body-lg">Projector</Typography>
 									</Grid>
 									<Grid xs={6}>
-										<Typography level="body-sm">
+										<Typography level="body-md">
 											{room.pr ? "✅" : "❌"}
 										</Typography>
 									</Grid>
 								</Grid>
-								<Grid container spacing={2} xs={12}>
+								<Grid container spacing={2} xs={12} alignItems="center">
 									<Grid>
-										<Typography level="body-md">Directions</Typography>
+										<Typography level="body-lg">Directions</Typography>
 									</Grid>
 								</Grid>
-								<Grid container spacing={2} xs={12}>
+								<Grid container spacing={2} xs={12} alignItems="center">
 									<Grid>
 										<Grid>
 											<ol dangerouslySetInnerHTML={{ __html: room.di }}></ol>
@@ -108,7 +108,7 @@ function RoomDetails(props) {
 									</Grid>
 								</Grid>
 							</Grid>
-							<Grid container xs={12} md={6}>
+							<Grid container xs={12} md={9}>
 								{/*room.i.map((anImageSrc, index) => (
 									<Grid key={index} xs={12}>
 										<img src={`${anImageSrc}?random=${index}`} />
@@ -116,7 +116,10 @@ function RoomDetails(props) {
 								))*/}
 								<Grid container xs={12} alignItems="center" justifyContent="center">
 									<Grid>
-										<img src={`${room.i[0]}?random=0`} />
+										<img
+											src={`${room.i[0]}?random=0`}
+											style={{ maxHeight: "500px", maxWidth: "500px" }}
+										/>
 									</Grid>
 								</Grid>
 							</Grid>
