@@ -1,7 +1,7 @@
 // React
 import React, { useEffect, useState } from "react";
-// Bootstrap
-import Badge from "react-bootstrap/Badge";
+// MUI
+import Chip from '@mui/joy/Chip';
 // DB
 import Rooms from "../data/RoomsDB";
 // Utils
@@ -142,7 +142,7 @@ function QuickFilters({ rooms, setRooms }) {
 				Filter: Country:
 				{filterBar.c &&
 					filterBar.c.map((country) => (
-						<Badge
+						<Chip
 							key={country}
 							onClick={(e) => handleFilterClick(e, "c", country)}
 							className="mx-1"
@@ -155,14 +155,14 @@ function QuickFilters({ rooms, setRooms }) {
 							}
 						>
 							{country}
-						</Badge>
+						</Chip>
 					))}
 			</>
 			{quickFilter.c && (
 				<>
 					Location:
 					{filterBar.l.map((location) => (
-						<Badge
+						<Chip
 							key={location}
 							onClick={(e) => handleFilterClick(e, "l", location)}
 							className="mx-1"
@@ -175,7 +175,7 @@ function QuickFilters({ rooms, setRooms }) {
 							}
 						>
 							{location}
-						</Badge>
+						</Chip>
 					))}
 				</>
 			)}
@@ -183,7 +183,7 @@ function QuickFilters({ rooms, setRooms }) {
 				<>
 					Building:
 					{filterBar.b.map((building) => (
-						<Badge
+						<Chip
 							key={building}
 							onClick={(e) => handleFilterClick(e, "b", building)}
 							className="mx-1"
@@ -196,7 +196,7 @@ function QuickFilters({ rooms, setRooms }) {
 							}
 						>
 							{building}
-						</Badge>
+						</Chip>
 					))}
 				</>
 			)}
@@ -204,7 +204,7 @@ function QuickFilters({ rooms, setRooms }) {
 				<>
 					Floor:
 					{filterBar.f.sort(sortAscending).map((floor) => (
-						<Badge
+						<Chip
 							key={floor}
 							onClick={(e) => handleFilterClick(e, "f", floor)}
 							className="mx-1"
@@ -217,7 +217,7 @@ function QuickFilters({ rooms, setRooms }) {
 							}
 						>
 							{floor}
-						</Badge>
+						</Chip>
 					))}
 				</>
 			)}
@@ -225,7 +225,7 @@ function QuickFilters({ rooms, setRooms }) {
 				<>
 					Seats:
 					{filterBar.s.sort(sortAscending).map((seat) => (
-						<Badge
+						<Chip
 							key={seat}
 							onClick={(e) => handleFilterClick(e, "s", seat)}
 							className="mx-1"
@@ -238,13 +238,13 @@ function QuickFilters({ rooms, setRooms }) {
 							}
 						>
 							{seat}
-						</Badge>
+						</Chip>
 					))}
 				</>
 			)}
-			<Badge onClick={clearAllFilters} className="mx-1" bg="warning">
+			<Chip onClick={clearAllFilters} className="mx-1" bg="warning">
 				Clear all
-			</Badge>
+			</Chip>
 		</div>
 	);
 }
