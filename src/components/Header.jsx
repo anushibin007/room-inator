@@ -19,7 +19,7 @@ function Header({ rooms, setRooms, darkMode, toggleDarkMode }) {
 				<Grid container alignItems="center">
 					<Grid>
 						<Typography level="title-lg" startDecorator={<MeetingRoomIcon />}>
-							<a href="https://anushibin007.github.io/room-inator/">Room-Inator</a>
+							Room-Inator
 						</Typography>
 					</Grid>
 				</Grid>
