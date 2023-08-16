@@ -1,109 +1,140 @@
-// Bootstrap
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
-import Carousel from "react-bootstrap/Carousel";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+// MUI
+import { Grid, ModalDialog, Typography } from "@mui/joy";
+import Modal from "@mui/joy/Modal";
+import ModalClose from "@mui/joy/ModalClose";
+import Sheet from "@mui/joy/Sheet";
 
 function RoomDetails(props) {
 	const room = props.room;
 	return (
 		<>
 			{room && Object.keys(room).length > 0 && (
-				<Modal {...props} size="lg" centered>
-					<Modal.Header closeButton>
-						<Modal.Title id="contained-modal-title-vcenter">{room.n}</Modal.Title>
-					</Modal.Header>
-					<Modal.Body>
-						<Row>
-							<Col my={3} mx={3}>
-								<Row>
-									<Col>
-										<h5>Country</h5>
-									</Col>
-									<Col>
-										<p>{room.c}</p>
-									</Col>
-								</Row>
-								<Row>
-									<Col>
-										<h5>Location</h5>
-									</Col>
-									<Col>
-										<p>{room.l}</p>
-									</Col>
-								</Row>
-								<Row>
-									<Col>
-										<h5>Building</h5>
-									</Col>
-									<Col>
-										<p>{room.b}</p>
-									</Col>
-								</Row>
-								<Row>
-									<Col>
-										<h5>Floor</h5>
-									</Col>
-									<Col>
-										<p>{room.f}</p>
-									</Col>
-								</Row>
-								<Row>
-									<Col>
-										<h5>Seating Capacity</h5>
-									</Col>
-									<Col>
-										<p>{room.s}</p>
-									</Col>
-								</Row>
-								<Row>
-									<Col>
-										<h5>White Board</h5>
-									</Col>
-									<Col>
-										<p>{room.wb ? "✅" : "❌"}</p>
-									</Col>
-								</Row>
-								<Row>
-									<Col>
-										<h5>Projector</h5>
-									</Col>
-									<Col>
-										<p>{room.pr ? "✅" : "❌"}</p>
-									</Col>
-								</Row>
-								<Row>
-									<Col>
-										<h5>Directions</h5>
-									</Col>
-								</Row>
-								<Row>
-									<Col>
-										<Col>
-											<ol dangerouslySetInnerHTML={{ __html: room.di }}></ol>
-										</Col>
-									</Col>
-								</Row>
-							</Col>
-							<Col my={3} mx={3}>
-								<Carousel>
-									{room.i.map((anImageSrc, index) => (
-										<Carousel.Item key={index}>
-											<img
-												className="d-block w-100"
-												src={`${anImageSrc}?random=${index}`}
-												alt="First slide"
-											/>
-										</Carousel.Item>
-									))}
-								</Carousel>
-							</Col>
-						</Row>
-					</Modal.Body>
-					<Modal.Footer>
-						<Button onClick={props.onHide}>Close</Button>
-					</Modal.Footer>
+				<Modal
+					open={props.show}
+					onClose={() => props.onHide()}
+					aria-labelledby="modal-title"
+					aria-describedby="modal-desc"
+					sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+				>
+					<ModalDialog
+						sx={{
+							p: 3,
+							boxShadow: "lg",
+						}}
+					>
+						<ModalClose
+							variant="outlined"
+							sx={{
+								top: "calc(-1/4 * var(--IconButton-size))",
+								right: "calc(-1/4 * var(--IconButton-size))",
+								boxShadow: "0 2px 12px 0 rgba(0 0 0 / 0.2)",
+								borderRadius: "50%",
+								bgcolor: "background.surface",
+							}}
+						/>
+						<Typography
+							component="h2"
+							id="modal-title"
+							level="h4"
+							textGridor="inherit"
+							fontWeight="lg"
+							mb={3}
+						>
+							{room.n}
+						</Typography>
+						<Grid container xs={12}>
+							<Grid container xs={12} md={6} spacing={1}>
+								<Grid container spacing={2} xs={12}>
+									<Grid xs={6}>
+										<Typography level="body-md">Country</Typography>
+									</Grid>
+									<Grid xs={6}>
+										<Typography level="body-sm">{room.c}</Typography>
+									</Grid>
+								</Grid>
+								<Grid container spacing={2} xs={12}>
+									<Grid xs={6}>
+										<Typography level="body-md">Location</Typography>
+									</Grid>
+									<Grid xs={6}>
+										<Typography level="body-sm">{room.l}</Typography>
+									</Grid>
+								</Grid>
+								<Grid container spacing={2} xs={12}>
+									<Grid xs={6}>
+										<Typography level="body-md">Building</Typography>
+									</Grid>
+									<Grid xs={6}>
+										<Typography level="body-sm">{room.b}</Typography>
+									</Grid>
+								</Grid>
+								<Grid container spacing={2} xs={12}>
+									<Grid xs={6}>
+										<Typography level="body-md">Floor</Typography>
+									</Grid>
+									<Grid xs={6}>
+										<Typography level="body-sm">{room.f}</Typography>
+									</Grid>
+								</Grid>
+								<Grid container spacing={2} xs={12}>
+									<Grid xs={6}>
+										<Typography level="body-md">Seating Capacity</Typography>
+									</Grid>
+									<Grid xs={6}>
+										<Typography level="body-sm">{room.s}</Typography>
+									</Grid>
+								</Grid>
+								<Grid container spacing={2} xs={12}>
+									<Grid xs={6}>
+										<Typography level="body-md">White Board</Typography>
+									</Grid>
+									<Grid xs={6}>
+										<Typography level="body-sm">
+											{room.wb ? "✅" : "❌"}
+										</Typography>
+									</Grid>
+								</Grid>
+								<Grid container spacing={2} xs={12}>
+									<Grid xs={6}>
+										<Typography level="body-md">Projector</Typography>
+									</Grid>
+									<Grid xs={6}>
+										<Typography level="body-sm">
+											{room.pr ? "✅" : "❌"}
+										</Typography>
+									</Grid>
+								</Grid>
+								<Grid container spacing={2} xs={12}>
+									<Grid>
+										<Typography level="body-md">Directions</Typography>
+									</Grid>
+								</Grid>
+								<Grid container spacing={2} xs={12}>
+									<Grid>
+										<Grid>
+											<Typography level="body-sm">
+												<ol
+													dangerouslySetInnerHTML={{ __html: room.di }}
+												></ol>
+											</Typography>
+										</Grid>
+									</Grid>
+								</Grid>
+							</Grid>
+							<Grid container xs={12} md={6}>
+								{/*room.i.map((anImageSrc, index) => (
+									<Grid key={index} xs={12}>
+										<img src={`${anImageSrc}?random=${index}`} />
+									</Grid>
+								))*/}
+								<Grid container xs={12} alignItems="center" justifyContent="center">
+									<Grid>
+										<img src={`${room.i[0]}?random=0`} />
+									</Grid>
+								</Grid>
+							</Grid>
+						</Grid>
+					</ModalDialog>
 				</Modal>
 			)}
 		</>

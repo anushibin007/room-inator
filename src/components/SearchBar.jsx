@@ -1,8 +1,8 @@
 // Bootstrap
 import { useEffect, useState } from "react";
-import Form from "react-bootstrap/Form";
 import Rooms from "../data/RoomsDB";
 import lunr from "lunr";
+import { Input } from "@mui/joy";
 
 function SearchBar({ rooms, setRooms }) {
 	const [searchInput, setSearchInput] = useState("");
@@ -89,16 +89,13 @@ function SearchBar({ rooms, setRooms }) {
 
 	return (
 		<>
-			<Form role="search">
-				<Form.Control
-					type="search"
-					placeholder="Search"
-					aria-label="Search"
-					value={searchInput}
-					onChange={handleSearchInputChange}
-					autoFocus
-				/>
-			</Form>
+			<Input
+				size="lg"
+				placeholder="Search"
+				aria-label="Search for rooms"
+				value={searchInput}
+				onChange={handleSearchInputChange}
+			/>
 		</>
 	);
 }

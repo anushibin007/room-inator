@@ -2,8 +2,8 @@
 import React, { useState } from "react";
 // DB
 import Rooms from "./data/RoomsDB";
-// Bootstrap
-import Container from "react-bootstrap/Container";
+// MUI
+import Grid from "@mui/joy/Grid";
 // Other internal Components
 import QuickFilters from "./components/QuickFilters";
 import Footer from "./components/Footer";
@@ -20,13 +20,21 @@ function App() {
 	};
 	return (
 		<>
-			<Header rooms={rooms} setRooms={setRooms} darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-			<Container>
-				<QuickFilters rooms={rooms} setRooms={setRooms} />
-				<SearchResults rooms={rooms} darkMode={darkMode}/>
-				<Footer />
-			</Container>
-			
+			<Header
+				rooms={rooms}
+				setRooms={setRooms}
+				darkMode={darkMode}
+				toggleDarkMode={toggleDarkMode}
+			/>
+			<Grid container marginX={10}>
+				{
+					//<QuickFilters rooms={rooms} setRooms={setRooms} />
+				}
+				<SearchResults rooms={rooms} darkMode={darkMode} />
+				{
+					//<Footer />
+				}
+			</Grid>
 		</>
 	);
 }

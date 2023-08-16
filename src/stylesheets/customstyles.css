@@ -15,7 +15,7 @@
 	/* backdrop-filter: blur(100px); */
 }
 
-.darkModeCSS{
+.darkModeCSS {
 	border-top-color: rgba(60, 63, 65, 0.25);
 	border-left-color: rgba(60, 63, 65, 0.25);
 	background-color: rgba(40, 41, 42, 0.45);
@@ -33,10 +33,9 @@
 	backdrop-filter: blur(20px);
 }
 
-.bg-image {
+/* .bg-image {
 	background-image: url("https://e0.pxfuel.com/wallpapers/412/836/desktop-wallpaper-material-design-abstract-waves-colorful-backgrounds-geometric-art-creative-artwork-abstract-art-colorful-waves.jpg");
-	/* height: 100vh; */
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
-}
+} */
