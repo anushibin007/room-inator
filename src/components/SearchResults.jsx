@@ -12,6 +12,7 @@ import StairsIcon from "@mui/icons-material/Stairs";
 import PeopleIcon from "@mui/icons-material/People";
 
 import RoomDetails from "./RoomDetails";
+import NonOverflowingTypography from "./customcomponent/NonOverflowingTypography";
 
 function SearchResults({ rooms, darkMode }) {
 	/**
@@ -67,45 +68,45 @@ function SearchResults({ rooms, darkMode }) {
 								<CardContent sx={{ justifyContent: "flex-end" }}>
 									<Grid container xs={12}>
 										<Grid xs={12}>
-											<Typography level="title-lg" textColor="#fff" mb={1}>
+											<NonOverflowingTypography
+												level="title-lg"
+												textColor="#fff"
+												mb={1}
+											>
 												{room.n}
-											</Typography>
+											</NonOverflowingTypography>
 										</Grid>
 										<Grid xs={6}>
-											<Typography
+											<NonOverflowingTypography
 												startDecorator={<LocationOnRoundedIcon />}
 												textColor="neutral.300"
 												mb={1}
 											>
 												{room.l}
-											</Typography>
+											</NonOverflowingTypography>
 										</Grid>
 										<Grid xs={6}>
-											<Typography
+											<NonOverflowingTypography
 												startDecorator={<BusinessIcon />}
-												textColor="neutral.300"
-												mb={1}
 											>
 												{room.b}
-											</Typography>
+											</NonOverflowingTypography>
 										</Grid>
 										<Grid xs={6}>
-											<Typography
+											<NonOverflowingTypography
 												startDecorator={<StairsIcon />}
-												textColor="neutral.300"
-												mb={1}
 											>
 												{room.f}
-											</Typography>
+											</NonOverflowingTypography>
 										</Grid>
 										<Grid xs={6}>
-											<Typography
+											<NonOverflowingTypography
 												startDecorator={<PeopleIcon />}
 												textColor="neutral.300"
 												mb={1}
 											>
 												{room.s}
-											</Typography>
+											</NonOverflowingTypography>
 										</Grid>
 									</Grid>
 								</CardContent>
