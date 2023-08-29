@@ -20,6 +20,7 @@ function RoomDetails(props) {
 						sx={{
 							p: 3,
 							boxShadow: "lg",
+							overflow: "scroll",
 						}}
 						layout="fullscreen"
 					>
