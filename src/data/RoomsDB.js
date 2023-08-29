@@ -18,7 +18,7 @@
  */
 const Rooms = [
 	{
-		id: 1,
+		id: "meeting-room-1",
 		c: "India",
 		l: "Hyderabad",
 		b: "South Building",
@@ -36,7 +36,7 @@ const Rooms = [
 		di: "<li>Enter Floor 3</li><li>The first room to your left is Meeting Room 1</li>",
 	},
 	{
-		id: 2,
+		id: "discussion-room-1",
 		c: "India",
 		l: "Mumbai",
 		b: "Synergy Park Phase 1",
@@ -49,7 +49,7 @@ const Rooms = [
 		di: "<li>Enter Floor 9</li><li>Turn right and keep walking</li><li>The last meeting room in the corner will be Discussion Room 1</li>",
 	},
 	{
-		id: 3,
+		id: "conference-room-2",
 		c: "UAE",
 		l: "Dubai",
 		b: "Building 10",

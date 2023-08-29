@@ -23,7 +23,7 @@ describe("Validate RoomsDB", () => {
 
 	allRooms.forEach((room) => {
 		it(`checking correct datatype for Room ID ${room.id}`, () => {
-			expect(typeof room.id).toBe("number");
+			expect(typeof room.id).toBe("string");
 			expect(typeof room.c).toBe("string");
 			expect(typeof room.l).toBe("string");
 			expect(typeof room.b).toBe("string");
