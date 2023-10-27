@@ -16,7 +16,9 @@ function Header({ rooms, setRooms, darkMode, toggleDarkMode }) {
 					</Typography>
 				</Grid>
 				<Grid xs={3}>
-					<SearchBar rooms={rooms} setRooms={setRooms} />
+					{
+						//<SearchBar rooms={rooms} setRooms={setRooms} />
+					}
 				</Grid>
 			</Grid>
 		</>
