@@ -4,8 +4,6 @@ import RoomsService from "../service/RoomsService";
 import lunr from "lunr";
 import { Input } from "@mui/joy";
 
-const Rooms = await RoomsService.getAllRooms();
-
 function SearchBar({ rooms, setRooms }) {
 	const [searchInput, setSearchInput] = useState("");
 
@@ -21,7 +19,9 @@ function SearchBar({ rooms, setRooms }) {
 	 * https://lunrjs.com/guides/index_prebuilding.html
 	 *
 	 */
-	const lunrIndex = lunr(function () {
+	const lunrIndex = lunr(async function () {
+		const allRooms = await RoomsService.getAllRooms();
+
 		// id is the primary key
 		this.ref("id");
 
@@ -31,7 +31,7 @@ function SearchBar({ rooms, setRooms }) {
 		this.field("f", { boost: 60 }); // index floor
 		this.field("n", { boost: 100 }); // index name
 
-		Rooms?.forEach(function (aRoom) {
+		allRooms?.forEach(function (aRoom) {
 			this.add(aRoom);
 		}, this);
 	});
@@ -41,24 +41,8 @@ function SearchBar({ rooms, setRooms }) {
 	};
 
 	useEffect(() => {
-		setRooms(filterData(searchInput));
+		filterData(searchInput);
 	}, [searchInput]);
-
-	/**
-	 * This is the old simple JS
-	 * method that uses plain JS
-	 * functions to perform the search.
-	 *
-	 * @deprecated use filterData instead
-	 * @param {*} aSearchInput
-	 * @returns
-	 */
-	const oldFilterData = (aSearchInput) => {
-		const searchedRooms = Rooms.filter((aRoom) => {
-			return aRoom.n.toLowerCase().includes(aSearchInput.toLowerCase());
-		});
-		return searchedRooms;
-	};
 
 	/**
 	 * A new filter method that uses the
@@ -68,10 +52,11 @@ function SearchBar({ rooms, setRooms }) {
 	 * @param {*} aSearchInput
 	 * @returns
 	 */
-	const filterData = (aSearchInput) => {
+	const filterData = async (aSearchInput) => {
+		const allRooms = await RoomsService.getAllRooms();
 		// Ignore empty string searches
 		if (!aSearchInput || aSearchInput.trim().length <= 0) {
-			return Rooms;
+			return allRooms;
 		}
 
 		const indexSearchResult = lunrIndex.search(`*${aSearchInput}*`);
@@ -79,13 +64,13 @@ function SearchBar({ rooms, setRooms }) {
 		var searchedRooms = [];
 		indexSearchResult.forEach((anIndexResult) => {
 			searchedRooms.push(
-				Rooms.filter((aRoom) => {
+				allRooms.filter((aRoom) => {
 					return aRoom.id == anIndexResult.ref;
 				})[0]
 			);
 		});
 		console.log(searchedRooms);
-		return searchedRooms;
+		setRooms(searchedRooms);
 	};
 
 	return (

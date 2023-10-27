@@ -1,13 +1,13 @@
 const dataJSON = "./RoomsDB.json";
 
-var Rooms = null;
-
 class RoomsService {
+	Rooms = null;
+
 	getAllRooms = async () => {
-		if (!Rooms) {
-			Rooms = await this.fetchRoomData();
+		if (this.Rooms == null) {
+			this.Rooms = await this.fetchRoomData();
 		}
-		return Rooms;
+		return this.Rooms;
 	};
 
 	fetchRoomData = async () => {

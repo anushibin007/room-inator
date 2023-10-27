@@ -1,13 +1,11 @@
 // React
 import React, { useEffect, useState } from "react";
 // MUI
-import Chip from '@mui/joy/Chip';
+import Chip from "@mui/joy/Chip";
 // DB
 import RoomsService from "../service/RoomsService";
 // Utils
 import { sortAscending } from "../utils/SortFunctions";
-
-const Rooms = RoomsService.getAllRooms();
 
 function QuickFilters({ rooms, setRooms }) {
 	/**
@@ -49,7 +47,8 @@ function QuickFilters({ rooms, setRooms }) {
 		});
 	};
 
-	const filterResults = () => {
+	const filterResults = async () => {
+		const allRooms = await RoomsService.getAllRooms();
 		var currentRooms = rooms;
 
 		// Get the names of all available filters
@@ -58,7 +57,7 @@ function QuickFilters({ rooms, setRooms }) {
 		// Note that even though we are not going to
 		// filter by "i", we still have it in our array
 		// just for fun.
-		const availableFilters = Object.keys(Rooms[0]);
+		const availableFilters = Object.keys(allRooms[0]);
 
 		// Now iterate through each possible filter and
 		// set the values according to what has been set
@@ -79,9 +78,10 @@ function QuickFilters({ rooms, setRooms }) {
 		updateFilterBar(currentRooms);
 	};
 
-	const clearAllFilters = () => {
-		setRooms(Rooms);
-		updateFilterBar(Rooms);
+	const clearAllFilters = async () => {
+		const allRooms = await RoomsService.getAllRooms();
+		setRooms(allRooms);
+		updateFilterBar(allRooms);
 		setQuickFilter({
 			c: undefined,
 			l: undefined,

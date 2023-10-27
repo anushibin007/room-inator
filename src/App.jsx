@@ -1,5 +1,5 @@
 // React
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // DB
 import RoomsService from "./service/RoomsService";
 // MUI
@@ -14,11 +14,20 @@ import Header from "./components/Header";
 // Custom CSS
 import "./stylesheets/customstyles.css";
 
-const Rooms = await RoomsService.getAllRooms();
-
 function App() {
-	const [rooms, setRooms] = useState(Rooms);
+	const [rooms, setRooms] = useState([]);
 	const [darkMode, setDarkMode] = useState(false);
+
+	useEffect(() => {
+		initiateDefaultRooms();
+	}, []);
+
+	const initiateDefaultRooms = async () => {
+		const allRooms = await RoomsService.getAllRooms();
+		if (Array.isArray(allRooms)) {
+			setRooms(allRooms);
+		}
+	};
 
 	const theme = extendTheme({ cssVarPrefix: "dark" });
 
