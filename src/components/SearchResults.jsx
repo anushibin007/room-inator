@@ -38,7 +38,7 @@ function SearchResults({ rooms, darkMode }) {
 						lg={4}
 					>
 						<Grid xs={12}>
-							<a href={`room/${room.id}`}>
+							<a href={`#room/${room.id}`}>
 								<Card
 									variant="outlined"
 									onClick={() => openRoom(room)}

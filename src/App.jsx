@@ -1,6 +1,6 @@
 // React
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, HashRouter } from "react-router-dom";
 
 // MUI
 import { CssBaseline } from "@mui/joy";
@@ -13,7 +13,6 @@ import RoomDetailsRoute from "./components/RoomDetailsRoute";
 import Constants from "./utils/Constants";
 
 function App() {
-	const BASE_PATH = Constants.BASE_PATH;
 	const theme = extendTheme({ cssVarPrefix: "dark" });
 
 	return (
@@ -24,16 +23,16 @@ function App() {
 				disableNestedContext
 			>
 				<CssBaseline />
-				<Router>
+				<HashRouter>
 					<Routes>
-						<Route exact path={BASE_PATH} element={<MainPage />} />
-						<Route path={BASE_PATH}>
+						<Route exact path="/" element={<MainPage />} />
+						<Route path="/">
 							<Route path={"room"}>
 								<Route path={":roomName"} element={<RoomDetailsRoute />} />
 							</Route>
 						</Route>
 					</Routes>
-				</Router>
+				</HashRouter>
 			</CssVarsProvider>
 		</>
 	);
