@@ -1,7 +1,7 @@
 // React
 import React, { useState } from "react";
 // DB
-import Rooms from "./data/RoomsDB";
+import RoomsService from "./service/RoomsService";
 // MUI
 import { CssBaseline } from "@mui/joy";
 import Grid from "@mui/joy/Grid";
@@ -14,7 +14,7 @@ import Header from "./components/Header";
 // Custom CSS
 import "./stylesheets/customstyles.css";
 function App() {
-	const [rooms, setRooms] = useState(Rooms);
+	const [rooms, setRooms] = useState(RoomsService.getAllRooms());
 	const [darkMode, setDarkMode] = useState(false);
 
 	const theme = extendTheme({ cssVarPrefix: "dark" });

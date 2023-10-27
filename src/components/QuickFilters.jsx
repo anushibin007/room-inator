@@ -3,9 +3,11 @@ import React, { useEffect, useState } from "react";
 // MUI
 import Chip from '@mui/joy/Chip';
 // DB
-import Rooms from "../data/RoomsDB";
+import RoomsService from "../service/RoomsService";
 // Utils
 import { sortAscending } from "../utils/SortFunctions";
+
+const Rooms = RoomsService.getAllRooms();
 
 function QuickFilters({ rooms, setRooms }) {
 	/**

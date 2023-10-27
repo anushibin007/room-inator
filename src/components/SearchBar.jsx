@@ -1,8 +1,10 @@
 // Bootstrap
 import { useEffect, useState } from "react";
-import Rooms from "../data/RoomsDB";
+import RoomsService from "../service/RoomsService";
 import lunr from "lunr";
 import { Input } from "@mui/joy";
+
+const Rooms = RoomsService.getAllRooms();
 
 function SearchBar({ rooms, setRooms }) {
 	const [searchInput, setSearchInput] = useState("");
