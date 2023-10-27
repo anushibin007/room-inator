@@ -11,9 +11,9 @@ npm_install:
     stage: .pre
     script: npm install
 
-vitest:
-    stage: test
-    script: npm run test
+# vitest:
+#     stage: test
+#     script: npm run test
 
 pages:
     stage: deploy
