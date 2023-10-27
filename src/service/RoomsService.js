@@ -10,6 +10,17 @@ class RoomsService {
 		return this.Rooms;
 	};
 
+	getRoomById = async (roomId) => {
+		if (!roomId) {
+			return {};
+		}
+		const allRooms = await this.getAllRooms();
+		const aRoom = allRooms.filter((aRoom) => {
+			return aRoom.id === roomId;
+		});
+		return aRoom;
+	};
+
 	fetchRoomData = async () => {
 		const response = await fetch(dataJSON);
 		const rooms = await response.json();
