@@ -4,7 +4,7 @@ import RoomsService from "../service/RoomsService";
 import lunr from "lunr";
 import { Input } from "@mui/joy";
 
-const Rooms = RoomsService.getAllRooms();
+const Rooms = await RoomsService.getAllRooms();
 
 function SearchBar({ rooms, setRooms }) {
 	const [searchInput, setSearchInput] = useState("");
@@ -31,7 +31,7 @@ function SearchBar({ rooms, setRooms }) {
 		this.field("f", { boost: 60 }); // index floor
 		this.field("n", { boost: 100 }); // index name
 
-		Rooms.forEach(function (aRoom) {
+		Rooms?.forEach(function (aRoom) {
 			this.add(aRoom);
 		}, this);
 	});

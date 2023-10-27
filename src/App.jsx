@@ -13,8 +13,11 @@ import SearchResults from "./components/SearchResults";
 import Header from "./components/Header";
 // Custom CSS
 import "./stylesheets/customstyles.css";
+
+const Rooms = await RoomsService.getAllRooms();
+
 function App() {
-	const [rooms, setRooms] = useState(RoomsService.getAllRooms());
+	const [rooms, setRooms] = useState(Rooms);
 	const [darkMode, setDarkMode] = useState(false);
 
 	const theme = extendTheme({ cssVarPrefix: "dark" });
