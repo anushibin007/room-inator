@@ -1,4 +1,6 @@
-const dataJSON = "./RoomsDB.json";
+import Constants from "../utils/Constants";
+
+const dataJSON = `${Constants.BASE_PATH}/RoomsDB.json`;
 
 class RoomsService {
 	Rooms = null;
@@ -10,15 +12,24 @@ class RoomsService {
 		return this.Rooms;
 	};
 
-	getRoomById = async (roomId) => {
+	getFirstRoomById = async (roomId) => {
+		const filteredRooms = await this.getRoomsById(roomId);
+		return filteredRooms[0];
+	};
+
+	getRoomsById = async (roomId) => {
 		if (!roomId) {
-			return {};
+			return [];
 		}
 		const allRooms = await this.getAllRooms();
-		const aRoom = allRooms.filter((aRoom) => {
-			return aRoom.id === roomId;
+		const filteredRooms = allRooms.filter((aRoom) => {
+			return aRoom.id == roomId;
 		});
-		return aRoom;
+		console.log({ filteredRooms });
+		if (!filteredRooms) {
+			return [];
+		}
+		return filteredRooms;
 	};
 
 	fetchRoomData = async () => {

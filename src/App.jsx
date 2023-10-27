@@ -1,39 +1,21 @@
 // React
-import React, { useEffect, useState } from "react";
-// DB
-import RoomsService from "./service/RoomsService";
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 // MUI
 import { CssBaseline } from "@mui/joy";
-import Grid from "@mui/joy/Grid";
 import { CssVarsProvider, extendTheme } from "@mui/joy/styles";
-// Other internal Components
-import QuickFilters from "./components/QuickFilters";
-import Footer from "./components/Footer";
-import SearchResults from "./components/SearchResults";
-import Header from "./components/Header";
+
 // Custom CSS
 import "./stylesheets/customstyles.css";
+import MainPage from "./components/MainPage";
+import RoomDetailsRoute from "./components/RoomDetailsRoute";
+import Constants from "./utils/Constants";
 
 function App() {
-	const [rooms, setRooms] = useState([]);
-	const [darkMode, setDarkMode] = useState(false);
-
-	useEffect(() => {
-		initiateDefaultRooms();
-	}, []);
-
-	const initiateDefaultRooms = async () => {
-		const allRooms = await RoomsService.getAllRooms();
-		if (Array.isArray(allRooms)) {
-			setRooms(allRooms);
-		}
-	};
-
+	const BASE_PATH = Constants.BASE_PATH;
 	const theme = extendTheme({ cssVarPrefix: "dark" });
 
-	const toggleDarkMode = () => {
-		setDarkMode(!darkMode);
-	};
 	return (
 		<>
 			<CssVarsProvider
@@ -42,25 +24,16 @@ function App() {
 				disableNestedContext
 			>
 				<CssBaseline />
-				<Grid container paddingX={3}>
-					<Grid xs={12}>
-						<Header
-							rooms={rooms}
-							setRooms={setRooms}
-							darkMode={darkMode}
-							toggleDarkMode={toggleDarkMode}
-						/>
-					</Grid>
-					{
-						//<QuickFilters rooms={rooms} setRooms={setRooms} />
-					}
-					<Grid xs={12}>
-						<SearchResults rooms={rooms} darkMode={darkMode} />
-					</Grid>
-					{
-						//<Footer />
-					}
-				</Grid>
+				<Router>
+					<Routes>
+						<Route exact path={BASE_PATH} element={<MainPage />} />
+						<Route path={BASE_PATH}>
+							<Route path={"room"}>
+								<Route path={":roomName"} element={<RoomDetailsRoute />} />
+							</Route>
+						</Route>
+					</Routes>
+				</Router>
 			</CssVarsProvider>
 		</>
 	);
