@@ -102,7 +102,7 @@ function RoomDetails(props) {
 							<Grid container xs={12} alignItems="center" justifyContent="center">
 								<Grid>
 									<img
-										src={`${room.i ? room.i[0] : ""}?random=0`}
+										src={`${room.i ? room.i[0] : ""}`}
 										style={{ maxHeight: "500px", maxWidth: "500px" }}
 									/>
 								</Grid>
