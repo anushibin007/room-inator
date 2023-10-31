@@ -47,7 +47,7 @@ export default function AdvancedSearch(props) {
 						fontWeight="lg"
 						mb={1}
 					>
-						Advanced Search
+						Advanced Filters (still under development)
 					</Typography>
 					<Typography>Country</Typography>
 					<Select defaultValue={uniqueCountries[0]}>
