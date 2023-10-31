@@ -1,6 +1,6 @@
 import Constants from "../utils/Constants";
 
-const dataJSON = `${Constants.BASE_PATH}/RoomsDB.json`;
+const dataJSON = `${Constants.BASE_PATH}RoomsDB.json`;
 
 class RoomsService {
 	Rooms = null;
