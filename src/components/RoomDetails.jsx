@@ -1,5 +1,5 @@
 // MUI
-import { Grid, Typography } from "@mui/joy";
+import { Container, Grid, Typography } from "@mui/joy";
 import React from "react";
 
 function RoomDetails(props) {
@@ -7,7 +7,7 @@ function RoomDetails(props) {
 	return (
 		<>
 			{room && Object.keys(room).length > 0 && (
-				<>
+				<Container sx={{ marginTop: 1 }}>
 					<Typography component="h2" id="modal-title" level="h4" fontWeight="lg" mb={3}>
 						{room.n}
 					</Typography>
@@ -109,7 +109,7 @@ function RoomDetails(props) {
 							</Grid>
 						</Grid>
 					</Grid>
-				</>
+				</Container>
 			)}
 			{(!room || Object.keys(room).length <= 0) && (
 				<Typography component="h2" id="modal-title" level="h4" fontWeight="lg" mb={3}>
