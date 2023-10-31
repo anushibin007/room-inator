@@ -1,5 +1,6 @@
 // MUI
 import { Grid, Typography } from "@mui/joy";
+import React from "react";
 
 function RoomDetails(props) {
 	const room = props.room;
@@ -68,18 +69,29 @@ function RoomDetails(props) {
 									<Typography level="body-md">{room.pr ? "✅" : "❌"}</Typography>
 								</Grid>
 							</Grid>
-							<Grid container spacing={2} xs={12} alignItems="center">
-								<Grid>
-									<Typography level="body-lg">Directions</Typography>
-								</Grid>
-							</Grid>
-							<Grid container spacing={2} xs={12} alignItems="center">
-								<Grid>
-									<Grid>
-										<ol dangerouslySetInnerHTML={{ __html: room.di }}></ol>
+							{room.di && (
+								<>
+									<Grid container spacing={2} xs={12} alignItems="center">
+										<Grid>
+											<Typography level="body-lg">Directions</Typography>
+										</Grid>
 									</Grid>
-								</Grid>
-							</Grid>
+
+									<Grid container spacing={2} xs={12} alignItems="center">
+										<Grid>
+											<Grid>
+												<ol>
+													{room.di.map((direction, index) => (
+														<React.Fragment key={index}>
+															<li>{direction}</li>
+														</React.Fragment>
+													))}
+												</ol>
+											</Grid>
+										</Grid>
+									</Grid>
+								</>
+							)}
 						</Grid>
 						<Grid container xs={12} md={9}>
 							{/*room.i.map((anImageSrc, index) => (

@@ -15,7 +15,7 @@
 		],
 		"wb": false,
 		"pr": false,
-		"di": "<li>Enter Floor 3</li><li>The first room to your left is Meeting Room 1</li>"
+		"di": ["Enter Floor 3", "The first room to your left is Meeting Room 1"]
 	},
 	{
 		"id": "discussion-room-1",
@@ -28,7 +28,11 @@
 		"i": ["https://picsum.photos/1024/1024"],
 		"wb": false,
 		"pr": false,
-		"di": "<li>Enter Floor 9</li><li>Turn right and keep walking</li><li>The last meeting room in the corner will be Discussion Room 1</li>"
+		"di": [
+			"Enter Floor 9",
+			"Turn right and keep walking",
+			"The last meeting room in the corner will be Discussion Room 1"
+		]
 	},
 	{
 		"id": "conference-room-2",
@@ -41,6 +45,12 @@
 		"i": ["https://picsum.photos/1024/1024"],
 		"wb": true,
 		"pr": true,
-		"di": "<li>Enter Floor 18</li><li>Turn right and keep walking</li><li>Walk 15 more minutes and turn right</li><li>Walk 20 more minutes and jump twice</li><li>The last meeting room in the corner will be Discussion Room 1</li>"
+		"di": [
+			"Enter Floor 18",
+			"Turn right and keep walking",
+			"Walk 15 more minutes and turn right",
+			"Walk 20 more minutes and jump twice",
+			"The last meeting room in the corner will be Discussion Room 1"
+		]
 	}
 ]
