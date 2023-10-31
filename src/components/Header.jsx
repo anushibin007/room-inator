@@ -15,11 +15,7 @@ function Header({ rooms, setRooms, darkMode, toggleDarkMode }) {
 						Room-Inator
 					</Typography>
 				</Grid>
-				<Grid xs={3}>
-					{
-						//<SearchBar rooms={rooms} setRooms={setRooms} />
-					}
-				</Grid>
+				<Grid xs={3}>{<SearchBar rooms={rooms} setRooms={setRooms} />}</Grid>
 			</Grid>
 		</>
 	);

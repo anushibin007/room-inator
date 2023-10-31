@@ -41,7 +41,7 @@ function SearchBar({ rooms, setRooms }) {
 	};
 
 	useEffect(() => {
-		filterData(searchInput);
+		filterData();
 	}, [searchInput]);
 
 	/**
@@ -52,7 +52,7 @@ function SearchBar({ rooms, setRooms }) {
 	 * @param {*} aSearchInput
 	 * @returns
 	 */
-	const filterData = async (aSearchInput) => {
+	const filterDataByLunr = async (aSearchInput) => {
 		const allRooms = await RoomsService.getAllRooms();
 		// Ignore empty string searches
 		if (!aSearchInput || aSearchInput.trim().length <= 0) {
@@ -73,12 +73,36 @@ function SearchBar({ rooms, setRooms }) {
 		setRooms(searchedRooms);
 	};
 
+	/**
+	 * Normal search without lunr
+	 *
+	 * @param {*} aSearchInput
+	 * @returns
+	 */
+	const filterData = async () => {
+		const allRooms = await RoomsService.getAllRooms();
+		// Ignore empty string searches
+		if (!searchInput || searchInput.trim().length <= 0) {
+			setRooms(allRooms);
+			return;
+		}
+
+		const searchedRooms = allRooms.filter((aRoom) => {
+			if (aRoom.n && aRoom.n.toLowerCase().includes(searchInput.toLowerCase())) {
+				return true;
+			}
+		});
+
+		console.log(searchedRooms);
+		setRooms(searchedRooms);
+	};
+
 	return (
 		<>
 			<Input
 				size="sm"
-				placeholder="Search"
-				aria-label="Search for rooms"
+				placeholder="Search by Room Name"
+				aria-label="Search for rooms by Room Name"
 				value={searchInput}
 				onChange={handleSearchInputChange}
 			/>
