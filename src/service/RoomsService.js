@@ -32,6 +32,12 @@ class RoomsService {
 		return filteredRooms;
 	};
 
+	getCountryNames = async () => {
+		const allRooms = await this.getAllRooms();
+		const uniqueCountries = [...new Set(allRooms.map((aRoom) => aRoom.c))];
+		return uniqueCountries;
+	};
+
 	fetchRoomData = async () => {
 		const response = await fetch(dataJSON);
 		const rooms = await response.json();

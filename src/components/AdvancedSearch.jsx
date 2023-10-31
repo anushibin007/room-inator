@@ -5,9 +5,21 @@ import Typography from "@mui/joy/Typography";
 import Sheet from "@mui/joy/Sheet";
 import Select from "@mui/joy/Select";
 import Option from "@mui/joy/Option";
+import { useState } from "react";
+import RoomsService from "../service/RoomsService";
+import { useEffect } from "react";
 
 export default function AdvancedSearch(props) {
 	const { toggleModal, advancedSeachOpen } = props;
+	const [uniqueCountries, setUniqueCountries] = useState([]);
+	useEffect(() => {
+		setSelectItems();
+	}, []);
+
+	const setSelectItems = async () => {
+		const allCountries = await RoomsService.getCountryNames();
+		setUniqueCountries(allCountries);
+	};
 	return (
 		<React.Fragment>
 			<Modal
@@ -38,8 +50,12 @@ export default function AdvancedSearch(props) {
 						Advanced Search
 					</Typography>
 					<Typography>Country</Typography>
-					<Select defaultValue="India">
-						<Option value="India">India</Option>
+					<Select defaultValue={uniqueCountries[0]}>
+						{uniqueCountries.map((aCountry) => (
+							<Option key={aCountry} value={aCountry}>
+								{aCountry}
+							</Option>
+						))}
 					</Select>
 					<Typography>Location</Typography>
 					<Select defaultValue="Bangalore">
