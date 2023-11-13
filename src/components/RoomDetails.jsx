@@ -1,11 +1,23 @@
 // MUI
 import { Container, Grid, Typography, IconButton } from "@mui/joy";
 import HomeIcon from "@mui/icons-material/Home";
-import React from "react";
+import React, { useEffect } from "react";
 import Constants from "../utils/Constants";
 
 function RoomDetails(props) {
 	const room = props.room;
+
+	useEffect(() => {
+		// Update the Web Page's title
+		// whenever the room's state updates
+		updatePageTitle();
+	}, [room]);
+
+	const updatePageTitle = () => {
+		if (room && Object.keys(room).length > 0) {
+			document.title = `${room.n} - room-inator`;
+		}
+	};
 	return (
 		<>
 			{room && Object.keys(room).length > 0 && (
