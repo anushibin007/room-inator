@@ -1,6 +1,8 @@
 // MUI
-import { Container, Grid, Typography } from "@mui/joy";
+import { Container, Grid, Typography, IconButton } from "@mui/joy";
+import HomeIcon from "@mui/icons-material/Home";
 import React from "react";
+import Constants from "../utils/Constants";
 
 function RoomDetails(props) {
 	const room = props.room;
@@ -8,9 +10,20 @@ function RoomDetails(props) {
 		<>
 			{room && Object.keys(room).length > 0 && (
 				<Container sx={{ marginTop: 1 }}>
-					<Typography component="h2" id="modal-title" level="h4" fontWeight="lg" mb={3}>
-						{room.n}
-					</Typography>
+					<Grid container xs={12} alignItems="center">
+						<Grid xs={1}>
+							<a href={Constants.BASE_PATH}>
+								<IconButton>
+									<HomeIcon />
+								</IconButton>
+							</a>
+						</Grid>
+						<Grid xs={11}>
+							<Typography component="h2" id="modal-title" level="h4" fontWeight="lg">
+								{room.n}
+							</Typography>
+						</Grid>
+					</Grid>
 					<Grid container xs={12}>
 						<Grid container xs={12} md={3} spacing={1}>
 							{room.c && (
