@@ -17,6 +17,8 @@ permissions:
 jobs:
     build:
         runs-on: ubuntu-latest
+        env:
+            VITE_BUILD_NUMBER: $GITHUB_SHA
 
         steps:
             - name: Checkout ⏬
