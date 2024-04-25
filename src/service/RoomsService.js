@@ -48,11 +48,12 @@ class RoomsService {
 		// Do a fresh fetch if query is not valid
 		const response = await fetch(dataJSON);
 		const rooms = await response.json();
-		this.setCachedData(rooms);
+		this.setCachedRooms(JSON.stringify(rooms));
 		return rooms;
 	};
 
 	getCachedRooms = () => {
+		this.validateCache();
 		const cachedRooms = localStorage.getItem("rooms");
 		if (cachedRooms) {
 			return JSON.parse(cachedRooms);
@@ -60,8 +61,38 @@ class RoomsService {
 		return undefined;
 	};
 
-	setCachedData = (roomsData) => {
-		localStorage.setItem("rooms", JSON.stringify(roomsData));
+	setCachedRooms = (roomsData) => {
+		localStorage.setItem("rooms", roomsData);
+	};
+
+	validateCache = () => {
+		// Obtain the cached cacheKey
+		const cachedCacheKey = localStorage.getItem("cacheKey");
+
+		// Check if the cached cacheKey
+		// matches with the one that the
+		// server provides
+		if (cachedCacheKey != Constants.BUILD_NUMBER) {
+			console.log(
+				"Cache key didn't match. Invalidating cache",
+				{ cachedCacheKey },
+				{ CACHE_KEY: Constants.BUILD_NUMBER }
+			);
+			localStorage.removeItem("rooms");
+			localStorage.setItem("cacheKey", Constants.BUILD_NUMBER);
+		}
+
+		// If we are running a local build,
+		// always invalidate the cache
+		if (cachedCacheKey === "local-build") {
+			console.log(
+				"Cache key is 'local-build'. So, invalidating cache.",
+				{ cachedCacheKey },
+				{ CACHE_KEY: Constants.BUILD_NUMBER }
+			);
+			localStorage.removeItem("rooms");
+			localStorage.setItem("cacheKey", Constants.BUILD_NUMBER);
+		}
 	};
 }
 
