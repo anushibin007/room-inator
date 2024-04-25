@@ -1,3 +1,5 @@
+import Constants from "../utils/Constants";
+
 function Footer() {
 	return (
 		<p className="my-3">
@@ -8,7 +10,8 @@ function Footer() {
 			Side Project // Contribute on{" "}
 			<a href="https://github.com/anushibin007/room-inator" target="_blank">
 				GitHub
-			</a>
+			</a>{" "}
+			// Version: {Constants.BUILD_NUMBER}
 		</p>
 	);
 }

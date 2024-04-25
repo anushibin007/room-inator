@@ -10,6 +10,7 @@ import Grid from "@mui/joy/Grid";
 // toastify
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Footer from "./Footer";
 
 function MainPage() {
 	const [rooms, setRooms] = useState([]);
@@ -45,9 +46,7 @@ function MainPage() {
 			<Grid xs={12}>
 				<SearchResults rooms={rooms} darkMode={darkMode} />
 			</Grid>
-			{
-				//<Footer />
-			}
+			{<Footer />}
 			<ToastContainer
 				position="bottom-right"
 				autoClose={5000}
