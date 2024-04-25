@@ -39,9 +39,29 @@ class RoomsService {
 	};
 
 	fetchRoomData = async () => {
+		// Try to fetch from cache
+		const cachedRooms = this.getCachedRooms();
+		if (cachedRooms) {
+			return cachedRooms;
+		}
+
+		// Do a fresh fetch if query is not valid
 		const response = await fetch(dataJSON);
 		const rooms = await response.json();
+		this.setCachedData(rooms);
 		return rooms;
+	};
+
+	getCachedRooms = () => {
+		const cachedRooms = localStorage.getItem("rooms");
+		if (cachedRooms) {
+			return JSON.parse(cachedRooms);
+		}
+		return undefined;
+	};
+
+	setCachedData = (roomsData) => {
+		localStorage.setItem("rooms", JSON.stringify(roomsData));
 	};
 }
 
