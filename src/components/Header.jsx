@@ -13,6 +13,8 @@ import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import { useState } from "react";
 import AdvancedSearch from "./AdvancedSearch";
 
+import { goToUrl } from "../utils/URLHelper";
+
 function Header({ rooms, setRooms, darkMode, toggleDarkMode }) {
 	const [advancedSeachOpen, setAdvancedSearchOpen] = useState(false);
 	const toggleAdvancedSearch = () => {
@@ -24,11 +26,20 @@ function Header({ rooms, setRooms, darkMode, toggleDarkMode }) {
 		<>
 			<Grid container xs={12} alignItems="center" justifyContent="space-between" padding={2}>
 				<Grid xs={8}>
-					<a href={Constants.BASE_PATH}>
-						<Typography level="title-lg" startDecorator={<MeetingRoomIcon />}>
-							Room-Inator
-						</Typography>
-					</a>
+					<Grid container xs={12}>
+						<Grid>
+							<Typography
+								level="title-lg"
+								startDecorator={<MeetingRoomIcon />}
+								onClick={() => {
+									goToUrl(Constants.BASE_PATH);
+								}}
+								sx={{ p: { cursor: "pointer" } }}
+							>
+								Room-Inator
+							</Typography>
+						</Grid>
+					</Grid>
 				</Grid>
 				<Grid xs={1}>
 					<IconButton onClick={toggleAdvancedSearch} title="Advanced filters">
