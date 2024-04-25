@@ -20,7 +20,16 @@ function SearchResults({ rooms, darkMode }) {
 	 * @param {*} e
 	 */
 	const openRoom = (aRoom, e) => {
-		console.log(aRoom);
+		if (typeof aRoom === "object") {
+			// There is a double redirect happening
+			// here. The first one is not sending a
+			// id. Rather, it is sending an object.
+			// I don't know why it is happening
+			// though. We are simply going to ignore
+			// that call.
+			return;
+		}
+		window.location.hash = `room/${aRoom}`;
 	};
 
 	return (
@@ -36,73 +45,71 @@ function SearchResults({ rooms, darkMode }) {
 						xs={12}
 						md={6}
 						lg={4}
+						onClick={() => {
+							openRoom(room.id);
+						}}
 					>
 						<Grid xs={12}>
-							<a href={`#room/${room.id}`}>
-								<Card
-									variant="outlined"
-									onClick={() => openRoom(room)}
-									sx={{ height: "250px" }}
-								>
-									<CardCover>
-										<img
-											src={`${room.i[0]}?random=${room.id}`}
-											loading="lazy"
-										/>
-									</CardCover>
-									<CardCover
-										sx={{
-											background:
-												"linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)",
-										}}
-									/>
-									<CardContent sx={{ justifyContent: "flex-end" }}>
-										<Grid container xs={12}>
-											<Grid xs={12}>
-												<NonOverflowingTypography
-													level="title-lg"
-													textColor="#fff"
-													mb={1}
-												>
-													{room.n}
-												</NonOverflowingTypography>
-											</Grid>
-											<Grid xs={6}>
-												<NonOverflowingTypography
-													startDecorator={<LocationOnRoundedIcon />}
-													textColor="neutral.300"
-													mb={1}
-												>
-													{room.l}
-												</NonOverflowingTypography>
-											</Grid>
-											<Grid xs={6}>
-												<NonOverflowingTypography
-													startDecorator={<BusinessIcon />}
-												>
-													{room.b}
-												</NonOverflowingTypography>
-											</Grid>
-											<Grid xs={6}>
-												<NonOverflowingTypography
-													startDecorator={<StairsIcon />}
-												>
-													{room.f}
-												</NonOverflowingTypography>
-											</Grid>
-											<Grid xs={6}>
-												<NonOverflowingTypography
-													startDecorator={<PeopleIcon />}
-													textColor="neutral.300"
-													mb={1}
-												>
-													{room.s}
-												</NonOverflowingTypography>
-											</Grid>
+							<Card
+								variant="outlined"
+								onClick={() => openRoom(room)}
+								sx={{ height: "250px", div: { cursor: "pointer" } }}
+							>
+								<CardCover>
+									<img src={`${room.i[0]}?random=${room.id}`} loading="lazy" />
+								</CardCover>
+								<CardCover
+									sx={{
+										background:
+											"linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)",
+									}}
+								/>
+								<CardContent sx={{ justifyContent: "flex-end" }}>
+									<Grid container xs={12}>
+										<Grid xs={12}>
+											<NonOverflowingTypography
+												level="title-lg"
+												textColor="#fff"
+												mb={1}
+											>
+												{room.n}
+											</NonOverflowingTypography>
 										</Grid>
-									</CardContent>
-								</Card>
-							</a>
+										<Grid xs={6}>
+											<NonOverflowingTypography
+												startDecorator={<LocationOnRoundedIcon />}
+												textColor="neutral.300"
+												mb={1}
+											>
+												{room.l}
+											</NonOverflowingTypography>
+										</Grid>
+										<Grid xs={6}>
+											<NonOverflowingTypography
+												startDecorator={<BusinessIcon />}
+											>
+												{room.b}
+											</NonOverflowingTypography>
+										</Grid>
+										<Grid xs={6}>
+											<NonOverflowingTypography
+												startDecorator={<StairsIcon />}
+											>
+												{room.f}
+											</NonOverflowingTypography>
+										</Grid>
+										<Grid xs={6}>
+											<NonOverflowingTypography
+												startDecorator={<PeopleIcon />}
+												textColor="neutral.300"
+												mb={1}
+											>
+												{room.s}
+											</NonOverflowingTypography>
+										</Grid>
+									</Grid>
+								</CardContent>
+							</Card>
 						</Grid>
 					</Grid>
 				))}
