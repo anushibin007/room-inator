@@ -11,7 +11,7 @@ import StairsIcon from "@mui/icons-material/Stairs";
 import PeopleIcon from "@mui/icons-material/People";
 
 import NonOverflowingTypography from "./customcomponent/NonOverflowingTypography";
-import Constants from "../utils/Constants";
+import { addHashToCurrentPage } from "../utils/URLHelper";
 
 function SearchResults({ rooms, darkMode }) {
 	/**
@@ -29,7 +29,7 @@ function SearchResults({ rooms, darkMode }) {
 			// that call.
 			return;
 		}
-		window.location.hash = `room/${aRoom}`;
+		addHashToCurrentPage(`room/${aRoom}`);
 	};
 
 	return (
