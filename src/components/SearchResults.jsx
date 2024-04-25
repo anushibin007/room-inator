@@ -9,6 +9,7 @@ import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
 import BusinessIcon from "@mui/icons-material/Business";
 import StairsIcon from "@mui/icons-material/Stairs";
 import PeopleIcon from "@mui/icons-material/People";
+import Typography from "@mui/joy/Typography";
 
 import NonOverflowingTypography from "./customcomponent/NonOverflowingTypography";
 import { addHashToCurrentPage } from "../utils/URLHelper";
@@ -113,6 +114,11 @@ function SearchResults({ rooms, darkMode }) {
 						</Grid>
 					</Grid>
 				))}
+				{(!rooms || rooms.length <= 0) && (
+					<Typography component="h2" id="modal-title" level="h4" fontWeight="lg" mb={3}>
+						No rooms found for given query
+					</Typography>
+				)}
 			</Grid>
 		</>
 	);
