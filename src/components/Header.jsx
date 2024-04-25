@@ -12,7 +12,7 @@ import AdvancedSearch from "./AdvancedSearch";
 
 function Header({ rooms, setRooms, darkMode, toggleDarkMode }) {
 	const [advancedSeachOpen, setAdvancedSearchOpen] = useState(false);
-	const toggleModal = () => setAdvancedSearchOpen(!advancedSeachOpen);
+	const toggleAdvancedSearch = () => setAdvancedSearchOpen(!advancedSeachOpen);
 
 	return (
 		<>
@@ -25,13 +25,13 @@ function Header({ rooms, setRooms, darkMode, toggleDarkMode }) {
 					</a>
 				</Grid>
 				<Grid xs={1}>
-					<IconButton onClick={toggleModal}>
+					<IconButton onClick={toggleAdvancedSearch}>
 						<FilterAltIcon />
 					</IconButton>
 				</Grid>
 				<Grid xs={3}>{<SearchBar rooms={rooms} setRooms={setRooms} />}</Grid>
 			</Grid>
-			<AdvancedSearch advancedSeachOpen={advancedSeachOpen} toggleModal={toggleModal} />
+			<AdvancedSearch advancedSeachOpen={advancedSeachOpen} toggleModal={toggleAdvancedSearch} />
 		</>
 	);
 }
