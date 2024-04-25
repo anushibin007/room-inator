@@ -1,8 +1,9 @@
+import Typography from "@mui/joy/Typography";
 import Constants from "../utils/Constants";
 
 function Footer() {
 	return (
-		<p className="my-3">
+		<Typography color="neutral" level="body-xs" sx={{ fontStyle: "italic" }}>
 			An{" "}
 			<a href="https://github.com/anushibin007" target="_blank">
 				anushibin007
@@ -12,7 +13,7 @@ function Footer() {
 				GitHub
 			</a>{" "}
 			// Version: {Constants.BUILD_NUMBER}
-		</p>
+		</Typography>
 	);
 }
 
