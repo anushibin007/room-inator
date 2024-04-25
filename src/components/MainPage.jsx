@@ -7,6 +7,9 @@ import SearchResults from "./SearchResults";
 import Header from "./Header";
 // MUI
 import Grid from "@mui/joy/Grid";
+// toastify
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function MainPage() {
 	const [rooms, setRooms] = useState([]);
@@ -45,6 +48,19 @@ function MainPage() {
 			{
 				//<Footer />
 			}
+			<ToastContainer
+				position="bottom-right"
+				autoClose={5000}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+				theme="light"
+				transition:Bounce
+			/>
 		</Grid>
 	);
 }

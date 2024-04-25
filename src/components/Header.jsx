@@ -1,6 +1,9 @@
 // MUI
 import Grid from "@mui/joy/Grid";
 
+// toast
+import { toast } from "react-toastify";
+
 // Bootstrap
 import SearchBar from "./SearchBar";
 import Constants from "../utils/Constants";
@@ -12,7 +15,10 @@ import AdvancedSearch from "./AdvancedSearch";
 
 function Header({ rooms, setRooms, darkMode, toggleDarkMode }) {
 	const [advancedSeachOpen, setAdvancedSearchOpen] = useState(false);
-	const toggleAdvancedSearch = () => setAdvancedSearchOpen(!advancedSeachOpen);
+	const toggleAdvancedSearch = () => {
+		// setAdvancedSearchOpen(!advancedSeachOpen)
+		toast("👨‍🔬 Feature still under development");
+	};
 
 	return (
 		<>
@@ -25,13 +31,16 @@ function Header({ rooms, setRooms, darkMode, toggleDarkMode }) {
 					</a>
 				</Grid>
 				<Grid xs={1}>
-					<IconButton onClick={toggleAdvancedSearch}>
+					<IconButton onClick={toggleAdvancedSearch} title="Advanced filters">
 						<FilterAltIcon />
 					</IconButton>
 				</Grid>
 				<Grid xs={3}>{<SearchBar rooms={rooms} setRooms={setRooms} />}</Grid>
 			</Grid>
-			<AdvancedSearch advancedSeachOpen={advancedSeachOpen} toggleModal={toggleAdvancedSearch} />
+			<AdvancedSearch
+				advancedSeachOpen={advancedSeachOpen}
+				toggleModal={toggleAdvancedSearch}
+			/>
 		</>
 	);
 }
