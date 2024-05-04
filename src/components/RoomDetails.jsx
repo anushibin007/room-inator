@@ -21,7 +21,7 @@ function RoomDetails(props) {
 	return (
 		<>
 			<Header simpleMode={true} />
-			<Container sx={{ marginTop: 8, marginBottom: 8 }}>
+			<Container sx={{ marginTop: 2, marginBottom: 2 }}>
 				{room && Object.keys(room).length > 0 && (
 					<>
 						<Grid container xs={12}>
