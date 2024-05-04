@@ -28,22 +28,35 @@ function RoomDetails(props) {
 			<Container sx={{ marginTop: 1 }}>
 				{room && Object.keys(room).length > 0 && (
 					<>
-						<Grid container xs={12} alignItems="center">
-							<Grid xs={12}>
-								<Typography
-									component="h2"
-									id="modal-title"
-									level="h4"
-									fontWeight="lg"
-								>
-									{room.n}
-								</Typography>
-							</Grid>
-						</Grid>
 						<Grid container xs={12}>
-							<Grid container xs={12} md={3} spacing={1}>
+							<Grid container xs={6}>
+								{/*room.i.map((anImageSrc, index) => (
+									<Grid key={index} xs={12}>
+										<img src={`${anImageSrc}?random=${index}`} />
+									</Grid>
+								))*/}
+								<Grid container xs={12} alignItems="center" justifyContent="center">
+									<Grid>
+										<img
+											src={`${room.i ? room.i[0] : ""}`}
+											style={{ maxHeight: "500px", maxWidth: "500px" }}
+										/>
+									</Grid>
+								</Grid>
+							</Grid>
+							<Grid container xs={6} alignItems="center">
+								<Grid xs={12}>
+									<Typography
+										component="h2"
+										id="modal-title"
+										level="h4"
+										fontWeight="lg"
+									>
+										{room.n}
+									</Typography>
+								</Grid>
 								{room.c && (
-									<Grid container spacing={2} xs={12} alignItems="center">
+									<Grid container xs={12} alignItems="center">
 										<Grid xs={6}>
 											<Typography level="body-lg">Country</Typography>
 										</Grid>
@@ -53,7 +66,7 @@ function RoomDetails(props) {
 									</Grid>
 								)}
 								{room.l && (
-									<Grid container spacing={2} xs={12} alignItems="center">
+									<Grid container xs={12} alignItems="center">
 										<Grid xs={6}>
 											<Typography level="body-lg">Location</Typography>
 										</Grid>
@@ -63,7 +76,7 @@ function RoomDetails(props) {
 									</Grid>
 								)}
 								{room.b && (
-									<Grid container spacing={2} xs={12} alignItems="center">
+									<Grid container xs={12} alignItems="center">
 										<Grid xs={6}>
 											<Typography level="body-lg">Building</Typography>
 										</Grid>
@@ -73,7 +86,7 @@ function RoomDetails(props) {
 									</Grid>
 								)}
 								{room.f && (
-									<Grid container spacing={2} xs={12} alignItems="center">
+									<Grid container xs={12} alignItems="center">
 										<Grid xs={6}>
 											<Typography level="body-lg">Floor</Typography>
 										</Grid>
@@ -83,7 +96,7 @@ function RoomDetails(props) {
 									</Grid>
 								)}
 								{room.s && (
-									<Grid container spacing={2} xs={12} alignItems="center">
+									<Grid container xs={12} alignItems="center">
 										<Grid xs={6}>
 											<Typography level="body-lg">
 												Seating Capacity
@@ -95,7 +108,7 @@ function RoomDetails(props) {
 									</Grid>
 								)}
 								{room.wb && (
-									<Grid container spacing={2} xs={12} alignItems="center">
+									<Grid container xs={12} alignItems="center">
 										<Grid xs={6}>
 											<Typography level="body-lg">White Board</Typography>
 										</Grid>
@@ -107,7 +120,7 @@ function RoomDetails(props) {
 									</Grid>
 								)}
 								{room.pr && (
-									<Grid container spacing={2} xs={12} alignItems="center">
+									<Grid container xs={12} alignItems="center">
 										<Grid xs={6}>
 											<Typography level="body-lg">Projector</Typography>
 										</Grid>
@@ -120,12 +133,12 @@ function RoomDetails(props) {
 								)}
 								{room.di && (
 									<>
-										<Grid container spacing={2} xs={12} alignItems="center">
+										<Grid container xs={12} alignItems="center">
 											<Grid>
 												<Typography level="body-lg">Directions</Typography>
 											</Grid>
 										</Grid>
-										<Grid container spacing={2} xs={12} alignItems="center">
+										<Grid container xs={12} alignItems="center">
 											<Grid>
 												<Grid>
 													<ol>
@@ -140,21 +153,6 @@ function RoomDetails(props) {
 										</Grid>
 									</>
 								)}
-							</Grid>
-							<Grid container xs={12} md={9}>
-								{/*room.i.map((anImageSrc, index) => (
-									<Grid key={index} xs={12}>
-										<img src={`${anImageSrc}?random=${index}`} />
-									</Grid>
-								))*/}
-								<Grid container xs={12} alignItems="center" justifyContent="center">
-									<Grid>
-										<img
-											src={`${room.i ? room.i[0] : ""}`}
-											style={{ maxHeight: "500px", maxWidth: "500px" }}
-										/>
-									</Grid>
-								</Grid>
 							</Grid>
 						</Grid>
 					</>
