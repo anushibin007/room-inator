@@ -25,7 +25,7 @@ function RoomDetails(props) {
 				{room && Object.keys(room).length > 0 && (
 					<>
 						<Grid container xs={12}>
-							<Grid container xs={6}>
+							<Grid container xs={12} md={6}>
 								{/*room.i.map((anImageSrc, index) => (
 									<Grid key={index} xs={12}>
 										<img src={`${anImageSrc}?random=${index}`} />
@@ -40,7 +40,7 @@ function RoomDetails(props) {
 									</Grid>
 								</Grid>
 							</Grid>
-							<Grid container xs={6} alignItems="center">
+							<Grid container xs={12} md={6} alignItems="center">
 								<Grid xs={12}>
 									<Typography
 										component="h2"
