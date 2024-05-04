@@ -21,10 +21,22 @@ function RoomDetails(props) {
 	return (
 		<>
 			<Header simpleMode={true} />
-			<Container sx={{ marginTop: 2, marginBottom: 2 }}>
+			<Container>
 				{room && Object.keys(room).length > 0 && (
 					<>
 						<Grid container xs={12}>
+							<Grid container xs={12} sx={{ marginTop: 1, marginBottom: 1 }}>
+								<Grid xs={12}>
+									<Typography
+										component="h2"
+										id="modal-title"
+										level="h4"
+										fontWeight="lg"
+									>
+										{room.n}
+									</Typography>
+								</Grid>
+							</Grid>
 							<Grid container xs={12} md={6}>
 								{/*room.i.map((anImageSrc, index) => (
 									<Grid key={index} xs={12}>
@@ -41,16 +53,6 @@ function RoomDetails(props) {
 								</Grid>
 							</Grid>
 							<Grid container xs={12} md={6} alignItems="center">
-								<Grid xs={12}>
-									<Typography
-										component="h2"
-										id="modal-title"
-										level="h4"
-										fontWeight="lg"
-									>
-										{room.n}
-									</Typography>
-								</Grid>
 								<Table>
 									<tbody>
 										{room.c && (
