@@ -32,15 +32,13 @@ function MainPage() {
 	};
 	return (
 		<>
+			<Header
+				rooms={rooms}
+				setRooms={setRooms}
+				darkMode={darkMode}
+				toggleDarkMode={toggleDarkMode}
+			/>
 			<Grid container paddingX={3}>
-				<Grid xs={12}>
-					<Header
-						rooms={rooms}
-						setRooms={setRooms}
-						darkMode={darkMode}
-						toggleDarkMode={toggleDarkMode}
-					/>
-				</Grid>
 				{
 					//<QuickFilters rooms={rooms} setRooms={setRooms} />
 				}

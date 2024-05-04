@@ -14,6 +14,7 @@ import { useState } from "react";
 import AdvancedSearch from "./AdvancedSearch";
 
 import { goToUrl } from "../utils/URLHelper";
+import Spacer from "./Spacer";
 
 function Header({ rooms, setRooms, darkMode, toggleDarkMode, simpleMode }) {
 	const [advancedSeachOpen, setAdvancedSearchOpen] = useState(false);
@@ -24,7 +25,14 @@ function Header({ rooms, setRooms, darkMode, toggleDarkMode, simpleMode }) {
 
 	return (
 		<>
-			<Grid container xs={12} alignItems="center" justifyContent="space-between" padding={2}>
+			<Grid
+				container
+				xs={12}
+				alignItems="center"
+				justifyContent="space-between"
+				padding={2}
+				className="header"
+			>
 				<Grid xs={8}>
 					<Grid container xs={12}>
 						<Grid>
@@ -59,6 +67,7 @@ function Header({ rooms, setRooms, darkMode, toggleDarkMode, simpleMode }) {
 				advancedSeachOpen={advancedSeachOpen}
 				toggleModal={toggleAdvancedSearch}
 			/>
+			<Spacer spacerForClass="header" />
 		</>
 	);
 }
