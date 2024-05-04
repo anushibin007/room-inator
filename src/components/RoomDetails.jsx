@@ -1,5 +1,5 @@
 // MUI
-import { Container, Grid, Typography } from "@mui/joy";
+import { Container, Grid, Table, Typography } from "@mui/joy";
 import React, { useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -55,104 +55,126 @@ function RoomDetails(props) {
 										{room.n}
 									</Typography>
 								</Grid>
-								{room.c && (
-									<Grid container xs={12} alignItems="center">
-										<Grid xs={6}>
-											<Typography level="body-lg">Country</Typography>
-										</Grid>
-										<Grid xs={6}>
-											<Typography level="body-md">{room.c}</Typography>
-										</Grid>
-									</Grid>
-								)}
-								{room.l && (
-									<Grid container xs={12} alignItems="center">
-										<Grid xs={6}>
-											<Typography level="body-lg">Location</Typography>
-										</Grid>
-										<Grid xs={6}>
-											<Typography level="body-md">{room.l}</Typography>
-										</Grid>
-									</Grid>
-								)}
-								{room.b && (
-									<Grid container xs={12} alignItems="center">
-										<Grid xs={6}>
-											<Typography level="body-lg">Building</Typography>
-										</Grid>
-										<Grid xs={6}>
-											<Typography level="body-md">{room.b}</Typography>
-										</Grid>
-									</Grid>
-								)}
-								{room.f && (
-									<Grid container xs={12} alignItems="center">
-										<Grid xs={6}>
-											<Typography level="body-lg">Floor</Typography>
-										</Grid>
-										<Grid xs={6}>
-											<Typography level="body-md">{room.f}</Typography>
-										</Grid>
-									</Grid>
-								)}
-								{room.s && (
-									<Grid container xs={12} alignItems="center">
-										<Grid xs={6}>
-											<Typography level="body-lg">
-												Seating Capacity
-											</Typography>
-										</Grid>
-										<Grid xs={6}>
-											<Typography level="body-md">{room.s}</Typography>
-										</Grid>
-									</Grid>
-								)}
-								{room.wb && (
-									<Grid container xs={12} alignItems="center">
-										<Grid xs={6}>
-											<Typography level="body-lg">White Board</Typography>
-										</Grid>
-										<Grid xs={6}>
-											<Typography level="body-md">
-												{room.wb ? "✅" : "❌"}
-											</Typography>
-										</Grid>
-									</Grid>
-								)}
-								{room.pr && (
-									<Grid container xs={12} alignItems="center">
-										<Grid xs={6}>
-											<Typography level="body-lg">Projector</Typography>
-										</Grid>
-										<Grid xs={6}>
-											<Typography level="body-md">
-												{room.pr ? "✅" : "❌"}
-											</Typography>
-										</Grid>
-									</Grid>
-								)}
-								{room.di && (
-									<>
-										<Grid container xs={12} alignItems="center">
-											<Grid>
-												<Typography level="body-lg">Directions</Typography>
-											</Grid>
-										</Grid>
-										<Grid container xs={12} alignItems="center">
-											<Grid>
-												<Grid>
-													<ol>
-														{room.di.map((direction, index) => (
-															<React.Fragment key={index}>
-																<li>{direction}</li>
-															</React.Fragment>
-														))}
-													</ol>
-												</Grid>
-											</Grid>
-										</Grid>
-									</>
-								)}
+								<Table>
+									<tbody>
+										{room.c && (
+											<tr>
+												<td>
+													<Typography level="body-lg">Country</Typography>
+												</td>
+												<td>
+													<Typography level="body-md">
+														{room.c}
+													</Typography>
+												</td>
+											</tr>
+										)}
+										{room.l && (
+											<tr>
+												<td>
+													<Typography level="body-lg">
+														Location
+													</Typography>
+												</td>
+												<td>
+													<Typography level="body-md">
+														{room.l}
+													</Typography>
+												</td>
+											</tr>
+										)}
+										{room.b && (
+											<tr>
+												<td>
+													<Typography level="body-lg">
+														Building
+													</Typography>
+												</td>
+												<td>
+													<Typography level="body-md">
+														{room.b}
+													</Typography>
+												</td>
+											</tr>
+										)}
+										{room.f && (
+											<tr>
+												<td>
+													<Typography level="body-lg">Floor</Typography>
+												</td>
+												<td>
+													<Typography level="body-md">
+														{room.f}
+													</Typography>
+												</td>
+											</tr>
+										)}
+										{room.s && (
+											<tr>
+												<td>
+													<Typography level="body-lg">
+														Seating Capacity
+													</Typography>
+												</td>
+												<td>
+													<Typography level="body-md">
+														{room.s}
+													</Typography>
+												</td>
+											</tr>
+										)}
+										{room.wb != undefined && (
+											<tr>
+												<td>
+													<Typography level="body-lg">
+														White Board
+													</Typography>
+												</td>
+												<td>
+													<Typography level="body-md">
+														{room.wb ? "✅" : "❌"}
+													</Typography>
+												</td>
+											</tr>
+										)}
+										{room.pr != undefined && (
+											<tr>
+												<td>
+													<Typography level="body-lg">
+														Projector
+													</Typography>
+												</td>
+												<td>
+													<Typography level="body-md">
+														{room.pr ? "✅" : "❌"}
+													</Typography>
+												</td>
+											</tr>
+										)}
+										{room.di && (
+											<>
+												<tr>
+													<td colSpan={2}>
+														<Typography level="body-lg">
+															Directions
+														</Typography>
+													</td>
+												</tr>
+												<tr>
+													<td colSpan={2}>
+														<ol>
+															{room.di.map((direction, index) => (
+																<React.Fragment key={index}>
+																	<li>{direction}</li>
+																</React.Fragment>
+															))}
+														</ol>
+													</td>
+												</tr>
+											</>
+										)}
+									</tbody>
+								</Table>
 							</Grid>
 						</Grid>
 					</>
