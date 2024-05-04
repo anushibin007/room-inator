@@ -15,7 +15,7 @@ import AdvancedSearch from "./AdvancedSearch";
 
 import { goToUrl } from "../utils/URLHelper";
 
-function Header({ rooms, setRooms, darkMode, toggleDarkMode }) {
+function Header({ rooms, setRooms, darkMode, toggleDarkMode, simpleMode }) {
 	const [advancedSeachOpen, setAdvancedSearchOpen] = useState(false);
 	const toggleAdvancedSearch = () => {
 		// setAdvancedSearchOpen(!advancedSeachOpen)
@@ -41,12 +41,19 @@ function Header({ rooms, setRooms, darkMode, toggleDarkMode }) {
 						</Grid>
 					</Grid>
 				</Grid>
-				<Grid xs={1}>
-					<IconButton onClick={toggleAdvancedSearch} title="Advanced filters">
-						<FilterAltIcon />
-					</IconButton>
-				</Grid>
-				<Grid xs={3}>{<SearchBar rooms={rooms} setRooms={setRooms} />}</Grid>
+				{
+					/* We don't need the search functionality when Simple Mode is turned ON */
+					!simpleMode && (
+						<>
+							<Grid xs={1}>
+								<IconButton onClick={toggleAdvancedSearch} title="Advanced filters">
+									<FilterAltIcon />
+								</IconButton>
+							</Grid>
+							<Grid xs={3}>{<SearchBar rooms={rooms} setRooms={setRooms} />}</Grid>
+						</>
+					)
+				}
 			</Grid>
 			<AdvancedSearch
 				advancedSeachOpen={advancedSeachOpen}

@@ -3,6 +3,7 @@ import { Container, Grid, Typography, IconButton } from "@mui/joy";
 import HomeIcon from "@mui/icons-material/Home";
 import React, { useEffect } from "react";
 import Constants from "../utils/Constants";
+import Header from "./Header";
 import Footer from "./Footer";
 
 function RoomDetails(props) {
@@ -21,6 +22,11 @@ function RoomDetails(props) {
 	};
 	return (
 		<>
+			<Grid container paddingX={3}>
+				<Grid xs={12}>
+					<Header simpleMode={true} />
+				</Grid>
+			</Grid>
 			<Container sx={{ marginTop: 1 }}>
 				{room && Object.keys(room).length > 0 && (
 					<>
