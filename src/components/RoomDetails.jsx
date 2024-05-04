@@ -1,8 +1,6 @@
 // MUI
-import { Container, Grid, Typography, IconButton } from "@mui/joy";
-import HomeIcon from "@mui/icons-material/Home";
+import { Container, Grid, Typography } from "@mui/joy";
 import React, { useEffect } from "react";
-import Constants from "../utils/Constants";
 import Header from "./Header";
 import Footer from "./Footer";
 
@@ -31,14 +29,7 @@ function RoomDetails(props) {
 				{room && Object.keys(room).length > 0 && (
 					<>
 						<Grid container xs={12} alignItems="center">
-							<Grid xs={1}>
-								<a href={Constants.BASE_PATH}>
-									<IconButton>
-										<HomeIcon />
-									</IconButton>
-								</a>
-							</Grid>
-							<Grid xs={11}>
+							<Grid xs={12}>
 								<Typography
 									component="h2"
 									id="modal-title"
