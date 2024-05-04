@@ -31,36 +31,38 @@ function MainPage() {
 		}
 	};
 	return (
-		<Grid container paddingX={3}>
-			<Grid xs={12}>
-				<Header
-					rooms={rooms}
-					setRooms={setRooms}
-					darkMode={darkMode}
-					toggleDarkMode={toggleDarkMode}
+		<>
+			<Grid container paddingX={3}>
+				<Grid xs={12}>
+					<Header
+						rooms={rooms}
+						setRooms={setRooms}
+						darkMode={darkMode}
+						toggleDarkMode={toggleDarkMode}
+					/>
+				</Grid>
+				{
+					//<QuickFilters rooms={rooms} setRooms={setRooms} />
+				}
+				<Grid xs={12}>
+					<SearchResults rooms={rooms} darkMode={darkMode} />
+				</Grid>
+				<ToastContainer
+					position="bottom-right"
+					autoClose={5000}
+					hideProgressBar={false}
+					newestOnTop={false}
+					closeOnClick
+					rtl={false}
+					pauseOnFocusLoss
+					draggable
+					pauseOnHover
+					theme="light"
+					transition:Bounce
 				/>
 			</Grid>
-			{
-				//<QuickFilters rooms={rooms} setRooms={setRooms} />
-			}
-			<Grid xs={12}>
-				<SearchResults rooms={rooms} darkMode={darkMode} />
-			</Grid>
-			{<Footer />}
-			<ToastContainer
-				position="bottom-right"
-				autoClose={5000}
-				hideProgressBar={false}
-				newestOnTop={false}
-				closeOnClick
-				rtl={false}
-				pauseOnFocusLoss
-				draggable
-				pauseOnHover
-				theme="light"
-				transition:Bounce
-			/>
-		</Grid>
+			<Footer />
+		</>
 	);
 }
 

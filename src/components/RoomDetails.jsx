@@ -184,8 +184,10 @@ function RoomDetails(props) {
 						No such room!
 					</Typography>
 				)}
-				<Footer />
 			</Container>
+			<Grid container>
+				<Footer />
+			</Grid>
 		</>
 	);
 }
