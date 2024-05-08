@@ -64,14 +64,14 @@ function SearchResults({ rooms, darkMode }) {
 												loading="lazy"
 											/>
 										</CardCover>
-										<CardCover
-											sx={{
-												background:
-													"linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)",
-											}}
-										/>
 									</>
 								)}
+								<CardCover
+									sx={{
+										background:
+											"linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)",
+									}}
+								/>
 								<CardContent sx={{ justifyContent: "flex-end" }}>
 									<Grid container xs={12}>
 										<Grid xs={12}>
