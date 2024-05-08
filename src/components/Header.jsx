@@ -7,7 +7,12 @@ import { toast } from "react-toastify";
 // Bootstrap
 import SearchBar from "./SearchBar";
 import Constants from "../utils/Constants";
-import { Typography, IconButton } from "@mui/joy";
+import Typography from "@mui/joy/Typography";
+import Button from "@mui/joy/Button";
+import ButtonGroup from "@mui/joy/ButtonGroup";
+import IconButton from "@mui/joy/IconButton";
+import ListIcon from "@mui/icons-material/List";
+import WindowIcon from "@mui/icons-material/Window";
 import MeetingRoomIcon from "@mui/icons-material/MeetingRoom";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import { useState } from "react";
@@ -18,9 +23,18 @@ import Spacer from "./Spacer";
 
 function Header({ rooms, setRooms, darkMode, toggleDarkMode, simpleMode }) {
 	const [advancedSeachOpen, setAdvancedSearchOpen] = useState(false);
+	const [viewMode, setViewMode] = useState("grid");
 	const toggleAdvancedSearch = () => {
 		// setAdvancedSearchOpen(!advancedSeachOpen)
 		toast("👨‍🔬 Feature still under development");
+	};
+
+	const setGridViewMode = () => {
+		setViewMode("grid");
+	};
+
+	const setListViewMode = () => {
+		setViewMode("list");
 	};
 
 	return (
@@ -33,7 +47,7 @@ function Header({ rooms, setRooms, darkMode, toggleDarkMode, simpleMode }) {
 				padding={2}
 				className="header"
 			>
-				<Grid xs={8}>
+				<Grid xs={7}>
 					<Grid container xs={12}>
 						<Grid>
 							<Typography
@@ -53,10 +67,39 @@ function Header({ rooms, setRooms, darkMode, toggleDarkMode, simpleMode }) {
 					/* We don't need the search functionality when Simple Mode is turned ON */
 					!simpleMode && (
 						<>
-							<Grid xs={1}>
-								<IconButton onClick={toggleAdvancedSearch} title="Advanced filters">
-									<FilterAltIcon />
-								</IconButton>
+							<Grid xs={2}>
+								<Grid
+									container
+									direction="row"
+									xs={12}
+									justifyContent="center"
+									alignItems="center"
+								>
+									<Grid>
+										<IconButton
+											onClick={toggleAdvancedSearch}
+											title="Advanced filters"
+										>
+											<FilterAltIcon />
+										</IconButton>
+									</Grid>
+									<Grid>
+										<ButtonGroup aria-label="outlined primary button group">
+											<IconButton
+												variant={viewMode === "grid" ? `solid` : ""}
+												onClick={setGridViewMode}
+											>
+												<WindowIcon />
+											</IconButton>
+											<IconButton
+												variant={viewMode === "list" ? `solid` : ""}
+												onClick={setListViewMode}
+											>
+												<ListIcon />
+											</IconButton>
+										</ButtonGroup>
+									</Grid>
+								</Grid>
 							</Grid>
 							<Grid xs={3}>{<SearchBar rooms={rooms} setRooms={setRooms} />}</Grid>
 						</>
