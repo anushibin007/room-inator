@@ -123,7 +123,7 @@ function SearchResultsGridView({ rooms, darkMode, viewMode }) {
 				))}
 				{(!rooms || rooms.length <= 0) && (
 					<Typography component="h2" id="modal-title" level="h4" fontWeight="lg" mb={3}>
-						No rooms found for given query
+						Sorry, no rooms were found for the given query.
 					</Typography>
 				)}
 			</Grid>
