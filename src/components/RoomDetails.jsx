@@ -37,28 +37,30 @@ function RoomDetails(props) {
 									</Typography>
 								</Grid>
 							</Grid>
-							<Grid container xs={12} md={6}>
-								{/*room.i.map((anImageSrc, index) => (
+							{room.i && (
+								<Grid container xs={12} md={6}>
+									{/*room.i.map((anImageSrc, index) => (
 									<Grid key={index} xs={12}>
 										<img src={`${anImageSrc}?random=${index}`} />
 									</Grid>
 								))*/}
-								<Grid
-									container
-									xs={12}
-									sx={{ padding: 3 }}
-									alignItems="center"
-									justifyContent="center"
-								>
-									<Grid>
-										<img
-											src={`${room.i ? room.i[0] : ""}`}
-											style={{ maxWidth: "100%" }}
-										/>
+									<Grid
+										container
+										xs={12}
+										sx={{ padding: 3 }}
+										alignItems="center"
+										justifyContent="center"
+									>
+										<Grid>
+											<img
+												src={`${room.i ? room.i[0] : ""}`}
+												style={{ maxWidth: "100%" }}
+											/>
+										</Grid>
 									</Grid>
 								</Grid>
-							</Grid>
-							<Grid container xs={12} md={6} alignItems="center">
+							)}
+							<Grid container xs={12} md={room.i ? 6 : 12} alignItems="center">
 								<Grid xs={12} sx={{ padding: 3 }}>
 									<Table>
 										<tbody>

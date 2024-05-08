@@ -56,15 +56,22 @@ function SearchResults({ rooms, darkMode }) {
 								onClick={() => openRoom(room)}
 								sx={{ height: "250px", div: { cursor: "pointer" } }}
 							>
-								<CardCover>
-									<img src={`${room.i[0]}?random=${room.id}`} loading="lazy" />
-								</CardCover>
-								<CardCover
-									sx={{
-										background:
-											"linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)",
-									}}
-								/>
+								{room.i && (
+									<>
+										<CardCover>
+											<img
+												src={`${room.i[0]}?random=${room.id}`}
+												loading="lazy"
+											/>
+										</CardCover>
+										<CardCover
+											sx={{
+												background:
+													"linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)",
+											}}
+										/>
+									</>
+								)}
 								<CardContent sx={{ justifyContent: "flex-end" }}>
 									<Grid container xs={12}>
 										<Grid xs={12}>
