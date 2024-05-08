@@ -71,8 +71,9 @@ function Header({ rooms, setRooms, darkMode, toggleDarkMode, simpleMode, viewMod
 									container
 									direction="row"
 									xs={12}
-									justifyContent="center"
+									justifyContent="flex-end"
 									alignItems="center"
+									paddingRight={2}
 								>
 									<Grid>
 										<IconButton
