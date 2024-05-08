@@ -14,7 +14,7 @@ import Typography from "@mui/joy/Typography";
 import NonOverflowingTypography from "./customcomponent/NonOverflowingTypography";
 import { addHashToCurrentPage } from "../utils/URLHelper";
 
-function SearchResults({ rooms, darkMode }) {
+function SearchResultsGridView({ rooms, darkMode, viewMode }) {
 	/**
 	 * Function to show the Modal
 	 * @param {*} aRoom The room whose detail needs to be shown in the Modal
@@ -131,4 +131,4 @@ function SearchResults({ rooms, darkMode }) {
 	);
 }
 
-export default SearchResults;
+export default SearchResultsGridView;

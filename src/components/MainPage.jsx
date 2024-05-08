@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 // DB
 import RoomsService from "../service/RoomsService";
 // Internal components
-import SearchResults from "./SearchResults";
+import SearchResultsRoot from "./SearchResultsRoot";
 import Header from "./Header";
 // MUI
 import Grid from "@mui/joy/Grid";
@@ -15,6 +15,7 @@ import Footer from "./Footer";
 function MainPage() {
 	const [rooms, setRooms] = useState([]);
 	const [darkMode, setDarkMode] = useState(false);
+	const [viewMode, setViewMode] = useState("grid");
 
 	const toggleDarkMode = () => {
 		setDarkMode(!darkMode);
@@ -37,13 +38,15 @@ function MainPage() {
 				setRooms={setRooms}
 				darkMode={darkMode}
 				toggleDarkMode={toggleDarkMode}
+				viewMode={viewMode}
+				setViewMode={setViewMode}
 			/>
 			<Grid container paddingX={3}>
 				{
 					//<QuickFilters rooms={rooms} setRooms={setRooms} />
 				}
 				<Grid xs={12}>
-					<SearchResults rooms={rooms} darkMode={darkMode} />
+					<SearchResultsRoot rooms={rooms} darkMode={darkMode} viewMode={viewMode} />
 				</Grid>
 				<ToastContainer
 					position="bottom-right"

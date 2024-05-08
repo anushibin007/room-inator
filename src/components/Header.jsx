@@ -21,9 +21,8 @@ import AdvancedSearch from "./AdvancedSearch";
 import { goToUrl } from "../utils/URLHelper";
 import Spacer from "./Spacer";
 
-function Header({ rooms, setRooms, darkMode, toggleDarkMode, simpleMode }) {
+function Header({ rooms, setRooms, darkMode, toggleDarkMode, simpleMode, viewMode, setViewMode }) {
 	const [advancedSeachOpen, setAdvancedSearchOpen] = useState(false);
-	const [viewMode, setViewMode] = useState("grid");
 	const toggleAdvancedSearch = () => {
 		// setAdvancedSearchOpen(!advancedSeachOpen)
 		toast("👨‍🔬 Feature still under development");
