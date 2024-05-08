@@ -15,7 +15,7 @@ import Footer from "./Footer";
 function MainPage() {
 	const [rooms, setRooms] = useState([]);
 	const [darkMode, setDarkMode] = useState(false);
-	const [viewMode, setViewMode] = useState("grid");
+	const [viewMode, setViewMode] = useState("");
 
 	const toggleDarkMode = () => {
 		setDarkMode(!darkMode);
@@ -23,7 +23,26 @@ function MainPage() {
 
 	useEffect(() => {
 		initiateDefaultRooms();
+		loadFromPersistentStorage();
 	}, []);
+
+	useEffect(() => {
+		if (viewMode && viewMode != "") {
+			localStorage.setItem("viewMode", viewMode);
+		}
+	}, [viewMode]);
+
+	/**
+	 * Loads all the localstorage data into our state
+	 */
+	const loadFromPersistentStorage = () => {
+		const localViewMode = localStorage.getItem("viewMode");
+		if (localViewMode) {
+			setViewMode(localViewMode);
+		} else {
+			setViewMode("grid");
+		}
+	};
 
 	const initiateDefaultRooms = async () => {
 		const allRooms = await RoomsService.getAllRooms();
