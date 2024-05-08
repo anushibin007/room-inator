@@ -46,7 +46,7 @@ function Header({ rooms, setRooms, darkMode, toggleDarkMode, simpleMode, viewMod
 				padding={2}
 				className="header"
 			>
-				<Grid xs={7}>
+				<Grid xs={12} md={7}>
 					<Grid container xs={12}>
 						<Grid>
 							<Typography
@@ -66,7 +66,7 @@ function Header({ rooms, setRooms, darkMode, toggleDarkMode, simpleMode, viewMod
 					/* We don't need the search functionality when Simple Mode is turned ON */
 					!simpleMode && (
 						<>
-							<Grid xs={2}>
+							<Grid xs={6} md={2}>
 								<Grid
 									container
 									direction="row"
@@ -100,7 +100,9 @@ function Header({ rooms, setRooms, darkMode, toggleDarkMode, simpleMode, viewMod
 									</Grid>
 								</Grid>
 							</Grid>
-							<Grid xs={3}>{<SearchBar rooms={rooms} setRooms={setRooms} />}</Grid>
+							<Grid xs={6} md={3}>
+								{<SearchBar rooms={rooms} setRooms={setRooms} />}
+							</Grid>
 						</>
 					)
 				}
