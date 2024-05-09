@@ -8,6 +8,7 @@ import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
 import org.springframework.http.HttpMethod;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
+import anushibin007.roominator.backend.model.Building;
 import anushibin007.roominator.backend.model.Country;
 import anushibin007.roominator.backend.model.Location;
 
@@ -23,6 +24,7 @@ public class RoomInatorBackendApplication implements RepositoryRestConfigurer {
 		// Expose the id parameter for each entity
 		config.exposeIdsFor(Country.class);
 		config.exposeIdsFor(Location.class);
+		config.exposeIdsFor(Building.class);
 
 		// Don't allow the POST method
 		// REF: https://docs.spring.io/spring-data/rest/reference/customizing-sdr.html
