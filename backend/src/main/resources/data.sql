@@ -1,6 +1,8 @@
-INSERT INTO countries (id, name) VALUES ('in', 'India');
-INSERT INTO countries (id, name) VALUES ('fr', 'France');
-INSERT INTO countries (id, name) VALUES ('br', 'Brazil');
-INSERT INTO countries (id, name) VALUES ('it', 'Italy');
-INSERT INTO countries (id, name) VALUES ('ca', 'Canada');
+INSERT INTO country (id, name) VALUES ('in', 'India');
+INSERT INTO country (id, name) VALUES ('fr', 'France');
+INSERT INTO country (id, name) VALUES ('br', 'Brazil');
+INSERT INTO country (id, name) VALUES ('it', 'Italy');
+INSERT INTO country (id, name) VALUES ('ca', 'Canada');
 
+INSERT INTO location (id, country_id, name) VALUES ('hyd', 'in', 'Hyderabad');
+INSERT INTO location (id, country_id, name) VALUES ('blr', 'in', 'Bangalore');
