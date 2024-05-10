@@ -11,9 +11,7 @@ import Grid from "@mui/joy/Grid";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./Footer";
-import Countries from "./Countries";
-import Locations from "./Locations";
-import Buildings from "./Buildings";
+import BaseCriteriaSelector from "./BaseCriteriaSelector";
 
 function MainPage({ display }) {
 	const [rooms, setRooms] = useState([]);
@@ -69,9 +67,9 @@ function MainPage({ display }) {
 			/>
 			<Grid container paddingX={3}>
 				<Grid xs={12}>
-					{display === "countries" && <Countries />}
-					{display === "locations" && <Locations />}
-					{display === "buildings" && <Buildings />}
+					{display === "countries" && <BaseCriteriaSelector criteria="Country" />}
+					{display === "locations" && <BaseCriteriaSelector criteria="Location" />}
+					{display === "buildings" && <BaseCriteriaSelector criteria="Building" />}
 					{display === "rooms" && (
 						<SearchResultsRoot
 							rooms={rooms}

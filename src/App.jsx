@@ -34,7 +34,7 @@ function App() {
 							</Route>
 						</Route>
 						<Route path="/">
-							<Route path={"building"}>
+							<Route path={"location"}>
 								<Route
 									path={":locationName"}
 									element={<MainPage display={"buildings"} />}
@@ -42,7 +42,7 @@ function App() {
 							</Route>
 						</Route>
 						<Route path="/">
-							<Route path={"rooms"}>
+							<Route path={"building"}>
 								<Route
 									path={":buildingName"}
 									element={<MainPage display={"rooms"} />}
