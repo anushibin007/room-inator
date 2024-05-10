@@ -27,6 +27,14 @@ function BaseCriteriaSelector({ criteria }) {
 		setData(responseData["_embedded"][jsonKey]);
 	};
 
+	useEffect(() => {
+		// If there is only one row of data,
+		// just open it directly
+		if (data && data.length == 1) {
+			openItem(data[0].id);
+		}
+	}, [data]);
+
 	const calculateNextHashRoute = () => {
 		if (criteria === "Country") {
 			return "country";
