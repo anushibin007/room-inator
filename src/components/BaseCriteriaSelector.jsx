@@ -6,6 +6,7 @@ import Typography from "@mui/joy/Typography";
 
 import { addHashToCurrentPage, getURLForCriteria } from "../utils/URLHelper";
 import { getJSONKeyForCriteria } from "../utils/JSONHelper";
+import { Skeleton } from "@mui/joy";
 
 /**
  * This class is a common class to select Country, Location and Building
@@ -53,8 +54,18 @@ function BaseCriteriaSelector({ criteria }) {
 
 	return (
 		<>
+			{!data && (
+				<>
+					<Typography id="modal-title" level="title-md" my={1}>
+						Loading. Please wait.
+					</Typography>
+				</>
+			)}
 			{data && data.length > 0 && (
 				<>
+					<Typography id="modal-title" level="title-md" my={1}>
+						Please pick a {criteria}
+					</Typography>
 					<Table hoverRow>
 						<thead>
 							<tr>
@@ -80,12 +91,35 @@ function BaseCriteriaSelector({ criteria }) {
 				</>
 			)}
 			{!data && (
-				<Typography component="h2" id="modal-title" level="h4" fontWeight="lg" mb={3}>
-					Loading
-				</Typography>
+				<>
+					<Table>
+						<thead>
+							<tr>
+								<th>
+									<Skeleton variant="text" level="h3" />
+								</th>
+								<th>
+									<Skeleton variant="text" level="h3" />
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							{[...Array(2)].map((_, idx) => (
+								<tr key={idx}>
+									<td>
+										<Skeleton variant="text" level="h4" />
+									</td>
+									<td>
+										<Skeleton variant="text" level="h4" />
+									</td>
+								</tr>
+							))}
+						</tbody>
+					</Table>
+				</>
 			)}
 			{data?.length <= 0 && (
-				<Typography component="h2" id="modal-title" level="h4" fontWeight="lg" mb={3}>
+				<Typography id="modal-title" level="title-md" my={1}>
 					Sorry, {criteria} not found for the given query.
 				</Typography>
 			)}
