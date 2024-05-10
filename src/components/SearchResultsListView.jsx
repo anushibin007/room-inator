@@ -35,19 +35,15 @@ function SearchResultsListView({ rooms }) {
 							</tr>
 						</thead>
 						<tbody>
-							{rooms?.map((room) => (
-								<tr
-									key={room.id}
-									onClick={() => {
-										openRoom(room.id);
-									}}
-									className="clickable"
-								>
-									<td>{room.name}</td>
-									<td>{room.location}</td>
-									<td>{room.building}</td>
-									<td>{room.floor}</td>
-									<td>{room.seats}</td>
+							{rooms?.map((aRoom) => (
+								<tr key={aRoom.id}>
+									<td>
+										<a href={`#room/${aRoom.id}`}>{aRoom.name}</a>
+									</td>
+									<td>{aRoom.location}</td>
+									<td>{aRoom.building}</td>
+									<td>{aRoom.floor}</td>
+									<td>{aRoom.seats}</td>
 								</tr>
 							))}
 						</tbody>

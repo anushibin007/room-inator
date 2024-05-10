@@ -75,15 +75,13 @@ function BaseCriteriaSelector({ criteria }) {
 						</thead>
 						<tbody>
 							{data?.map((aData, idx) => (
-								<tr
-									key={aData.id}
-									onClick={() => {
-										openItem(aData.id);
-									}}
-									className="clickable"
-								>
+								<tr key={aData.id}>
 									<td>{idx + 1}</td>
-									<td>{aData.name}</td>
+									<td>
+										<a href={`#${calculateNextHashRoute()}/${aData.id}`}>
+											{aData.name}
+										</a>
+									</td>
 								</tr>
 							))}
 						</tbody>
