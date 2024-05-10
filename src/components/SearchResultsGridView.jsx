@@ -14,7 +14,7 @@ import Typography from "@mui/joy/Typography";
 import NonOverflowingTypography from "./customcomponent/NonOverflowingTypography";
 import { addHashToCurrentPage } from "../utils/URLHelper";
 
-function SearchResultsGridView({ rooms, darkMode, viewMode }) {
+function SearchResultsGridView({ rooms }) {
 	/**
 	 * Function to show the Modal
 	 * @param {*} aRoom The room whose detail needs to be shown in the Modal
@@ -56,11 +56,11 @@ function SearchResultsGridView({ rooms, darkMode, viewMode }) {
 								onClick={() => openRoom(room)}
 								sx={{ height: "250px", div: { cursor: "pointer" } }}
 							>
-								{room.i && (
+								{room.images && (
 									<>
 										<CardCover>
 											<img
-												src={`${room.i[0]}?random=${room.id}`}
+												src={`${room.images[0]}?random=${room.id}`}
 												loading="lazy"
 											/>
 										</CardCover>
@@ -80,7 +80,7 @@ function SearchResultsGridView({ rooms, darkMode, viewMode }) {
 												textColor="#fff"
 												mb={1}
 											>
-												{room.n}
+												{room.name}
 											</NonOverflowingTypography>
 										</Grid>
 										<Grid xs={6}>
@@ -89,21 +89,21 @@ function SearchResultsGridView({ rooms, darkMode, viewMode }) {
 												textColor="neutral.300"
 												mb={1}
 											>
-												{room.l}
+												{room.location}
 											</NonOverflowingTypography>
 										</Grid>
 										<Grid xs={6}>
 											<NonOverflowingTypography
 												startDecorator={<BusinessIcon />}
 											>
-												{room.b}
+												{room.building}
 											</NonOverflowingTypography>
 										</Grid>
 										<Grid xs={6}>
 											<NonOverflowingTypography
 												startDecorator={<StairsIcon />}
 											>
-												{room.f}
+												{room.floor}
 											</NonOverflowingTypography>
 										</Grid>
 										<Grid xs={6}>
@@ -112,7 +112,7 @@ function SearchResultsGridView({ rooms, darkMode, viewMode }) {
 												textColor="neutral.300"
 												mb={1}
 											>
-												{room.s}
+												{room.seats}
 											</NonOverflowingTypography>
 										</Grid>
 									</Grid>

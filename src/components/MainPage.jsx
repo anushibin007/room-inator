@@ -11,8 +11,9 @@ import Grid from "@mui/joy/Grid";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./Footer";
+import BaseCriteriaSelector from "./BaseCriteriaSelector";
 
-function MainPage() {
+function MainPage({ display }) {
 	const [rooms, setRooms] = useState([]);
 	const [darkMode, setDarkMode] = useState(false);
 	const [viewMode, setViewMode] = useState("");
@@ -59,13 +60,24 @@ function MainPage() {
 				toggleDarkMode={toggleDarkMode}
 				viewMode={viewMode}
 				setViewMode={setViewMode}
+				simpleMode={
+					// We don't need the search pane for the following items
+					display === "countries" || display === "locations" || display === "buildings"
+				}
 			/>
 			<Grid container paddingX={3}>
-				{
-					//<QuickFilters rooms={rooms} setRooms={setRooms} />
-				}
 				<Grid xs={12}>
-					<SearchResultsRoot rooms={rooms} darkMode={darkMode} viewMode={viewMode} />
+					{display === "countries" && <BaseCriteriaSelector criteria="Country" />}
+					{display === "locations" && <BaseCriteriaSelector criteria="Location" />}
+					{display === "buildings" && <BaseCriteriaSelector criteria="Building" />}
+					{display === "rooms" && (
+						<SearchResultsRoot
+							rooms={rooms}
+							darkMode={darkMode}
+							dataType={"rooms"}
+							viewMode={viewMode}
+						/>
+					)}
 				</Grid>
 				<ToastContainer
 					position="bottom-right"

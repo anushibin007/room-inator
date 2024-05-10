@@ -6,7 +6,7 @@ import Typography from "@mui/joy/Typography";
 
 import { addHashToCurrentPage } from "../utils/URLHelper";
 
-function SearchResultsListView({ rooms, darkMode }) {
+function SearchResultsListView({ rooms }) {
 	const openRoom = (aRoom, e) => {
 		if (typeof aRoom === "object") {
 			// There is a double redirect happening
@@ -35,19 +35,15 @@ function SearchResultsListView({ rooms, darkMode }) {
 							</tr>
 						</thead>
 						<tbody>
-							{rooms?.map((room) => (
-								<tr
-									key={room.id}
-									onClick={() => {
-										openRoom(room.id);
-									}}
-									className="clickable"
-								>
-									<td>{room.n}</td>
-									<td>{room.l}</td>
-									<td>{room.b}</td>
-									<td>{room.f}</td>
-									<td>{room.s}</td>
+							{rooms?.map((aRoom) => (
+								<tr key={aRoom.id}>
+									<td>
+										<a href={`#room/${aRoom.id}`}>{aRoom.name}</a>
+									</td>
+									<td>{aRoom.location}</td>
+									<td>{aRoom.building}</td>
+									<td>{aRoom.floor}</td>
+									<td>{aRoom.seats}</td>
 								</tr>
 							))}
 						</tbody>
