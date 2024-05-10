@@ -1,13 +1,21 @@
-INSERT INTO country (id, name) VALUES ('in', 'India');
-INSERT INTO country (id, name) VALUES ('fr', 'France');
-INSERT INTO country (id, name) VALUES ('br', 'Brazil');
-INSERT INTO country (id, name) VALUES ('it', 'Italy');
-INSERT INTO country (id, name) VALUES ('ca', 'Canada');
+insert into country (name, id ) values ('India', 'IN');
+insert into country (name, id ) values ('France', 'FN');
+insert into country (name, id ) values ('Germany', 'GM');
+insert into country (name, id ) values ('Italy', 'IT');
+insert into country (name, id ) values ('Japan', 'JP');
+insert into country (name, id ) values ('Korea', 'KR');
+insert into country (name, id ) values ('Mexico', 'MX');
 
-INSERT INTO location (id, country_id, name) VALUES ('hyd', 'in', 'Hyderabad');
-INSERT INTO location (id, country_id, name) VALUES ('blr', 'in', 'Bangalore');
+INSERT INTO LOCATION (COUNTRY_ID, ID, NAME) VALUES ('IN', 'MUM', 'Mumbai');
+INSERT INTO LOCATION (COUNTRY_ID, ID, NAME) VALUES ('IN', 'DL', 'Delhi');
+INSERT INTO LOCATION (COUNTRY_ID, ID, NAME) VALUES ('IN', 'BGLR', 'Bangalore');
+INSERT INTO LOCATION (COUNTRY_ID, ID, NAME) VALUES ('IN', 'CH', 'Chennai');
 
-INSERT INTO building (id, location_id, name) VALUES ('south-building', 'hyd', 'South Building');
-INSERT INTO building (id, location_id, name) VALUES ('north-building', 'hyd', 'North Building');
+INSERT INTO BUILDING (LOCATION_ID, ID, NAME) VALUES ('MUM', 'MUM-B1', 'Building 1');
+INSERT INTO BUILDING (LOCATION_ID, ID, NAME) VALUES ('MUM', 'MUM-B2', 'Building 2');
+INSERT INTO BUILDING (LOCATION_ID, ID, NAME) VALUES ('BGLR', 'BGLR-B1', 'Building 3');
+INSERT INTO BUILDING (LOCATION_ID, ID, NAME) VALUES ('BGLR', 'BGLR-B3', 'Building 4');
 
-INSERT INTO room (id, building_id, name, floor, seats, images, whiteboard, projector, directions) VALUES ('meeting-room-1', 'south-building', 'Meeting Room 1', 3, 10, ARRAY ['https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024'], true, true, ARRAY ['Enter Floor 3', 'The first room to your left is Meeting Room 1']);
+INSERT INTO ROOM (FLOOR, PROJECTOR, CAPACITY, WHITEBOARD, BUILDING_ID, ID, NAME, DIRECTIONS, IMAGES) VALUES ('1', 'Y', '100', 'Y', 'MUM-B1', 'BGLR-B1-ID1', 'Room 1', 'Room 1 Directions', ARRAY ['https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024']);
+
+INSERT INTO ROOM (FLOOR, PROJECTOR, CAPACITY, WHITEBOARD, BUILDING_ID, ID, NAME, DIRECTIONS, IMAGES) VALUES ('1', 'Y', '100', 'Y', 'MUM-B2', 'BGLR-B2-ID1', 'Room 2', 'Room 2 Directions', ARRAY ['https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024']);
