@@ -69,7 +69,7 @@ function BaseCriteriaSelector({ criteria }) {
 					<Table hoverRow>
 						<thead>
 							<tr>
-								<th>Sl No</th>
+								<th style={{ width: "10%" }}>Sl No</th>
 								<th>{criteria}</th>
 							</tr>
 						</thead>
@@ -93,7 +93,7 @@ function BaseCriteriaSelector({ criteria }) {
 					<Table>
 						<thead>
 							<tr>
-								<th>
+								<th style={{ width: "10%" }}>
 									<Skeleton variant="text" level="h3" />
 								</th>
 								<th>
