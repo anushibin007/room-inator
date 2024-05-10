@@ -28,7 +28,7 @@ function App() {
 						<Route path="/">
 							<Route path={"country"}>
 								<Route
-									path={":countryName"}
+									path={":criteriaValue"}
 									element={<MainPage display={"locations"} />}
 								/>
 							</Route>
@@ -36,7 +36,7 @@ function App() {
 						<Route path="/">
 							<Route path={"location"}>
 								<Route
-									path={":locationName"}
+									path={":criteriaValue"}
 									element={<MainPage display={"buildings"} />}
 								/>
 							</Route>
@@ -44,7 +44,7 @@ function App() {
 						<Route path="/">
 							<Route path={"building"}>
 								<Route
-									path={":buildingName"}
+									path={":criteriaValue"}
 									element={<MainPage display={"rooms"} />}
 								/>
 							</Route>

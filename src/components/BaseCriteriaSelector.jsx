@@ -1,5 +1,6 @@
 // React
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 // MUI
 import Table from "@mui/joy/Table";
 import Typography from "@mui/joy/Typography";
@@ -14,6 +15,7 @@ import { Skeleton } from "@mui/joy";
  * @returns
  */
 function BaseCriteriaSelector({ criteria }) {
+	const { criteriaValue } = useParams();
 	const [data, setData] = useState(undefined);
 
 	useEffect(() => {
@@ -72,7 +74,12 @@ function BaseCriteriaSelector({ criteria }) {
 			{data && data.length > 0 && (
 				<>
 					<Typography id="modal-title" level="title-md" my={1}>
-						Please pick a {criteria}
+						{
+							// TODO: The criteriaValue below should be
+							// extracted into a proper value like India instead of IN.
+							<></>
+						}
+						Please pick a {criteria} {criteriaValue && <>for {criteriaValue}</>}
 					</Typography>
 					<Table hoverRow>
 						<thead>
