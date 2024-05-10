@@ -24,6 +24,9 @@ function SearchResultsListView({ rooms }) {
 		<>
 			{rooms && rooms.length > 0 && (
 				<>
+					<Typography id="modal-title" level="title-md" my={1}>
+						Please pick a Room
+					</Typography>
 					<Table hoverRow>
 						<thead>
 							<tr>
