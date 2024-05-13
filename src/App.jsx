@@ -43,10 +43,7 @@ function App() {
 						</Route>
 						<Route path="/">
 							<Route path={"building"}>
-								<Route
-									path={":criteriaValue"}
-									element={<MainPage display={"rooms"} />}
-								/>
+								<Route path={":roomId"} element={<MainPage display={"rooms"} />} />
 							</Route>
 						</Route>
 						<Route path="/">
