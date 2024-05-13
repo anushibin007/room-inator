@@ -28,4 +28,9 @@ public class LocationViewService {
         LocationView location = locationViewRepository.findLocationViewById(id);
         return ResponseEntity.ok(location);
     }
+
+    public ResponseEntity<List<LocationView>> getLocationsByCountryID(String countryId) {
+        List<LocationView> locations = locationViewRepository.findLocationViewByCountryId(countryId);
+        return ResponseEntity.ok(locations);
+    }
 }

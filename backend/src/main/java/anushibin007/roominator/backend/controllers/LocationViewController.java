@@ -4,10 +4,7 @@ import anushibin007.roominator.backend.models.LocationView;
 import anushibin007.roominator.backend.services.LocationViewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,6 +27,11 @@ public class LocationViewController {
     @GetMapping("/{id}")
     public ResponseEntity<LocationView> getLocationById(@PathVariable String id) {
         return locationViewService.getLocationById(id);
+    }
+
+    @GetMapping(params = "country_id")
+    public ResponseEntity<List<LocationView>> getLocationsByCountryId(@RequestParam(name = "country_id") String countryId) {
+        return locationViewService.getLocationsByCountryID(countryId);
     }
 
 }

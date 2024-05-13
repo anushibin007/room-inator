@@ -16,4 +16,7 @@ public interface LocationViewRepository extends JpaRepository<Location, String> 
 
     @Query("SELECT  l.name AS name, l.id AS id, l.country.id AS countryId FROM Location l WHERE l.id= :id")
     LocationView findLocationViewById(@Param("id") String id);
+
+    @Query("SELECT  l.name AS name, l.id AS id, l.country.id AS countryId FROM Location l WHERE l.country.id= :country")
+    List<LocationView> findLocationViewByCountryId(@Param("country") String country);
 }
