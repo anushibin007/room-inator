@@ -3,7 +3,7 @@ import RoomDetails from "./RoomDetails";
 import { useState, useEffect } from "react";
 import Constants from "../utils/Constants";
 function RoomDetailsRoute() {
-	const { roomName } = useParams();
+	const { roomId } = useParams();
 	const [room, setRoom] = useState({});
 
 	useEffect(() => {
@@ -11,7 +11,7 @@ function RoomDetailsRoute() {
 	}, []);
 
 	const loadRoom = async () => {
-		const response = await fetch(`${Constants.BACKEND_SERVER_ROOT}/rooms/${roomName}`);
+		const response = await fetch(`${Constants.BACKEND_SERVER_ROOT}/rooms/${roomId}`);
 		const data = await response.json();
 		setRoom(data);
 	};
