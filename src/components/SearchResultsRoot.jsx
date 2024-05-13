@@ -15,7 +15,7 @@ function SearchResultsRoot({ darkMode, viewMode }) {
 	const loadRooms = async () => {
 		const response = await fetch(`${Constants.BACKEND_SERVER_ROOT}/rooms`);
 		const data = await response.json();
-		setCountries(data["_embedded"].rooms);
+		setCountries(data);
 	};
 
 	return (

@@ -4,9 +4,7 @@ import React, { useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 
-function RoomDetails(props) {
-	const room = props.room;
-
+function RoomDetails({ room }) {
 	useEffect(() => {
 		// Update the Web Page's title
 		// whenever the room's state updates
@@ -15,7 +13,7 @@ function RoomDetails(props) {
 
 	const updatePageTitle = () => {
 		if (room && Object.keys(room).length > 0) {
-			document.title = `${room.n} - room-inator`;
+			document.title = `${room.name} - room-inator`;
 		}
 	};
 	return (
@@ -33,11 +31,11 @@ function RoomDetails(props) {
 										level="h4"
 										fontWeight="lg"
 									>
-										{room.n}
+										{room.name}
 									</Typography>
 								</Grid>
 							</Grid>
-							{room.i && (
+							{room.images && (
 								<Grid container xs={12} md={6}>
 									{/*room.i.map((anImageSrc, index) => (
 									<Grid key={index} xs={12}>
@@ -53,18 +51,18 @@ function RoomDetails(props) {
 									>
 										<Grid>
 											<img
-												src={`${room.i ? room.i[0] : ""}`}
+												src={`${room.images ? room.images[0] : ""}`}
 												style={{ maxWidth: "100%" }}
 											/>
 										</Grid>
 									</Grid>
 								</Grid>
 							)}
-							<Grid container xs={12} md={room.i ? 6 : 12} alignItems="center">
+							<Grid container xs={12} md={room.images ? 6 : 12} alignItems="center">
 								<Grid xs={12} sx={{ padding: 3 }}>
 									<Table>
 										<tbody>
-											{room.c && (
+											{room.country && (
 												<tr>
 													<td>
 														<Typography level="body-lg">
@@ -73,12 +71,12 @@ function RoomDetails(props) {
 													</td>
 													<td>
 														<Typography level="body-md">
-															{room.c}
+															{room.country}
 														</Typography>
 													</td>
 												</tr>
 											)}
-											{room.l && (
+											{room.location && (
 												<tr>
 													<td>
 														<Typography level="body-lg">
@@ -87,12 +85,12 @@ function RoomDetails(props) {
 													</td>
 													<td>
 														<Typography level="body-md">
-															{room.l}
+															{room.location}
 														</Typography>
 													</td>
 												</tr>
 											)}
-											{room.b && (
+											{room.building && (
 												<tr>
 													<td>
 														<Typography level="body-lg">
@@ -101,12 +99,12 @@ function RoomDetails(props) {
 													</td>
 													<td>
 														<Typography level="body-md">
-															{room.b}
+															{room.building}
 														</Typography>
 													</td>
 												</tr>
 											)}
-											{room.f && (
+											{room.floor && (
 												<tr>
 													<td>
 														<Typography level="body-lg">
@@ -115,12 +113,12 @@ function RoomDetails(props) {
 													</td>
 													<td>
 														<Typography level="body-md">
-															{room.f}
+															{room.floor}
 														</Typography>
 													</td>
 												</tr>
 											)}
-											{room.s && (
+											{room.capacity && (
 												<tr>
 													<td>
 														<Typography level="body-lg">
@@ -129,12 +127,12 @@ function RoomDetails(props) {
 													</td>
 													<td>
 														<Typography level="body-md">
-															{room.s}
+															{room.capacity}
 														</Typography>
 													</td>
 												</tr>
 											)}
-											{room.wb != undefined && (
+											{room.whiteboard != undefined && (
 												<tr>
 													<td>
 														<Typography level="body-lg">
@@ -143,12 +141,12 @@ function RoomDetails(props) {
 													</td>
 													<td>
 														<Typography level="body-md">
-															{room.wb ? "✅" : "❌"}
+															{room.whiteboard ? "✅" : "❌"}
 														</Typography>
 													</td>
 												</tr>
 											)}
-											{room.pr != undefined && (
+											{room.projector != undefined && (
 												<tr>
 													<td>
 														<Typography level="body-lg">
@@ -157,12 +155,12 @@ function RoomDetails(props) {
 													</td>
 													<td>
 														<Typography level="body-md">
-															{room.pr ? "✅" : "❌"}
+															{room.projector ? "✅" : "❌"}
 														</Typography>
 													</td>
 												</tr>
 											)}
-											{room.di && (
+											{room.directions && (
 												<>
 													<tr>
 														<td colSpan={2}>
@@ -174,11 +172,13 @@ function RoomDetails(props) {
 													<tr>
 														<td colSpan={2}>
 															<ol>
-																{room.di.map((direction, index) => (
-																	<React.Fragment key={index}>
-																		<li>{direction}</li>
-																	</React.Fragment>
-																))}
+																{room.directions.map(
+																	(direction, index) => (
+																		<React.Fragment key={index}>
+																			<li>{direction}</li>
+																		</React.Fragment>
+																	)
+																)}
 															</ol>
 														</td>
 													</tr>

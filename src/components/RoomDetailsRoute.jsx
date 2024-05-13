@@ -1,19 +1,21 @@
 import { useParams } from "react-router-dom";
 import RoomDetails from "./RoomDetails";
 import { useState, useEffect } from "react";
-import RoomsService from "../service/RoomsService";
+import Constants from "../utils/Constants";
 function RoomDetailsRoute() {
 	const { roomName } = useParams();
 	const [room, setRoom] = useState({});
 
 	useEffect(() => {
-		initiateDefaultRoom();
+		loadRoom();
 	}, []);
 
-	const initiateDefaultRoom = async () => {
-		const aRoom = await RoomsService.getFirstRoomById(roomName);
-		setRoom(aRoom);
+	const loadRoom = async () => {
+		const response = await fetch(`${Constants.BACKEND_SERVER_ROOT}/rooms/${roomName}`);
+		const data = await response.json();
+		setRoom(data);
 	};
+
 	return (
 		<>
 			<RoomDetails room={room} />
