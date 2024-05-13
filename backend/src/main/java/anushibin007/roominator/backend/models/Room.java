@@ -16,7 +16,7 @@ public class Room {
 	@Id
 	private String id;
 	private String name;
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Building building;
 
 	private Integer floor;
@@ -27,17 +27,5 @@ public class Room {
 	private List<String> images;
 	private Boolean whiteboard;
 	private Boolean projector;
-
-	@Override
-	public String toString() {
-		return "{" +
-				"id='" + id + '\'' +
-				", name='" + name + '\'' +
-				", building=" + building +
-				", floor=" + floor +
-				", capacity=" + capacity +
-				", directions=" + directions +
-				'}';
-	}
 
 }

@@ -3,7 +3,9 @@ package anushibin007.roominator.backend.controllers;
 import anushibin007.roominator.backend.models.BuildingView;
 import anushibin007.roominator.backend.services.BuildingService;
 import anushibin007.roominator.backend.services.BuildingViewService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,18 +21,18 @@ public class BuildingViewController {
     }
 
     @GetMapping
-    public List<BuildingView> getBuildingViews() {
-        return buildingViewService.getBuildingViews();
+    public ResponseEntity<List<BuildingView>> getBuildingViews() {
+        return ResponseEntity.ok(buildingViewService.getBuildingViews());
     }
 
     @GetMapping("/{id}")
-    public BuildingView getBuildingViewById(@PathVariable String id) {
-        return buildingViewService.getBuildingViewById(id);
+    public ResponseEntity<BuildingView> getBuildingViewById(@PathVariable String id) {
+        return ResponseEntity.ok(buildingViewService.getBuildingViewById(id));
     }
 
-    @GetMapping(params = "location")
-    public List<BuildingView> getBuildingsByLocationId(@RequestParam(name = "location") String locationId) {
-        return buildingViewService.getBuildingsByLocationId(locationId);
+    @GetMapping(params = "location_id")
+    public ResponseEntity<List<BuildingView>> getBuildingsByLocationId(@RequestParam(name = "location_id") String locationId) {
+        return ResponseEntity.ok(buildingViewService.getBuildingsByLocationId(locationId));
     }
 
 }
