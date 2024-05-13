@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 
 function SearchResultsRoot({ darkMode, viewMode }) {
 	const { roomId } = useParams();
-	const [rooms, setCountries] = useState(undefined);
+	const [rooms, setRooms] = useState(undefined);
 
 	useEffect(() => {
 		loadRooms();
@@ -19,7 +19,7 @@ function SearchResultsRoot({ darkMode, viewMode }) {
 			`${Constants.BACKEND_SERVER_ROOT}/rooms?building_id=${roomId}`
 		);
 		const data = await response.json();
-		setCountries(data);
+		setRooms(data);
 	};
 
 	return (
