@@ -1,4 +1,4 @@
-package anushibin007.roominator.backend.model;
+package anushibin007.roominator.backend.models;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.Entity;
@@ -7,7 +7,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 import java.util.List;
 
@@ -25,7 +24,7 @@ public class Country {
 
 	@Override
 	public String toString() {
-		return "Country{" +
+		return "{" +
 				"id='" + id + '\'' +
 				", name='" + name + '\'' +
 				'}';

@@ -2,8 +2,8 @@ package anushibin007.roominator.backend.services;
 
 import anushibin007.roominator.backend.dtos.BuildingDTO;
 import anushibin007.roominator.backend.exceptions.EntityNotFoundException;
-import anushibin007.roominator.backend.model.Building;
-import anushibin007.roominator.backend.repo.BuildingRepository;
+import anushibin007.roominator.backend.models.Building;
+import anushibin007.roominator.backend.repositories.BuildingRepository;
 import anushibin007.roominator.backend.utilities.DTOConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

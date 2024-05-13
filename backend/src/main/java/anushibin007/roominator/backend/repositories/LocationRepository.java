@@ -1,6 +1,6 @@
-package anushibin007.roominator.backend.repo;
+package anushibin007.roominator.backend.repositories;
 
-import anushibin007.roominator.backend.model.Location;
+import anushibin007.roominator.backend.models.Location;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,4 +11,5 @@ import java.util.Optional;
 public interface LocationRepository extends CrudRepository<Location, String> {
     List<Location> findAll();
     Optional<Location> findById(String s);
+
 }

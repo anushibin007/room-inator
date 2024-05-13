@@ -1,4 +1,4 @@
-package anushibin007.roominator.backend.model;
+package anushibin007.roominator.backend.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -6,7 +6,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 import java.util.List;
 
@@ -31,7 +30,7 @@ public class Room {
 
 	@Override
 	public String toString() {
-		return "Room{" +
+		return "{" +
 				"id='" + id + '\'' +
 				", name='" + name + '\'' +
 				", building=" + building +

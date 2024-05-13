@@ -2,8 +2,8 @@ package anushibin007.roominator.backend.services;
 
 import anushibin007.roominator.backend.dtos.LocationDTO;
 import anushibin007.roominator.backend.exceptions.EntityNotFoundException;
-import anushibin007.roominator.backend.model.Location;
-import anushibin007.roominator.backend.repo.LocationRepository;
+import anushibin007.roominator.backend.models.Location;
+import anushibin007.roominator.backend.repositories.LocationRepository;
 import anushibin007.roominator.backend.utilities.DTOConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

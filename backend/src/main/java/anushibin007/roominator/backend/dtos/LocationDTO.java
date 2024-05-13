@@ -10,6 +10,7 @@ import java.util.List;
 public class LocationDTO {
     private String id;
     private String name;
+    //Remove and add CountryLocationDTO.
     private CountryDTO country;
     private List<String> buildings;
 }

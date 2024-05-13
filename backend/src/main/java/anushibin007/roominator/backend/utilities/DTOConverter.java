@@ -4,10 +4,10 @@ import anushibin007.roominator.backend.dtos.BuildingDTO;
 import anushibin007.roominator.backend.dtos.CountryDTO;
 import anushibin007.roominator.backend.dtos.LocationDTO;
 import anushibin007.roominator.backend.dtos.RoomDTO;
-import anushibin007.roominator.backend.model.Building;
-import anushibin007.roominator.backend.model.Country;
-import anushibin007.roominator.backend.model.Location;
-import anushibin007.roominator.backend.model.Room;
+import anushibin007.roominator.backend.models.Building;
+import anushibin007.roominator.backend.models.Country;
+import anushibin007.roominator.backend.models.Location;
+import anushibin007.roominator.backend.models.Room;
 
 import java.util.ArrayList;
 import java.util.List;

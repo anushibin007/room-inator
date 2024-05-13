@@ -1,6 +1,6 @@
-package anushibin007.roominator.backend.repo;
+package anushibin007.roominator.backend.repositories;
 
-import anushibin007.roominator.backend.model.Country;
+import anushibin007.roominator.backend.models.Country;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

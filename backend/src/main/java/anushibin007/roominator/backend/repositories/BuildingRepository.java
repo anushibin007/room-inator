@@ -1,6 +1,6 @@
-package anushibin007.roominator.backend.repo;
+package anushibin007.roominator.backend.repositories;
 
-import anushibin007.roominator.backend.model.Building;
+import anushibin007.roominator.backend.models.Building;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

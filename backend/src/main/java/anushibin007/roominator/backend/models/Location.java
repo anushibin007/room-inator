@@ -1,9 +1,9 @@
-package anushibin007.roominator.backend.model;
+package anushibin007.roominator.backend.models;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
+import org.hibernate.FetchMode;
 
 import java.util.List;
 
@@ -16,18 +16,9 @@ public class Location {
 
 	private String name;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Country country;
 
 	@OneToMany(mappedBy = "location", fetch = FetchType.LAZY)
 	private List<Building> buildings;
-
-	@Override
-	public String toString() {
-		return "Location{" +
-				"id='" + id + '\'' +
-				", name='" + name + '\'' +
-				", country=" + country +
-				'}';
-	}
 }
