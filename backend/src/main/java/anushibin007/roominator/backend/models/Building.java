@@ -13,19 +13,10 @@ public class Building {
 	@Id
 	private String id;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Location location;
 	private String name;
 	@OneToMany(mappedBy = "building", fetch = FetchType.LAZY)
 	private List<Room> rooms;
-
-	@Override
-	public String toString() {
-		return "{" +
-				"id:'" + id + '\'' +
-				", location=" + location +
-				", name='" + name + '\'' +
-				'}';
-	}
 
 }

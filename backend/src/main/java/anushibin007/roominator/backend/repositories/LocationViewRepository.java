@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public interface LocationViewRepository extends JpaRepository<Location, String> {
     @Query("SELECT  l.name AS name, l.id AS id, l.country.id AS countryId FROM Location l")
-    public List<LocationView> findAllLocationViews();
+     List<LocationView> findAllLocationViews();
 
     @Query("SELECT  l.name AS name, l.id AS id, l.country.id AS countryId FROM Location l WHERE l.id= :id")
     LocationView findLocationViewById(@Param("id") String id);
