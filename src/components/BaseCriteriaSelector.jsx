@@ -8,6 +8,7 @@ import Typography from "@mui/joy/Typography";
 import { addHashToCurrentPage, getURLForCriteria } from "../utils/URLHelper";
 import { getJSONKeyForCriteria } from "../utils/JSONHelper";
 import { Skeleton } from "@mui/joy";
+import ErrorMessage from "./ErrorMessage";
 
 /**
  * This class is a common class to select Country, Location and Building
@@ -17,16 +18,22 @@ import { Skeleton } from "@mui/joy";
 function BaseCriteriaSelector({ criteria }) {
 	const { criteriaValue } = useParams();
 	const [data, setData] = useState(undefined);
+	const [errorState, setErrorState] = useState(undefined);
 
 	useEffect(() => {
 		loadData();
 	}, []);
 
 	const loadData = async () => {
-		const response = await fetch(getURLForCriteria(criteria));
-		const responseData = await response.json();
-		const jsonKey = getJSONKeyForCriteria(criteria);
-		setData(responseData["_embedded"][jsonKey]);
+		try {
+			const response = await fetch(getURLForCriteria(criteria));
+			const responseData = await response.json();
+			const jsonKey = getJSONKeyForCriteria(criteria);
+			setData(responseData["_embedded"][jsonKey]);
+		} catch (err) {
+			console.error({ error: err });
+			setErrorState({ error: err });
+		}
 	};
 
 	useEffect(() => {
@@ -64,14 +71,14 @@ function BaseCriteriaSelector({ criteria }) {
 
 	return (
 		<>
-			{!data && (
+			{!errorState && !data && (
 				<>
 					<Typography id="modal-title" level="title-md" my={1}>
 						Loading. Please wait.
 					</Typography>
 				</>
 			)}
-			{data && data.length > 0 && (
+			{!errorState && data && data.length > 0 && (
 				<>
 					<Typography id="modal-title" level="title-md" my={1}>
 						{
@@ -103,7 +110,7 @@ function BaseCriteriaSelector({ criteria }) {
 					</Table>
 				</>
 			)}
-			{!data && (
+			{!errorState && !data && (
 				<>
 					<Table>
 						<thead>
@@ -131,11 +138,12 @@ function BaseCriteriaSelector({ criteria }) {
 					</Table>
 				</>
 			)}
-			{data?.length <= 0 && (
+			{!errorState && data?.length <= 0 && (
 				<Typography id="modal-title" level="title-md" my={1}>
 					Sorry, {criteria} not found for the given query.
 				</Typography>
 			)}
+			{errorState && <ErrorMessage errorState={errorState} />}
 		</>
 	);
 }
