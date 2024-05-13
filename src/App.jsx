@@ -48,7 +48,7 @@ function App() {
 						</Route>
 						<Route path="/">
 							<Route path={"room"}>
-								<Route path={":roomName"} element={<RoomDetailsRoute />} />
+								<Route path={":roomId"} element={<RoomDetailsRoute />} />
 							</Route>
 						</Route>
 					</Routes>
