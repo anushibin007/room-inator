@@ -1,115 +1,160 @@
-/countries:
-[
-    {
-        "id": "IN",
-        "name": "India",
-    }
+/countries
 
+```json
+[
+	{
+		"id": "IN",
+		"name": "India"
+	},
+	{
+		"id": "CA",
+		"name": "Canada"
+	}
 ]
+```
+
 /countries/IN
+
+```json
 {
-        "id": "IN",
-        "name": "India",
-		
+	"id": "IN",
+	"name": "India"
 }
+```
 
 /locations
-[
-    {
-        "id": "MUM",
-        "name": "Mumbai",
-		"country_id": "IN"
-    },
-//....
-]
 
-/locations/{ID}
-{
-        "id": "MUM",
-        "name": "Mumbai",
+```json
+[
+	{
+		"id": "MUM",
+		"name": "Mumbai",
 		"country_id": "IN"
-    }
+	},
+	{
+		"id": "HYD",
+		"name": "Hyderabad",
+		"country_id": "IN"
+	},
+	{
+		"id": "WA",
+		"name": "Waterloo",
+		"country_id": "CA"
+	}
+]
+```
+
+/locations/MUM
+
+```json
+{
+	"id": "MUM",
+	"name": "Mumbai",
+	"country_id": "IN"
+}
+```
 
 /locations?country_id=IN
+
+```json
 [
-{
-        "id": "MUM",
-        "name": "Mumbai",
-		"country_id": "IN"
-    },
 	{
-        "id": "HYD",
-        "name": "Hyderabad",
+		"id": "MUM",
+		"name": "Mumbai",
 		"country_id": "IN"
-    },
-	//.....
+	},
+	{
+		"id": "HYD",
+		"name": "Hyderabad",
+		"country_id": "IN"
+	}
 ]
+```
+
 /buildings
+
+```json
 [
-    {
-        "id": "MUM-B1",
-        "name": "Building 1",
-        "LOCATION_ID": "MUM"
-    },
-	//...
+	{
+		"id": "MUM-B1",
+		"name": "Building 1",
+		"LOCATION_ID": "MUM"
+	},
+	{
+		"id": "MUM-B2",
+		"name": "Building 2",
+		"LOCATION_ID": "MUM"
+	},
+	{
+		"id": "HYD-B1",
+		"name": "Building 1",
+		"LOCATION_ID": "HYD"
+	}
 ]
+```
+
 /bulidings?location_id=MUM
+
+```json
 [
-    {
-        "id": "MUM-B1",
-        "name": "Building 1",
-        "LOCATION_ID": "MUM"
-    },
-	    {
-        "id": "MUM-B2",
-        "name": "Building 2",
-        "LOCATION_ID": "MUM"
-    },
-	//...
+	{
+		"id": "MUM-B1",
+		"name": "Building 1",
+		"LOCATION_ID": "MUM"
+	},
+	{
+		"id": "MUM-B2",
+		"name": "Building 2",
+		"LOCATION_ID": "MUM"
+	}
 ]
+```
+
 /rooms
+
+```json
 [
-    {
-        "id": "BGLR-B1-ID1",
-        "name": "Room 1",
-        "building_id":"MUM-B1",
-    },
-	    {
-        "id": "HYD-B1-ID1",
-        "name": "Room 1",
-        "building_id":"HYD-B1",
-    },
+	{
+		"id": "MUM-B1-R1",
+		"name": "Room 1",
+		"building_id": "MUM-B1"
+	},
+	{
+		"id": "HYD-B1-R1",
+		"name": "Room 1",
+		"building_id": "HYD-B1"
+	}
 	//...
 ]
+```
+
 /rooms?building_id=MUM-B1
+
+```json
 [
-    {
-        "id": "BGLR-B1-ID1",
-        "name": "Room 1",
-        "building_id":"MUM-B1",
-    },
-	    {
-        "id": "BGLR-B1-ID2",
-        "name": "Room 2",
-        "building_id":"MUM-B1",
-    },
+	{
+		"id": "MUM-B1-R1",
+		"name": "Room 1",
+		"building_id": "MUM-B1"
+	}
 	//...
 ]
+```
 
 /rooms/{id}
-{
-    "id": "BGLR-B1-ID1",
-    "name": "Room 1",
-    "building": {id:'MUM-B1', name='Building 1'},
-	"location": {id='MUM', name='Mumbai'},
-	"country":{id='IN', name='India'},
-    "floor": 1,
-    "capacity": 100,
-    "images": null,
-    "whiteboard": null,
-    "projector": null,
-    "directions": [
-        "Room 1 Directions"
-    ]
-}
 
+```json
+{
+	"id": "MUM-B1-R1",
+	"name": "Room 1",
+	"building": { "id": "MUM-B1", "name": "Building 1" },
+	"location": { "id": "MUM", "name": "Mumbai" },
+	"country": { "id": "IN", "name": "India" },
+	"floor": 1,
+	"capacity": 100,
+	"images": null,
+	"whiteboard": null,
+	"projector": null,
+	"directions": ["Room 1 Directions"]
+}
+```
