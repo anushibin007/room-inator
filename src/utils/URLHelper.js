@@ -1,5 +1,5 @@
 import Constants from "./Constants";
-import { getJSONKeyForCriteria } from "./JSONHelper";
+import { getJSONKeyForCriteria, getQueryForCriteriaAndValue } from "./JSONHelper";
 
 const goToUrl = (anUrl) => {
 	window.location = anUrl;
@@ -9,7 +9,7 @@ const addHashToCurrentPage = (aHash) => {
 	window.location.hash = aHash;
 };
 
-const getURLForCriteria = (aCriteria) => {
+const getURLForCriteriaAndValue = (aCriteria, aCriteriaValue) => {
 	const backendRoot = Constants.BACKEND_SERVER_ROOT;
 	if (!backendRoot) {
 		console.error("BACKEND_SERVER_ROOT is undefined");
@@ -19,7 +19,10 @@ const getURLForCriteria = (aCriteria) => {
 	if (!jsonKey) {
 		return undefined;
 	}
-	return `${backendRoot}/${jsonKey}`;
+
+	var queryFilter = getQueryForCriteriaAndValue(aCriteria, aCriteriaValue);
+
+	return `${backendRoot}/${jsonKey}${queryFilter ? queryFilter : ""}`;
 };
 
-export { goToUrl, addHashToCurrentPage, getURLForCriteria };
+export { goToUrl, addHashToCurrentPage, getURLForCriteriaAndValue };

@@ -15,4 +15,24 @@ const getJSONKeyForCriteria = (aCriteria) => {
 	return undefined;
 };
 
-export { getJSONKeyForCriteria };
+const getQueryForCriteriaAndValue = (aCriteria, aCriteriaValue) => {
+	var queryFilter = undefined;
+	if (aCriteria === "Country") {
+		queryFilter = undefined;
+	}
+	if (aCriteria === "Location") {
+		queryFilter = "?country_id";
+	}
+	if (aCriteria === "Building") {
+		queryFilter = "?location_id";
+	}
+	if (aCriteria === "Room") {
+		queryFilter = "?building_id";
+	}
+	if (queryFilter) {
+		queryFilter = queryFilter + "=" + aCriteriaValue;
+	}
+	return queryFilter;
+};
+
+export { getJSONKeyForCriteria, getQueryForCriteriaAndValue };
