@@ -5,8 +5,7 @@ import { useParams } from "react-router-dom";
 import Table from "@mui/joy/Table";
 import Typography from "@mui/joy/Typography";
 
-import { addHashToCurrentPage, getURLForCriteria } from "../utils/URLHelper";
-import { getJSONKeyForCriteria } from "../utils/JSONHelper";
+import { addHashToCurrentPage, getURLForCriteriaAndValue } from "../utils/URLHelper";
 import { Skeleton } from "@mui/joy";
 import ErrorMessage from "./ErrorMessage";
 
@@ -26,10 +25,9 @@ function BaseCriteriaSelector({ criteria }) {
 
 	const loadData = async () => {
 		try {
-			const response = await fetch(getURLForCriteria(criteria));
+			const response = await fetch(getURLForCriteriaAndValue(criteria, criteriaValue));
 			const responseData = await response.json();
-			const jsonKey = getJSONKeyForCriteria(criteria);
-			setData(responseData["_embedded"][jsonKey]);
+			setData(responseData);
 		} catch (err) {
 			console.error({ error: err });
 			setErrorState({ error: err });
