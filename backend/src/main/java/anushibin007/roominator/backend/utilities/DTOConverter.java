@@ -1,18 +1,33 @@
 package anushibin007.roominator.backend.utilities;
 
-import anushibin007.roominator.backend.dtos.BuildingDTO;
-import anushibin007.roominator.backend.dtos.CountryDTO;
-import anushibin007.roominator.backend.dtos.LocationDTO;
-import anushibin007.roominator.backend.dtos.RoomDTO;
-import anushibin007.roominator.backend.models.Building;
-import anushibin007.roominator.backend.models.Country;
-import anushibin007.roominator.backend.models.Location;
-import anushibin007.roominator.backend.models.Room;
+import anushibin007.roominator.backend.dtos.*;
+import anushibin007.roominator.backend.models.*;
+import anushibin007.roominator.backend.repositories.BuildingRepository;
+import anushibin007.roominator.backend.repositories.BuildingViewRepository;
+import anushibin007.roominator.backend.repositories.CountryViewRepository;
+import anushibin007.roominator.backend.repositories.LocationViewRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class DTOConverter {
+
+    private static BuildingViewRepository buildingViewRepository;
+    private static LocationViewRepository locationViewRepository;
+    private static CountryViewRepository countryViewRepository;
+
+    @Autowired
+    public DTOConverter (BuildingViewRepository buildingViewRepository, LocationViewRepository locationViewRepository, CountryViewRepository countryViewRepository) {
+        this.buildingViewRepository = buildingViewRepository;
+        this.locationViewRepository = locationViewRepository;
+        this.countryViewRepository = countryViewRepository;
+    }
+
+
     public static CountryDTO convertCountryToDTO(Country country) {
         CountryDTO countryDTO = new CountryDTO();
         countryDTO.setName(country.getName());
@@ -88,6 +103,23 @@ public class DTOConverter {
             buildingDTOs.add(convertBuildingToDTO(building));
         }
         return buildingDTOs;
+    }
+
+    public static RoomViewDTO convertRoomDetailsViewToRoomViewDTO(RoomDetailsView roomDetailsView) {
+        RoomViewDTO roomViewDTO = new RoomViewDTO();
+        roomViewDTO.setId(roomDetailsView.getId());
+        roomViewDTO.setName(roomDetailsView.getName());
+
+
+        //country,location,
+        // building
+        //roomViewDTO.setBuilding(buildingViewRepository.findBuildingViewById(roomDetailsView.getBuildingId()));
+
+
+        roomViewDTO.setFloor(roomDetailsView.getFloor());
+        roomViewDTO.setCapacity(roomDetailsView.getCapacity());
+        roomViewDTO.setDirections(roomDetailsView.getDirections());
+        return roomViewDTO;
     }
 
 }
