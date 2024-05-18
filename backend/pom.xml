@@ -15,7 +15,7 @@
 	<name>Room-inator Backend</name>
 	<description>This is the Backend Service for Room-inator</description>
 	<properties>
-		<java.version>8</java.version>
+		<java.version>11</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -71,7 +71,6 @@
 				<configuration>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
-					<verbose>true</verbose>
 				</configuration>
 			</plugin>
 			<plugin>
