@@ -78,6 +78,10 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<!--<resources> <resource> <directory>src/main/resources</directory> <filtering>true</filtering> 
+			<excludes> -->
+		<!-- We exclude data.sql because we will pick it up from runtime manually -->
+		<!-- <exclude>**/data.sql</exclude> </excludes> </resource> </resources> -->
 	</build>
 
 </project>
