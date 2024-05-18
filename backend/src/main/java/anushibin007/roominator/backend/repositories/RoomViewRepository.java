@@ -11,12 +11,12 @@ import java.util.List;
 
 @Repository
 public interface RoomViewRepository extends JpaRepository<Room, String> {
-    @Query("SELECT r.id as id, r.name as name, r.building.id as buildingId FROM Room r")
+    @Query("SELECT r.id as id, r.name as name, r.building.id as buildingId, r.floor as floor, r.capacity as capacity  FROM Room r")
     List<RoomView> findAllRoomViews();
 
-    @Query("SELECT r.id as id, r.name as name, r.building.id as buildingId FROM Room r WHERE r.id= :id")
-    RoomView findRoomViewById(@Param("id") String id);
+//    @Query("SELECT r.id as id, r.name as name, r.building.id as buildingId, r.floor as floor, r.capacity as capacity  FROM Room r WHERE r.id= :id")
+//    RoomView findRoomViewById(@Param("id") String id);
 
-    @Query("SELECT r.id as id, r.name as name, r.building.id as buildingId FROM Room r WHERE r.building.id= :building")
+    @Query("SELECT r.id as id, r.name as name, r.building.id as buildingId, r.floor as floor, r.capacity as capacity FROM Room r WHERE r.building.id= :building")
     List<RoomView> findRoomViewsByBuildingId(@Param("building") String building);
 }
