@@ -15,7 +15,7 @@
 	<name>Room-inator Backend</name>
 	<description>This is the Backend Service for Room-inator</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -56,7 +56,8 @@
 
 	<build>
 		<plugins>
-			<!-- We are compiling for Java 8 only -->
+			<!-- We are compiling for a specific version of Java due to dependency 
+				versions being compiled on that higher version -->
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
