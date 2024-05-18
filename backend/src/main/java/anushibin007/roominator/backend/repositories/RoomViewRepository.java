@@ -1,7 +1,6 @@
 package anushibin007.roominator.backend.repositories;
 
 import anushibin007.roominator.backend.models.Room;
-import anushibin007.roominator.backend.models.RoomDetailsView;
 import anushibin007.roominator.backend.models.RoomView;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -17,10 +16,6 @@ public interface RoomViewRepository extends JpaRepository<Room, String> {
 
     @Query("SELECT r.id as id, r.name as name, r.building.id as buildingId FROM Room r WHERE r.id= :id")
     RoomView findRoomViewById(@Param("id") String id);
-
-
-    @Query("SELECT r.id as id, r.name as name, r.floor as floor, r.building.id as buildingId, r.capacity as capacity, r.directions as directions FROM Room r WHERE r.id= :id")
-    RoomDetailsView findRoomDetailsViewById(@Param("id") String id);
 
     @Query("SELECT r.id as id, r.name as name, r.building.id as buildingId FROM Room r WHERE r.building.id= :building")
     List<RoomView> findRoomViewsByBuildingId(@Param("building") String building);

@@ -105,21 +105,4 @@ public class DTOConverter {
         return buildingDTOs;
     }
 
-    public static RoomViewDTO convertRoomDetailsViewToRoomViewDTO(RoomDetailsView roomDetailsView) {
-        RoomViewDTO roomViewDTO = new RoomViewDTO();
-        roomViewDTO.setId(roomDetailsView.getId());
-        roomViewDTO.setName(roomDetailsView.getName());
-
-
-        //country,location,
-        // building
-        //roomViewDTO.setBuilding(buildingViewRepository.findBuildingViewById(roomDetailsView.getBuildingId()));
-
-
-        roomViewDTO.setFloor(roomDetailsView.getFloor());
-        roomViewDTO.setCapacity(roomDetailsView.getCapacity());
-        roomViewDTO.setDirections(roomDetailsView.getDirections());
-        return roomViewDTO;
-    }
-
 }

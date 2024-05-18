@@ -1,11 +1,8 @@
 package anushibin007.roominator.backend.services;
 
-import anushibin007.roominator.backend.dtos.RoomViewDTO;
-import anushibin007.roominator.backend.models.RoomDetailsView;
 import anushibin007.roominator.backend.models.RoomView;
 import anushibin007.roominator.backend.repositories.RoomViewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,13 +22,6 @@ public class RoomViewService {
 
     public RoomView getRoomViewById(String id) {
         return roomViewRepository.findRoomViewById(id);
-    }
-
-    public ResponseEntity<RoomViewDTO> getRoomDetailsViewById(String id) {
-        RoomDetailsView room = roomViewRepository.findRoomDetailsViewById(id);
-        return null;
-
-       // return ResponseEntity.ok();
     }
 
     public List<RoomView> getRoomsByBuildingId(String buildingId) {
