@@ -1,7 +1,5 @@
 // React
 import React, { useEffect, useState } from "react";
-// DB
-import RoomsService from "../service/RoomsService";
 // Internal components
 import SearchResultsRoot from "./SearchResultsRoot";
 import Header from "./Header";
@@ -23,7 +21,6 @@ function MainPage({ display }) {
 	};
 
 	useEffect(() => {
-		initiateDefaultRooms();
 		loadFromPersistentStorage();
 	}, []);
 
@@ -45,12 +42,6 @@ function MainPage({ display }) {
 		}
 	};
 
-	const initiateDefaultRooms = async () => {
-		const allRooms = await RoomsService.getAllRooms();
-		if (Array.isArray(allRooms)) {
-			setRooms(allRooms);
-		}
-	};
 	return (
 		<>
 			<Header
