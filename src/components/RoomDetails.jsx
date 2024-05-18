@@ -31,7 +31,7 @@ function RoomDetails({ room }) {
 										level="h4"
 										fontWeight="lg"
 									>
-										{room.name}
+										{room.roomName}
 									</Typography>
 								</Grid>
 							</Grid>
@@ -62,7 +62,7 @@ function RoomDetails({ room }) {
 								<Grid xs={12} sx={{ padding: 3 }}>
 									<Table>
 										<tbody>
-											{room.country && (
+											{room.countryName && (
 												<tr>
 													<td>
 														<Typography level="body-lg">
@@ -71,12 +71,12 @@ function RoomDetails({ room }) {
 													</td>
 													<td>
 														<Typography level="body-md">
-															{room.country}
+															{room.countryName}
 														</Typography>
 													</td>
 												</tr>
 											)}
-											{room.location && (
+											{room.locationName && (
 												<tr>
 													<td>
 														<Typography level="body-lg">
@@ -85,12 +85,12 @@ function RoomDetails({ room }) {
 													</td>
 													<td>
 														<Typography level="body-md">
-															{room.location}
+															{room.locationName}
 														</Typography>
 													</td>
 												</tr>
 											)}
-											{room.building && (
+											{room.buildingName && (
 												<tr>
 													<td>
 														<Typography level="body-lg">
@@ -99,7 +99,7 @@ function RoomDetails({ room }) {
 													</td>
 													<td>
 														<Typography level="body-md">
-															{room.building}
+															{room.buildingName}
 														</Typography>
 													</td>
 												</tr>
@@ -132,34 +132,38 @@ function RoomDetails({ room }) {
 													</td>
 												</tr>
 											)}
-											{room.whiteboard != undefined && (
-												<tr>
-													<td>
-														<Typography level="body-lg">
-															White Board
-														</Typography>
-													</td>
-													<td>
-														<Typography level="body-md">
-															{room.whiteboard ? "✅" : "❌"}
-														</Typography>
-													</td>
-												</tr>
-											)}
-											{room.projector != undefined && (
-												<tr>
-													<td>
-														<Typography level="body-lg">
-															Projector
-														</Typography>
-													</td>
-													<td>
-														<Typography level="body-md">
-															{room.projector ? "✅" : "❌"}
-														</Typography>
-													</td>
-												</tr>
-											)}
+											{room.stationery?.map((aStationery) => (
+												<>
+													{aStationery === "projector" && (
+														<tr>
+															<td>
+																<Typography level="body-lg">
+																	Projector
+																</Typography>
+															</td>
+															<td>
+																<Typography level="body-md">
+																	✅
+																</Typography>
+															</td>
+														</tr>
+													)}
+													{aStationery === "whiteboard" && (
+														<tr>
+															<td>
+																<Typography level="body-lg">
+																	White Board
+																</Typography>
+															</td>
+															<td>
+																<Typography level="body-md">
+																	✅
+																</Typography>
+															</td>
+														</tr>
+													)}
+												</>
+											))}
 											{room.directions && (
 												<>
 													<tr>
