@@ -153,8 +153,7 @@
 	"floor": 1,
 	"capacity": 100,
 	"images": null,
-	"whiteboard": null,
-	"projector": null,
+	"stationery": ["whiteboard", "projector"],
 	"directions": ["Room 1 Directions"]
 }
 ```
