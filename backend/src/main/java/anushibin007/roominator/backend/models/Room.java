@@ -25,7 +25,5 @@ public class Room {
 
 	//TODO: nullable attributes, move
 	private List<String> images;
-	private Boolean whiteboard;
-	private Boolean projector;
-
+	List<String> stationery;
 }
