@@ -15,7 +15,7 @@
 	<name>Room-inator Backend</name>
 	<description>This is the Backend Service for Room-inator</description>
 	<properties>
-		<java.version>17</java.version>
+		<java.version>8</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -60,6 +60,15 @@
 
 	<build>
 		<plugins>
+			<!-- We are compiling for Java 8 only -->
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<verbose>true</verbose>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
