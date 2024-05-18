@@ -94,7 +94,7 @@ function SearchResultsGridView({ rooms }) {
 												textColor="neutral.300"
 												mb={1}
 											>
-												{room.seats}
+												{room.capacity}
 											</NonOverflowingTypography>
 										</Grid>
 									</Grid>
