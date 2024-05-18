@@ -20,8 +20,8 @@ INSERT INTO BUILDING (LOCATION_ID, ID, NAME) VALUES ('BGLR', 'BGLR-B3', 'Buildin
 INSERT INTO BUILDING (LOCATION_ID, ID, NAME) VALUES ('PAR', 'PAR-B1', 'Paris Building 1');
 INSERT INTO BUILDING (LOCATION_ID, ID, NAME) VALUES ('STR', 'STR-B1', 'Strasbourg Building 1');
 
-INSERT INTO ROOM (FLOOR, CAPACITY, BUILDING_ID, ID, NAME, DIRECTIONS, IMAGES) VALUES ('1', '100', 'MUM-B1', 'BGLR-B1-ID1', 'Room 1', 'Room 1 Directions', ARRAY ['https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024']);
+INSERT INTO ROOM (FLOOR, CAPACITY, BUILDING_ID, ID, NAME, DIRECTIONS, IMAGES, STATIONERY) VALUES ('1', '100', 'MUM-B1', 'BGLR-B1-ID1', 'Room 1', 'Room 1 Directions', ARRAY ['https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024'], ARRAY ['whiteboard', 'projector']);
 
-INSERT INTO ROOM (FLOOR, CAPACITY, BUILDING_ID, ID, NAME, DIRECTIONS, IMAGES) VALUES ('1', '100', 'MUM-B2', 'BGLR-B2-ID1', 'Room 2', 'Room 2 Directions', ARRAY ['https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024']);
+INSERT INTO ROOM (FLOOR, CAPACITY, BUILDING_ID, ID, NAME, DIRECTIONS, IMAGES, STATIONERY) VALUES ('1', '100', 'MUM-B2', 'BGLR-B2-ID1', 'Room 2', 'Room 2 Directions', ARRAY ['https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024'], ARRAY ['whiteboard']);
 
-INSERT INTO ROOM (FLOOR, CAPACITY, BUILDING_ID, ID, NAME, DIRECTIONS, IMAGES) VALUES ('15', '100', 'PAR-B1', 'PAR-B1-ID1', 'Paris Building Room 1', 'Paris Building Room 1 Directions', ARRAY ['https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024']);
+INSERT INTO ROOM (FLOOR, CAPACITY, BUILDING_ID, ID, NAME, DIRECTIONS, IMAGES, STATIONERY) VALUES ('15', '100', 'PAR-B1', 'PAR-B1-ID1', 'Paris Building Room 1', 'Paris Building Room 1 Directions', ARRAY ['https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024'], ARRAY ['projector']);
