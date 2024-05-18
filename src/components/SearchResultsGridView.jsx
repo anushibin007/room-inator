@@ -5,8 +5,6 @@ import { Grid } from "@mui/joy";
 import Card from "@mui/joy/Card";
 import CardCover from "@mui/joy/CardCover";
 import CardContent from "@mui/joy/CardContent";
-import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
-import BusinessIcon from "@mui/icons-material/Business";
 import StairsIcon from "@mui/icons-material/Stairs";
 import PeopleIcon from "@mui/icons-material/People";
 import Typography from "@mui/joy/Typography";
