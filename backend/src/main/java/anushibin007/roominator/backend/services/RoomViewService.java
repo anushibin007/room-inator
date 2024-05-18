@@ -15,11 +15,11 @@ import java.util.List;
 public class RoomViewService {
     private RoomViewRepository roomViewRepository;
     private EntityManager entityManager;
-    private final String query = "SELECT r.id AS roomId, r.name AS roomName, b.id AS buildingId, b.name AS buildingName, l.id AS  locationId, l.name AS locationName, c.id AS countryId, c.name AS countryName, r.directions as directions \n" +
-            "FROM room r \n" +
-            "INNER JOIN building b ON r.building_id = b.id\n" +
-            "INNER JOIN location l ON b.location_id = l.id \n" +
-            "INNER JOIN country c ON l.country_id = c.id \n" +
+    private final String query = "SELECT r.id AS roomId, r.name AS roomName, r.floor AS floorId, r.capacity as capacity, b.id AS buildingId, b.name AS buildingName, l.id AS  locationId, l.name AS locationName, c.id AS countryId, c.name AS countryName, r.directions as directions, r.stationery as stationery, r.images as images " +
+            "FROM room r " +
+            "INNER JOIN building b ON r.building_id = b.id " +
+            "INNER JOIN location l ON b.location_id = l.id " +
+            "INNER JOIN country c ON l.country_id = c.id " +
             "WHERE r.id = '%s'";
 
     @Autowired
@@ -32,21 +32,16 @@ public class RoomViewService {
         return roomViewRepository.findAllRoomViews();
     }
 
-    public RoomView getRoomViewById(String id) {
-        return roomViewRepository.findRoomViewById(id);
-    }
-
     public List<RoomView> getRoomsByBuildingId(String buildingId) {
         return roomViewRepository.findRoomViewsByBuildingId(buildingId);
     }
 
-    public RoomDetailsViewDTO getRoomDetailsViewDTO(String roomId) throws JsonProcessingException, EntityNotFoundException {
+    public RoomDetailsViewDTO getRoomDetailsViewDTO(String roomId) throws EntityNotFoundException {
         String q = String.format(query, roomId);
         List result =
                 entityManager.createNativeQuery(q, "RoomDetailsViewDTOMapping").getResultList();
         if(result.size() == 0)
             throw new EntityNotFoundException("Room with ID: " + roomId + " does not exist");
         return (RoomDetailsViewDTO) result.get(0);
-       // return JSONConverter.getJSON(result.get(0));
     }
 }

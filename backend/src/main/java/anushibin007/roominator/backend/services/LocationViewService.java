@@ -1,8 +1,6 @@
 package anushibin007.roominator.backend.services;
 
-import anushibin007.roominator.backend.models.Location;
 import anushibin007.roominator.backend.models.LocationView;
-import anushibin007.roominator.backend.repositories.LocationRepository;
 import anushibin007.roominator.backend.repositories.LocationViewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

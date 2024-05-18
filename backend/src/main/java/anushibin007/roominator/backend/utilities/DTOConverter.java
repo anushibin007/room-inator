@@ -1,13 +1,17 @@
 package anushibin007.roominator.backend.utilities;
 
-import anushibin007.roominator.backend.dtos.*;
-import anushibin007.roominator.backend.models.*;
-import anushibin007.roominator.backend.repositories.BuildingRepository;
+import anushibin007.roominator.backend.dtos.BuildingDTO;
+import anushibin007.roominator.backend.dtos.CountryDTO;
+import anushibin007.roominator.backend.dtos.LocationDTO;
+import anushibin007.roominator.backend.dtos.RoomDTO;
+import anushibin007.roominator.backend.models.Building;
+import anushibin007.roominator.backend.models.Country;
+import anushibin007.roominator.backend.models.Location;
+import anushibin007.roominator.backend.models.Room;
 import anushibin007.roominator.backend.repositories.BuildingViewRepository;
 import anushibin007.roominator.backend.repositories.CountryViewRepository;
 import anushibin007.roominator.backend.repositories.LocationViewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

@@ -3,7 +3,6 @@ package anushibin007.roominator.backend.models;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.FetchMode;
 
 import java.util.List;
 
