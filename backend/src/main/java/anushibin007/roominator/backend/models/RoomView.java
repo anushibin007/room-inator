@@ -4,4 +4,6 @@ public interface RoomView {
     String getId();
     String getName();
     String getBuildingId();
+    Integer getFloor();
+    Integer getCapacity();
 }
