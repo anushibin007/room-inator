@@ -147,8 +147,10 @@
 {
 	"id": "MUM-B1-R1",
 	"name": "Room 1",
-	"building": { "id": "MUM-B1", "name": "Building 1" },
-	"location": { "id": "MUM", "name": "Mumbai" },
+	"buildingId": "MUM-B1",
+	"buildingName": "Building 1",
+	"locationId": "MUM",
+	"locationName": "Mumbai",
 	"country": { "id": "IN", "name": "India" },
 	"floor": 1,
 	"capacity": 100,
