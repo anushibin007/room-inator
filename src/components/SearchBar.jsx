@@ -26,7 +26,7 @@ function SearchBar({ rooms, setRooms }) {
 		<>
 			<Input
 				size="sm"
-				placeholder="Search by Room Name"
+				placeholder="Room name search"
 				aria-label="Search for rooms by Room Name"
 				value={searchInput}
 				onChange={handleSearchInputChange}
