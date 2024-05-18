@@ -1,11 +1,10 @@
 // React
-import React, { useEffect, useState } from "react";
+import React from "react";
 // MUI
 import Table from "@mui/joy/Table";
 import Typography from "@mui/joy/Typography";
 
 import { addHashToCurrentPage } from "../utils/URLHelper";
-import Constants from "../utils/Constants";
 
 function SearchResultsListView({ rooms, buildingData }) {
 	const openRoom = (aRoom, e) => {
