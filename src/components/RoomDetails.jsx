@@ -132,8 +132,8 @@ function RoomDetails({ room }) {
 													</td>
 												</tr>
 											)}
-											{room.stationery?.map((aStationery) => (
-												<>
+											{room.stationery?.map((aStationery, index) => (
+												<React.Fragment key={index}>
 													{aStationery === "projector" && (
 														<tr>
 															<td>
@@ -162,7 +162,7 @@ function RoomDetails({ room }) {
 															</td>
 														</tr>
 													)}
-												</>
+												</React.Fragment>
 											))}
 											{room.directions && (
 												<>
