@@ -1,12 +1,29 @@
 // React
-import React from "react";
+import React, { useEffect, useState } from "react";
 // MUI
 import Table from "@mui/joy/Table";
 import Typography from "@mui/joy/Typography";
 
 import { addHashToCurrentPage } from "../utils/URLHelper";
+import Constants from "../utils/Constants";
 
 function SearchResultsListView({ rooms }) {
+	const [buildingData, setBuildingData] = useState(undefined);
+
+	useEffect(() => {
+		if (rooms && rooms[0]) {
+			loadBuildingData(rooms[0].buildingId);
+		}
+	}, [rooms]);
+
+	const loadBuildingData = async (aBuildingId) => {
+		const response = await fetch(
+			`${Constants.BACKEND_SERVER_ROOT}/buildings-details/${aBuildingId}`
+		);
+		const responseData = await response.json();
+		setBuildingData(responseData);
+	};
+
 	const openRoom = (aRoom, e) => {
 		if (typeof aRoom === "object") {
 			// There is a double redirect happening
@@ -25,7 +42,7 @@ function SearchResultsListView({ rooms }) {
 			{rooms && rooms.length > 0 && (
 				<>
 					<Typography id="modal-title" level="title-md" my={1}>
-						Please pick a Room
+						Pick a room {buildingData && <>from {buildingData.name}</>}
 					</Typography>
 					<Table hoverRow>
 						<thead>
