@@ -86,6 +86,7 @@ function BaseCriteriaSelector({ criteria }) {
 						}
 						Please pick a {criteria} {criteriaValue && <>for {criteriaValue}</>}
 					</Typography>
+					<Typography level="body-xs">Total count: {data.length}</Typography>
 					<Table hoverRow>
 						<thead>
 							<tr>

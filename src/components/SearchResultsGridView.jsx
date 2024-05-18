@@ -34,11 +34,16 @@ function SearchResultsGridView({ rooms, buildingData }) {
 	return (
 		<>
 			<Grid container id="search-results-wrapper" marginTop={1} xs={12}>
-				<Grid xs={12}>
-					<Typography id="modal-title" level="title-md" my={1}>
-						Pick a room {buildingData && <>from {buildingData.name}</>}
-					</Typography>
-				</Grid>
+				{rooms && rooms.length && (
+					<>
+						<Grid xs={12}>
+							<Typography level="title-md" mt={1}>
+								Pick a room {buildingData && <>from {buildingData.name}</>}
+							</Typography>
+							<Typography level="body-xs">Total rooms: {rooms.length}</Typography>
+						</Grid>
+					</>
+				)}
 				{rooms?.map((room) => (
 					<Grid
 						key={room.id}

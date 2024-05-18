@@ -24,9 +24,10 @@ function SearchResultsListView({ rooms, buildingData }) {
 		<>
 			{rooms && rooms.length > 0 && (
 				<>
-					<Typography id="modal-title" level="title-md" my={1}>
+					<Typography level="title-md" mt={1}>
 						Pick a room {buildingData && <>from {buildingData.name}</>}
 					</Typography>
+					<Typography level="body-xs">Total rooms: {rooms.length}</Typography>
 					<Table hoverRow>
 						<thead>
 							<tr>
