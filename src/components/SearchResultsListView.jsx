@@ -31,8 +31,6 @@ function SearchResultsListView({ rooms }) {
 						<thead>
 							<tr>
 								<th>Room Name</th>
-								<th>Location</th>
-								<th>Building</th>
 								<th>Floor</th>
 								<th>Seating Capacity</th>
 							</tr>
@@ -43,8 +41,6 @@ function SearchResultsListView({ rooms }) {
 									<td>
 										<a href={`#room/${aRoom.id}`}>{aRoom.name}</a>
 									</td>
-									<td>{aRoom.location}</td>
-									<td>{aRoom.building}</td>
 									<td>{aRoom.floor}</td>
 									<td>{aRoom.seats}</td>
 								</tr>

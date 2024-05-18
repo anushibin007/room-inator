@@ -85,22 +85,6 @@ function SearchResultsGridView({ rooms }) {
 										</Grid>
 										<Grid xs={6}>
 											<NonOverflowingTypography
-												startDecorator={<LocationOnRoundedIcon />}
-												textColor="neutral.300"
-												mb={1}
-											>
-												{room.location}
-											</NonOverflowingTypography>
-										</Grid>
-										<Grid xs={6}>
-											<NonOverflowingTypography
-												startDecorator={<BusinessIcon />}
-											>
-												{room.building}
-											</NonOverflowingTypography>
-										</Grid>
-										<Grid xs={6}>
-											<NonOverflowingTypography
 												startDecorator={<StairsIcon />}
 											>
 												{room.floor}
