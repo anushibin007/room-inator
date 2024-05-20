@@ -128,7 +128,7 @@ function RoomDetails({ room }) {
 												<tr>
 													<td>
 														<Typography level="body-lg">
-															Floor
+															Floor number
 														</Typography>
 													</td>
 													<td>
@@ -142,7 +142,7 @@ function RoomDetails({ room }) {
 												<tr>
 													<td>
 														<Typography level="body-lg">
-															Seating Capacity
+															Seating capacity
 														</Typography>
 													</td>
 													<td>
@@ -194,7 +194,7 @@ function RoomDetails({ room }) {
 															}}
 														>
 															<Typography level="body-lg">
-																Directions
+																Directions to the room
 															</Typography>
 														</td>
 													</tr>
