@@ -92,6 +92,9 @@ function BaseCriteriaSelector({ criteria }) {
 								Please pick a {criteria} {criteriaValue && <>for {criteriaValue}</>}
 							</Typography>
 						</Grid>
+						{
+							// TODO: Add Breadcrumbs to the base pickers as well
+						}
 						<Grid xs={12}>
 							<Typography level="body-xs">Total count: {data.length}</Typography>
 						</Grid>
