@@ -6,8 +6,9 @@ import Table from "@mui/joy/Table";
 import Typography from "@mui/joy/Typography";
 
 import { addHashToCurrentPage, getURLForCriteriaAndValue } from "../utils/URLHelper";
-import { Skeleton } from "@mui/joy";
+import { Container, Grid, Skeleton } from "@mui/joy";
 import ErrorMessage from "./ErrorMessage";
+import BackButton from "./BackButton";
 
 /**
  * This class is a common class to select Country, Location and Building
@@ -78,16 +79,23 @@ function BaseCriteriaSelector({ criteria }) {
 				</>
 			)}
 			{!errorState && data && data.length > 0 && (
-				<>
-					<Typography id="modal-title" level="title-md" my={1}>
-						{
-							// TODO: The criteriaValue below should be
-							// extracted into a proper value like India instead of IN.
-							<></>
-						}
-						Please pick a {criteria} {criteriaValue && <>for {criteriaValue}</>}
-					</Typography>
-					<Typography level="body-xs">Total count: {data.length}</Typography>
+				<Container>
+					<Grid container>
+						<Grid mr={1}>{criteria != "Country" && <BackButton />}</Grid>
+						<Grid>
+							<Typography id="modal-title" level="title-md" my={1}>
+								{
+									// TODO: The criteriaValue below should be
+									// extracted into a proper value like India instead of IN.
+									<></>
+								}
+								Please pick a {criteria} {criteriaValue && <>for {criteriaValue}</>}
+							</Typography>
+						</Grid>
+						<Grid xs={12}>
+							<Typography level="body-xs">Total count: {data.length}</Typography>
+						</Grid>
+					</Grid>
 					<Table hoverRow>
 						<thead>
 							<tr>
@@ -108,7 +116,7 @@ function BaseCriteriaSelector({ criteria }) {
 							))}
 						</tbody>
 					</Table>
-				</>
+				</Container>
 			)}
 			{!errorState && !data && (
 				<>
