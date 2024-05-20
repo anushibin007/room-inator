@@ -1,15 +1,21 @@
-import { Button } from "@mui/joy";
+import { Button, Link } from "@mui/joy";
 import React from "react";
 
-const BackButton = () => {
-	const handleClick = () => {
+const BackButton = ({ href }) => {
+	const handleClick = (event) => {
+		if (href) {
+			return;
+		}
+		event.preventDefault();
 		history.back();
 	};
 
 	return (
-		<Button variant="plain" onClick={handleClick}>
-			&#8592;
-		</Button>
+		<>
+			<Link underline="none" href={href} onClick={handleClick}>
+				<Button variant="plain">&#8592;</Button>
+			</Link>
+		</>
 	);
 };
 
