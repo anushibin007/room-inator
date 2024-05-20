@@ -46,7 +46,7 @@ function Header({ rooms, setRooms, darkMode, toggleDarkMode, simpleMode, viewMod
 				padding={2}
 				className="header"
 			>
-				<Grid xs={12} md={7}>
+				<Grid xs={4} md={3}>
 					<Grid container xs={12}>
 						<Grid>
 							<Typography
@@ -66,7 +66,7 @@ function Header({ rooms, setRooms, darkMode, toggleDarkMode, simpleMode, viewMod
 					/* We don't need the search functionality when Simple Mode is turned ON */
 					!simpleMode && (
 						<>
-							<Grid xs={6} md={2}>
+							<Grid xs={8} md={9}>
 								<Grid
 									container
 									direction="row"
@@ -79,6 +79,7 @@ function Header({ rooms, setRooms, darkMode, toggleDarkMode, simpleMode, viewMod
 										<IconButton
 											onClick={toggleAdvancedSearch}
 											title="Advanced filters"
+											size="sm"
 										>
 											<FilterAltIcon />
 										</IconButton>
@@ -88,21 +89,23 @@ function Header({ rooms, setRooms, darkMode, toggleDarkMode, simpleMode, viewMod
 											<IconButton
 												variant={viewMode === "grid" ? `solid` : ""}
 												onClick={setGridViewMode}
+												size="sm"
 											>
 												<WindowIcon />
 											</IconButton>
 											<IconButton
 												variant={viewMode === "list" ? `solid` : ""}
 												onClick={setListViewMode}
+												size="sm"
 											>
 												<ListIcon />
 											</IconButton>
 										</ButtonGroup>
 									</Grid>
+									<Grid xs={6} md={4} ml={1}>
+										{<SearchBar rooms={rooms} setRooms={setRooms} />}
+									</Grid>
 								</Grid>
-							</Grid>
-							<Grid xs={6} md={3}>
-								{<SearchBar rooms={rooms} setRooms={setRooms} />}
 							</Grid>
 						</>
 					)

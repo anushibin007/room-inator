@@ -1,7 +1,7 @@
 import Constants from "../utils/Constants";
 
 const dataJSON = `${Constants.BASE_PATH}RoomsDB.json?cacheKey=${Constants.BUILD_NUMBER}`;
-
+//TODO: Delete this class later
 class RoomsService {
 	Rooms = null;
 

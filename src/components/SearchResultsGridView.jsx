@@ -5,8 +5,6 @@ import { Grid } from "@mui/joy";
 import Card from "@mui/joy/Card";
 import CardCover from "@mui/joy/CardCover";
 import CardContent from "@mui/joy/CardContent";
-import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
-import BusinessIcon from "@mui/icons-material/Business";
 import StairsIcon from "@mui/icons-material/Stairs";
 import PeopleIcon from "@mui/icons-material/People";
 import Typography from "@mui/joy/Typography";
@@ -14,7 +12,7 @@ import Typography from "@mui/joy/Typography";
 import NonOverflowingTypography from "./customcomponent/NonOverflowingTypography";
 import { addHashToCurrentPage } from "../utils/URLHelper";
 
-function SearchResultsGridView({ rooms, darkMode, viewMode }) {
+function SearchResultsGridView({ rooms, buildingData }) {
 	/**
 	 * Function to show the Modal
 	 * @param {*} aRoom The room whose detail needs to be shown in the Modal
@@ -36,6 +34,16 @@ function SearchResultsGridView({ rooms, darkMode, viewMode }) {
 	return (
 		<>
 			<Grid container id="search-results-wrapper" marginTop={1} xs={12}>
+				{rooms && rooms.length && (
+					<>
+						<Grid xs={12}>
+							<Typography level="title-md" mt={1}>
+								Pick a room {buildingData && <>from {buildingData.name}</>}
+							</Typography>
+							<Typography level="body-xs">Total rooms: {rooms.length}</Typography>
+						</Grid>
+					</>
+				)}
 				{rooms?.map((room) => (
 					<Grid
 						key={room.id}
@@ -56,11 +64,11 @@ function SearchResultsGridView({ rooms, darkMode, viewMode }) {
 								onClick={() => openRoom(room)}
 								sx={{ height: "250px", div: { cursor: "pointer" } }}
 							>
-								{room.i && (
+								{room.images && (
 									<>
 										<CardCover>
 											<img
-												src={`${room.i[0]}?random=${room.id}`}
+												src={`${room.images[0]}?random=${room.id}`}
 												loading="lazy"
 											/>
 										</CardCover>
@@ -80,30 +88,14 @@ function SearchResultsGridView({ rooms, darkMode, viewMode }) {
 												textColor="#fff"
 												mb={1}
 											>
-												{room.n}
-											</NonOverflowingTypography>
-										</Grid>
-										<Grid xs={6}>
-											<NonOverflowingTypography
-												startDecorator={<LocationOnRoundedIcon />}
-												textColor="neutral.300"
-												mb={1}
-											>
-												{room.l}
-											</NonOverflowingTypography>
-										</Grid>
-										<Grid xs={6}>
-											<NonOverflowingTypography
-												startDecorator={<BusinessIcon />}
-											>
-												{room.b}
+												{room.name}
 											</NonOverflowingTypography>
 										</Grid>
 										<Grid xs={6}>
 											<NonOverflowingTypography
 												startDecorator={<StairsIcon />}
 											>
-												{room.f}
+												{room.floor}
 											</NonOverflowingTypography>
 										</Grid>
 										<Grid xs={6}>
@@ -112,7 +104,7 @@ function SearchResultsGridView({ rooms, darkMode, viewMode }) {
 												textColor="neutral.300"
 												mb={1}
 											>
-												{room.s}
+												{room.capacity}
 											</NonOverflowingTypography>
 										</Grid>
 									</Grid>
