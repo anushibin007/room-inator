@@ -1,21 +1,16 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { Button } from "@mui/joy";
+import React from "react";
 
 const BackButton = () => {
-  const location = useLocation();
+	const handleClick = () => {
+		history.back();
+	};
 
-  const handleClick = () => {
-    const { protocol, hostname, port, pathname } = window.location;
-    const domain = `${protocol}//${hostname}${port ? `:${port}` : ''}`;
-    const newUrl = `${domain}/room-inator/`;
-    window.location.href = newUrl;
-  };
-
-  return (
-    <button className="back-button" onClick={handleClick}>
-      &#8592; Go back
-    </button>
-  );
+	return (
+		<Button variant="outlined" onClick={handleClick}>
+			&#8592;
+		</Button>
+	);
 };
 
 export default BackButton;

@@ -25,13 +25,11 @@ function RoomDetails({ room }) {
 					<>
 						<Grid container xs={12}>
 							<Grid container xs={12} sx={{ marginTop: 1, marginBottom: 1 }}>
-								<Grid xs={12}>
-									<Typography
-										component="h2"
-										id="modal-title"
-										level="h4"
-										fontWeight="lg"
-									>
+								<Grid xs={1}>
+									<BackButton />
+								</Grid>
+								<Grid xs={11}>
+									<Typography component="h2" level="h4" fontWeight="lg">
 										{room.roomName}
 									</Typography>
 								</Grid>
@@ -201,7 +199,6 @@ function RoomDetails({ room }) {
 						No such room!
 					</Typography>
 				)}
-				<BackButton/>
 			</Container>
 			<Grid container>
 				<Footer />
