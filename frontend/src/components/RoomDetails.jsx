@@ -14,7 +14,7 @@ function RoomDetails({ room }) {
 
 	const updatePageTitle = () => {
 		if (room && Object.keys(room).length > 0) {
-			document.title = `${room.name} - room-inator`;
+			document.title = `${room.roomName} - room-inator`;
 		}
 	};
 	return (
