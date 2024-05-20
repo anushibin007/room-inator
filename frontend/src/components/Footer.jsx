@@ -1,27 +1,27 @@
+import Link from "@mui/joy/Link";
 import Typography from "@mui/joy/Typography";
 import Constants from "../utils/Constants";
 import Spacer from "./Spacer";
+import AboutUs from "./AboutUs";
+import { useState } from "react";
 
 function Footer() {
+	const [openAboutUs, setOpenAboutUs] = useState(false);
 	return (
 		<>
 			<Spacer spacerForClass="footer" />
 			<div className="footer">
 				<Typography color="neutral" level="body-xs" sx={{ fontStyle: "italic" }}>
-					A side project by{" "}
-					<a href="https://www.linkedin.com/in/anushibinj/" target="_blank">
-						Shibin
-					</a>
-					{" & "}
-					<a href="https://www.linkedin.com/in/divyamahankali29/" target="_blank">
-						Divya
-					</a>{" "}
-					// Contribute on{" "}
-					<a href="https://github.com/anushibin007/room-inator" target="_blank">
-						GitHub
-					</a>{" "}
-					// Version: {Constants.BUILD_NUMBER}
+					Version: {Constants.BUILD_NUMBER} //{" "}
+					<Link
+						onClick={() => {
+							setOpenAboutUs(true);
+						}}
+					>
+						About us
+					</Link>
 				</Typography>
+				<AboutUs open={openAboutUs} setOpen={setOpenAboutUs} />
 			</div>
 		</>
 	);
