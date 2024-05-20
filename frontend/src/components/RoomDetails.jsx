@@ -82,48 +82,6 @@ function RoomDetails({ room }) {
 								<Grid xs={12} sx={{ padding: 3 }}>
 									<Table>
 										<tbody>
-											{room.countryName && (
-												<tr>
-													<td>
-														<Typography level="body-lg">
-															Country
-														</Typography>
-													</td>
-													<td>
-														<Typography level="body-md">
-															{room.countryName}
-														</Typography>
-													</td>
-												</tr>
-											)}
-											{room.locationName && (
-												<tr>
-													<td>
-														<Typography level="body-lg">
-															Location
-														</Typography>
-													</td>
-													<td>
-														<Typography level="body-md">
-															{room.locationName}
-														</Typography>
-													</td>
-												</tr>
-											)}
-											{room.buildingName && (
-												<tr>
-													<td>
-														<Typography level="body-lg">
-															Building
-														</Typography>
-													</td>
-													<td>
-														<Typography level="body-md">
-															{room.buildingName}
-														</Typography>
-													</td>
-												</tr>
-											)}
 											{room.floor && (
 												<tr>
 													<td>
