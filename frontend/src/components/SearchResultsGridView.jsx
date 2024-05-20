@@ -11,6 +11,7 @@ import Typography from "@mui/joy/Typography";
 
 import NonOverflowingTypography from "./customcomponent/NonOverflowingTypography";
 import { addHashToCurrentPage } from "../utils/URLHelper";
+import Constants from "../utils/Constants";
 
 function SearchResultsGridView({ rooms, buildingData }) {
 	/**
@@ -69,6 +70,16 @@ function SearchResultsGridView({ rooms, buildingData }) {
 										<CardCover>
 											<img
 												src={`${room.images[0]}?random=${room.id}`}
+												loading="lazy"
+											/>
+										</CardCover>
+									</>
+								)}
+								{!room.images && (
+									<>
+										<CardCover>
+											<img
+												src={`${Constants.IMAGE_PLACEHOLDER_URL}`}
 												loading="lazy"
 											/>
 										</CardCover>
