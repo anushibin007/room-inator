@@ -32,6 +32,7 @@ export default function AboutUs({ open, setOpen }) {
 										<Link
 											href="https://www.linkedin.com/in/anushibinj/"
 											target="_blank"
+											underline="always"
 										>
 											<Typography level="body-md">
 												Anu Shibin Joseph Raj
@@ -51,6 +52,7 @@ export default function AboutUs({ open, setOpen }) {
 										<Link
 											href="https://www.linkedin.com/in/divyamahankali29/"
 											target="_blank"
+											underline="always"
 										>
 											<Typography level="body-md">Divya Mahankali</Typography>
 										</Link>{" "}
@@ -63,12 +65,13 @@ export default function AboutUs({ open, setOpen }) {
 							<Grid xs={12}>
 								<Typography color="neutral" level="body-sm">
 									Contribute on{" "}
-									<a
+									<Link
 										href="https://github.com/anushibin007/room-inator"
 										target="_blank"
+										underline="always"
 									>
 										GitHub
-									</a>
+									</Link>
 								</Typography>
 							</Grid>
 						</Grid>
