@@ -8,11 +8,15 @@ function Footer() {
 			<Spacer spacerForClass="footer" />
 			<div className="footer">
 				<Typography color="neutral" level="body-xs" sx={{ fontStyle: "italic" }}>
-					An{" "}
-					<a href="https://github.com/anushibin007" target="_blank">
-						anushibin007
+					A side project by{" "}
+					<a href="https://www.linkedin.com/in/anushibinj/" target="_blank">
+						Shibin
+					</a>
+					{" & "}
+					<a href="https://www.linkedin.com/in/divyamahankali29/" target="_blank">
+						Divya
 					</a>{" "}
-					Side Project // Contribute on{" "}
+					// Contribute on{" "}
 					<a href="https://github.com/anushibin007/room-inator" target="_blank">
 						GitHub
 					</a>{" "}
