@@ -4,6 +4,9 @@ import React from "react";
 const BackButton = ({ href }) => {
 	const handleClick = (event) => {
 		if (href) {
+			// If we have a link to redirect to,
+			// then don't bother calling the JS
+			// function below
 			return;
 		}
 		event.preventDefault();
