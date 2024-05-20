@@ -38,7 +38,8 @@ function BaseCriteriaSelector({ criteria }) {
 		// If there is only one row of data,
 		// just open it directly
 		if (data && data.length == 1) {
-			openItem(data[0].id);
+			// TODO: Don't make this primary
+			// openItem(data[0].id);
 		}
 	}, [data]);
 
