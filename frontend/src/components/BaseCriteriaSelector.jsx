@@ -84,12 +84,7 @@ function BaseCriteriaSelector({ criteria }) {
 						<Grid mr={1}>{criteria != "Country" && <BackButton />}</Grid>
 						<Grid>
 							<Typography id="modal-title" level="title-md" my={1}>
-								{
-									// TODO: The criteriaValue below should be
-									// extracted into a proper value like India instead of IN.
-									<></>
-								}
-								Please pick a {criteria} {criteriaValue && <>for {criteriaValue}</>}
+								Please pick a {criteria}
 							</Typography>
 						</Grid>
 						{
