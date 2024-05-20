@@ -1,7 +1,7 @@
 // React
 import React from "react";
 // MUI
-import { Grid } from "@mui/joy";
+import { Container, Grid } from "@mui/joy";
 import Card from "@mui/joy/Card";
 import CardCover from "@mui/joy/CardCover";
 import CardContent from "@mui/joy/CardContent";
@@ -33,7 +33,7 @@ function SearchResultsGridView({ rooms, buildingData }) {
 	};
 
 	return (
-		<>
+		<Container>
 			<Grid container id="search-results-wrapper" marginTop={1} xs={12}>
 				{rooms && rooms.length && (
 					<>
@@ -130,7 +130,7 @@ function SearchResultsGridView({ rooms, buildingData }) {
 					</Typography>
 				)}
 			</Grid>
-		</>
+		</Container>
 	);
 }
 
