@@ -1,0 +1,19 @@
+name: Docker Image CI
+
+on:
+    push:
+        branches: [master]
+    pull_request:
+        branches: [master]
+    workflow_dispatch:
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+            - name: Build the Docker image
+              run: docker build ./backend --file ./backend/Dockerfile --tag anushibin007/room-inator-backend:latest
+            - name: Push the Docker image
+              run: docker login -u ijn35807 -p ${{ secrets.DOCKER_TOKEN }} && docker push anushibin007/room-inator-backend:latest
