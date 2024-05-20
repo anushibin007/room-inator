@@ -1,9 +1,10 @@
 // MUI
-import { Container, Grid, Table, Typography } from "@mui/joy";
+import { Breadcrumbs, Container, Grid, Link, Table, Typography } from "@mui/joy";
 import React, { useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import BackButton from "./BackButton";
+import Constants from "../utils/Constants";
 
 function RoomDetails({ room }) {
 	useEffect(() => {
@@ -29,9 +30,29 @@ function RoomDetails({ room }) {
 									<BackButton />
 								</Grid>
 								<Grid xs={11}>
-									<Typography component="h2" level="h4" fontWeight="lg">
-										{room.roomName}
-									</Typography>
+									<Breadcrumbs aria-label="breadcrumb">
+										<Link underline="hover" href={Constants.BASE_PATH}>
+											Home
+										</Link>
+										<Link underline="hover" href={`#country/${room.countryId}`}>
+											{room.countryName}
+										</Link>
+										<Link
+											underline="hover"
+											href={`#location/${room.locationId}`}
+										>
+											{room.locationName}
+										</Link>
+										<Link
+											underline="hover"
+											href={`#building/${room.buildingId}`}
+										>
+											{room.buildingName}
+										</Link>
+										<Typography color="text.primary">
+											{room.roomName}
+										</Typography>
+									</Breadcrumbs>
 								</Grid>
 							</Grid>
 							{room.images && (
