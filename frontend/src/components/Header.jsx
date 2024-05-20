@@ -1,33 +1,20 @@
 // MUI
 import Grid from "@mui/joy/Grid";
 
-// toast
-import { toast } from "react-toastify";
-
 // Bootstrap
 import SearchBar from "./SearchBar";
 import Constants from "../utils/Constants";
 import Typography from "@mui/joy/Typography";
-import Button from "@mui/joy/Button";
 import ButtonGroup from "@mui/joy/ButtonGroup";
 import IconButton from "@mui/joy/IconButton";
 import ListIcon from "@mui/icons-material/List";
 import WindowIcon from "@mui/icons-material/Window";
 import MeetingRoomIcon from "@mui/icons-material/MeetingRoom";
-import FilterAltIcon from "@mui/icons-material/FilterAlt";
-import { useState } from "react";
-import AdvancedSearch from "./AdvancedSearch";
 
 import { goToUrl } from "../utils/URLHelper";
 import Spacer from "./Spacer";
 
 function Header({ rooms, setRooms, darkMode, toggleDarkMode, simpleMode, viewMode, setViewMode }) {
-	const [advancedSeachOpen, setAdvancedSearchOpen] = useState(false);
-	const toggleAdvancedSearch = () => {
-		// setAdvancedSearchOpen(!advancedSeachOpen)
-		toast("👨‍🔬 Feature still under development");
-	};
-
 	const setGridViewMode = () => {
 		setViewMode("grid");
 	};
@@ -76,15 +63,6 @@ function Header({ rooms, setRooms, darkMode, toggleDarkMode, simpleMode, viewMod
 									paddingRight={2}
 								>
 									<Grid>
-										<IconButton
-											onClick={toggleAdvancedSearch}
-											title="Advanced filters"
-											size="sm"
-										>
-											<FilterAltIcon />
-										</IconButton>
-									</Grid>
-									<Grid>
 										<ButtonGroup aria-label="outlined primary button group">
 											<IconButton
 												variant={viewMode === "grid" ? `solid` : ""}
@@ -111,10 +89,6 @@ function Header({ rooms, setRooms, darkMode, toggleDarkMode, simpleMode, viewMod
 					)
 				}
 			</Grid>
-			<AdvancedSearch
-				advancedSeachOpen={advancedSeachOpen}
-				toggleModal={toggleAdvancedSearch}
-			/>
 			<Spacer spacerForClass="header" />
 		</>
 	);
