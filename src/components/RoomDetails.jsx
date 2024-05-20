@@ -3,6 +3,7 @@ import { Container, Grid, Table, Typography } from "@mui/joy";
 import React, { useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import BackButton from "./BackButton";
 
 function RoomDetails(props) {
 	const room = props.room;
@@ -196,6 +197,7 @@ function RoomDetails(props) {
 						No such room!
 					</Typography>
 				)}
+				<BackButton/>
 			</Container>
 			<Grid container>
 				<Footer />
