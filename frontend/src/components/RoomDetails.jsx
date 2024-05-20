@@ -27,7 +27,7 @@ function RoomDetails({ room }) {
 						<Grid container xs={12}>
 							<Grid container xs={12} sx={{ marginTop: 1, marginBottom: 1 }}>
 								<Grid xs={1}>
-									<BackButton />
+									<BackButton href={`#building/${room.buildingId}`} />
 								</Grid>
 								<Grid xs={11}>
 									<Breadcrumbs aria-label="breadcrumb">
