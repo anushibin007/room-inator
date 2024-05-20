@@ -187,7 +187,12 @@ function RoomDetails({ room }) {
 											{room.directions && (
 												<>
 													<tr>
-														<td colSpan={2}>
+														<td
+															colSpan={2}
+															style={{
+																borderBottom: "none",
+															}}
+														>
 															<Typography level="body-lg">
 																Directions
 															</Typography>
