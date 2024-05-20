@@ -7,7 +7,7 @@ const BackButton = () => {
 	};
 
 	return (
-		<Button variant="outlined" onClick={handleClick}>
+		<Button variant="plain" onClick={handleClick}>
 			&#8592;
 		</Button>
 	);
