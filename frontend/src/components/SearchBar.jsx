@@ -26,10 +26,11 @@ function SearchBar({ rooms, setRooms }) {
 		<>
 			<Input
 				size="sm"
-				placeholder="Room name search"
+				placeholder="Search functionality is under development"
 				aria-label="Search for rooms by Room Name"
 				value={searchInput}
 				onChange={handleSearchInputChange}
+				disabled
 			/>
 		</>
 	);
