@@ -23,7 +23,7 @@ function SearchBar({ rooms, setRooms }) {
 	const filterData = async () => {
 		// TODO
 		const response = await fetch(
-			`${Constants.BACKEND_SERVER_ROOT}/rooms?building_id=${roomId}&roomName=${searchInput}`
+			`${Constants.BACKEND_SERVER_ROOT}/rooms?building_id=${roomId}&room_name=${searchInput}`
 		);
 		const data = await response.json();
 		setRooms(data);
