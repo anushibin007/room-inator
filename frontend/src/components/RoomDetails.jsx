@@ -146,7 +146,11 @@ function RoomDetails({ room }) {
 																{room.directions.map(
 																	(direction, index) => (
 																		<React.Fragment key={index}>
-																			<li>{direction}</li>
+																			<li>
+																				<Typography level="body-md">
+																					{direction}
+																				</Typography>
+																			</li>
 																		</React.Fragment>
 																	)
 																)}
