@@ -17,6 +17,6 @@ public class ControllerExceptionAdvice {
 
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
     public ResponseEntity<String> handleMethodArgumentTypeMismatchException(MethodArgumentTypeMismatchException e) {
-        return  new ResponseEntity<>(": Invalid/Incompatible Argument type passed.\n"+e.getStackTrace(), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>("Invalid/Incompatible Argument type passed.\n"+e.getStackTrace(), HttpStatus.BAD_REQUEST);
     }
 }
