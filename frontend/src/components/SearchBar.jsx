@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Input } from "@mui/joy";
 import { useParams } from "react-router-dom";
 import Constants from "../utils/Constants";
+import SearchIcon from "@mui/icons-material/Search";
 
 function SearchBar({ rooms, setRooms }) {
 	const [searchInput, setSearchInput] = useState("");
@@ -37,6 +38,7 @@ function SearchBar({ rooms, setRooms }) {
 				aria-label="Search for rooms by Room Name"
 				value={searchInput}
 				onChange={handleSearchInputChange}
+				startDecorator={<SearchIcon />}
 			/>
 		</>
 	);
