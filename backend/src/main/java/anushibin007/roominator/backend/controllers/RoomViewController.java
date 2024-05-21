@@ -3,7 +3,6 @@ package anushibin007.roominator.backend.controllers;
 import anushibin007.roominator.backend.dtos.RoomDetailsViewDTO;
 import anushibin007.roominator.backend.models.RoomView;
 import anushibin007.roominator.backend.services.RoomViewService;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,6 +33,11 @@ public class RoomViewController {
     @GetMapping("/{id}")
     public ResponseEntity<RoomDetailsViewDTO> getRoomDetails (@PathVariable String id) {
         return new ResponseEntity<>(roomViewService.getRoomDetailsViewDTO(id), HttpStatus.OK);
+    }
+
+    @GetMapping(params = {"room_name", "building_id"})
+    public ResponseEntity<List<RoomDetailsViewDTO>> getRoomDetailsByRoomName(@RequestParam(name = "building_id") String buildingId, @RequestParam(name = "room_name") String roomName) {
+        return  new ResponseEntity<>(roomViewService.getRoomsByNameInABuilding(buildingId, roomName), HttpStatus.OK);
     }
     
 }
