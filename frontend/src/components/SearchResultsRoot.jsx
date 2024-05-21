@@ -40,7 +40,7 @@ function SearchResultsRoot({ darkMode, viewMode, rooms, setRooms }) {
 
 	return (
 		<Container sx={{ marginTop: 2 }}>
-			{rooms && rooms.length && (
+			{rooms && rooms.length > 0 && (
 				<>
 					<Grid container xs={12}>
 						<Grid mr={1}>
