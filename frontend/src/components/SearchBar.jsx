@@ -1,9 +1,12 @@
 // Bootstrap
 import { useEffect, useState } from "react";
 import { Input } from "@mui/joy";
+import { useParams } from "react-router-dom";
+import Constants from "../utils/Constants";
 
 function SearchBar({ rooms, setRooms }) {
 	const [searchInput, setSearchInput] = useState("");
+	const { roomId } = useParams();
 	const handleSearchInputChange = (e) => {
 		setSearchInput(e.target.value);
 	};
@@ -19,18 +22,21 @@ function SearchBar({ rooms, setRooms }) {
 	 */
 	const filterData = async () => {
 		// TODO
-		console.log("Search feature under development");
+		const response = await fetch(
+			`${Constants.BACKEND_SERVER_ROOT}/rooms?building_id=${roomId}&roomName=${searchInput}`
+		);
+		const data = await response.json();
+		setRooms(data);
 	};
 
 	return (
 		<>
 			<Input
 				size="sm"
-				placeholder="Search functionality is under development"
+				placeholder="Room name search"
 				aria-label="Search for rooms by Room Name"
 				value={searchInput}
 				onChange={handleSearchInputChange}
-				disabled
 			/>
 		</>
 	);
