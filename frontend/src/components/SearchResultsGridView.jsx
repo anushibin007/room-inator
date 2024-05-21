@@ -12,7 +12,7 @@ import Typography from "@mui/joy/Typography";
 import NonOverflowingTypography from "./customcomponent/NonOverflowingTypography";
 import { addHashToCurrentPage } from "../utils/URLHelper";
 import Constants from "../utils/Constants";
-import BackButton from "./BackButton";
+import NavButtons from "./navbuttons/NavButtons";
 
 function SearchResultsGridView({ rooms, buildingData }) {
 	/**
@@ -40,7 +40,7 @@ function SearchResultsGridView({ rooms, buildingData }) {
 					<>
 						<Grid xs={12}>
 							<Typography level="title-md" mt={1}>
-								<BackButton /> Pick a room{" "}
+								<NavButtons /> Pick a room{" "}
 								{buildingData && <>from {buildingData.name}</>}
 							</Typography>
 							<Typography level="body-xs">Total rooms: {rooms.length}</Typography>

@@ -3,8 +3,8 @@ import { Breadcrumbs, Container, Grid, Link, Table, Typography } from "@mui/joy"
 import React, { useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import BackButton from "./BackButton";
 import Constants from "../utils/Constants";
+import NavButtons from "./navbuttons/NavButtons";
 
 function RoomDetails({ room }) {
 	useEffect(() => {
@@ -27,7 +27,7 @@ function RoomDetails({ room }) {
 						<Grid container xs={12}>
 							<Grid container xs={12} sx={{ marginTop: 1, marginBottom: 1 }}>
 								<Grid xs={1}>
-									<BackButton href={`#building/${room.buildingId}`} />
+									<NavButtons href={`#building/${room.buildingId}`} />
 								</Grid>
 								<Grid xs={11}>
 									<Breadcrumbs aria-label="breadcrumb">

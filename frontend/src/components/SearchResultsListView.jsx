@@ -6,7 +6,7 @@ import Typography from "@mui/joy/Typography";
 
 import { addHashToCurrentPage } from "../utils/URLHelper";
 import { Container, Grid } from "@mui/joy";
-import BackButton from "./BackButton";
+import NavButtons from "./navbuttons/NavButtons";
 
 function SearchResultsListView({ rooms, buildingData }) {
 	const openRoom = (aRoom, e) => {
@@ -28,7 +28,7 @@ function SearchResultsListView({ rooms, buildingData }) {
 				<Container>
 					<Grid container>
 						<Grid mr={1}>
-							<BackButton />
+							<NavButtons />
 						</Grid>
 						<Grid>
 							<Typography level="title-md" mt={1}>

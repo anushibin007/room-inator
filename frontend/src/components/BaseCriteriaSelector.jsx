@@ -8,7 +8,7 @@ import Typography from "@mui/joy/Typography";
 import { addHashToCurrentPage, getURLForCriteriaAndValue } from "../utils/URLHelper";
 import { Container, Grid, Skeleton } from "@mui/joy";
 import ErrorMessage from "./ErrorMessage";
-import BackButton from "./BackButton";
+import NavButtons from "./navbuttons/NavButtons";
 
 /**
  * This class is a common class to select Country, Location and Building
@@ -81,7 +81,7 @@ function BaseCriteriaSelector({ criteria }) {
 			{!errorState && data && data.length > 0 && (
 				<Container>
 					<Grid container>
-						<Grid mr={1}>{criteria != "Country" && <BackButton />}</Grid>
+						<Grid mr={1}>{criteria != "Country" && <NavButtons />}</Grid>
 						<Grid>
 							<Typography id="modal-title" level="title-md" my={1}>
 								Please pick a {criteria}

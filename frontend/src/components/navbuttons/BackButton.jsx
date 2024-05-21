@@ -1,5 +1,6 @@
-import { Button, Link } from "@mui/joy";
 import React from "react";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ButtonWithLink from "./ButtonWithLink";
 
 const BackButton = ({ href }) => {
 	const handleClick = (event) => {
@@ -15,9 +16,11 @@ const BackButton = ({ href }) => {
 
 	return (
 		<>
-			<Link underline="none" href={href} onClick={handleClick}>
-				<Button variant="plain">&#8592;</Button>
-			</Link>
+			<ButtonWithLink
+				href={href}
+				onClickHandler={handleClick}
+				buttonIcon={<ArrowBackIcon />}
+			/>
 		</>
 	);
 };
