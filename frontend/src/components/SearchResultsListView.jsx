@@ -2,13 +2,10 @@
 import React from "react";
 // MUI
 import Table from "@mui/joy/Table";
-import Typography from "@mui/joy/Typography";
 
 import { addHashToCurrentPage } from "../utils/URLHelper";
-import { Container, Grid } from "@mui/joy";
-import NavButtons from "./navbuttons/NavButtons";
 
-function SearchResultsListView({ rooms, buildingData }) {
+function SearchResultsListView({ rooms }) {
 	const openRoom = (aRoom, e) => {
 		if (typeof aRoom === "object") {
 			// There is a double redirect happening
@@ -25,20 +22,7 @@ function SearchResultsListView({ rooms, buildingData }) {
 	return (
 		<>
 			{rooms && rooms.length > 0 && (
-				<Container sx={{ marginTop: 2 }}>
-					<Grid container>
-						<Grid mr={1}>
-							<NavButtons />
-						</Grid>
-						<Grid>
-							<Typography level="title-md" mt={1}>
-								Pick a room {buildingData && <>from {buildingData.name}</>}
-							</Typography>
-						</Grid>
-						<Grid xs={12}>
-							<Typography level="body-xs">Total rooms: {rooms.length}</Typography>
-						</Grid>
-					</Grid>
+				<>
 					<Table hoverRow>
 						<thead>
 							<tr>
@@ -59,12 +43,7 @@ function SearchResultsListView({ rooms, buildingData }) {
 							))}
 						</tbody>
 					</Table>
-				</Container>
-			)}
-			{(!rooms || rooms.length <= 0) && (
-				<Typography component="h2" id="modal-title" level="h4" fontWeight="lg" mb={3}>
-					Sorry, no rooms were found for the given query.
-				</Typography>
+				</>
 			)}
 		</>
 	);

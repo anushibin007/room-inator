@@ -1,20 +1,18 @@
 // React
 import React from "react";
 // MUI
-import { Container, Grid } from "@mui/joy";
+import { Grid } from "@mui/joy";
 import Card from "@mui/joy/Card";
 import CardCover from "@mui/joy/CardCover";
 import CardContent from "@mui/joy/CardContent";
 import StairsIcon from "@mui/icons-material/Stairs";
 import PeopleIcon from "@mui/icons-material/People";
-import Typography from "@mui/joy/Typography";
 
 import NonOverflowingTypography from "./customcomponent/NonOverflowingTypography";
 import { addHashToCurrentPage } from "../utils/URLHelper";
 import Constants from "../utils/Constants";
-import NavButtons from "./navbuttons/NavButtons";
 
-function SearchResultsGridView({ rooms, buildingData }) {
+function SearchResultsGridView({ rooms }) {
 	/**
 	 * Function to show the Modal
 	 * @param {*} aRoom The room whose detail needs to be shown in the Modal
@@ -34,19 +32,8 @@ function SearchResultsGridView({ rooms, buildingData }) {
 	};
 
 	return (
-		<Container sx={{ marginTop: 2 }}>
+		<>
 			<Grid container id="search-results-wrapper" marginTop={1} xs={12}>
-				{rooms && rooms.length && (
-					<>
-						<Grid xs={12}>
-							<Typography level="title-md" mt={1}>
-								<NavButtons /> Pick a room{" "}
-								{buildingData && <>from {buildingData.name}</>}
-							</Typography>
-							<Typography level="body-xs">Total rooms: {rooms.length}</Typography>
-						</Grid>
-					</>
-				)}
 				{rooms?.map((room) => (
 					<Grid
 						key={room.id}
@@ -126,13 +113,8 @@ function SearchResultsGridView({ rooms, buildingData }) {
 						</Grid>
 					</Grid>
 				))}
-				{(!rooms || rooms.length <= 0) && (
-					<Typography component="h2" id="modal-title" level="h4" fontWeight="lg" mb={3}>
-						Sorry, no rooms were found for the given query.
-					</Typography>
-				)}
 			</Grid>
-		</Container>
+		</>
 	);
 }
 
