@@ -8,32 +8,17 @@ import { useParams } from "react-router-dom";
 import { Container, Grid, Typography } from "@mui/joy";
 import NavButtons from "./navbuttons/NavButtons";
 
-function SearchResultsRoot({ darkMode, viewMode, rooms, setRooms }) {
-	const { roomId } = useParams();
+function SearchResultsRoot({ darkMode, viewMode, rooms }) {
 	const [buildingData, setBuildingData] = useState(undefined);
 
 	useEffect(() => {
-		loadRooms();
-	}, []);
-
-	useEffect(() => {
-		if (rooms && rooms[0]) {
+		if (!buildingData && rooms && rooms[0]) {
 			loadBuildingData(rooms[0].buildingId);
 		}
 	}, [rooms]);
 
-	const loadRooms = async () => {
-		const response = await fetch(
-			`${Constants.BACKEND_SERVER_ROOT}/rooms?building_id=${roomId}`
-		);
-		const data = await response.json();
-		setRooms(data);
-	};
-
 	const loadBuildingData = async (aBuildingId) => {
-		const response = await fetch(
-			`${Constants.BACKEND_SERVER_ROOT}/buildings-details/${aBuildingId}`
-		);
+		const response = await fetch(`${Constants.BACKEND_SERVER_ROOT}/buildings/${aBuildingId}`);
 		const responseData = await response.json();
 		setBuildingData(responseData);
 	};
