@@ -112,34 +112,18 @@ function RoomDetails({ room }) {
 											)}
 											{room.stationery?.map((aStationery, index) => (
 												<React.Fragment key={index}>
-													{aStationery === "projector" && (
-														<tr>
-															<td>
-																<Typography level="body-lg">
-																	Projector
-																</Typography>
-															</td>
-															<td>
-																<Typography level="body-md">
-																	✅
-																</Typography>
-															</td>
-														</tr>
-													)}
-													{aStationery === "whiteboard" && (
-														<tr>
-															<td>
-																<Typography level="body-lg">
-																	White Board
-																</Typography>
-															</td>
-															<td>
-																<Typography level="body-md">
-																	✅
-																</Typography>
-															</td>
-														</tr>
-													)}
+													<tr>
+														<td>
+															<Typography level="body-lg">
+																{aStationery}
+															</Typography>
+														</td>
+														<td>
+															<Typography level="body-md">
+																✅
+															</Typography>
+														</td>
+													</tr>
 												</React.Fragment>
 											))}
 											{room.directions && (
