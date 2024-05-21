@@ -18,5 +18,9 @@ public interface RoomViewRepository extends JpaRepository<Room, String> {
 //    RoomView findRoomViewById(@Param("id") String id);
 
     @Query("SELECT r.id as id, r.name as name, r.building.id as buildingId, r.floor as floor, r.capacity as capacity FROM Room r WHERE r.building.id= :building")
-    List<RoomView> findRoomViewsByBuildingId(@Param("building") String building);
+    List<RoomView> findRoomViewsByBuildingIdAndRoomName(@Param("building") String building);
+
+    @Query("SELECT r.id as id, r.name as name, r.building.id as buildingId, r.floor as floor, r.capacity as capacity FROM Room r WHERE r.building.id= :building AND UPPER(r.name) like :roomName")
+    List<RoomView> findRoomViewsByBuildingIdAndRoomName(@Param("building") String building, @Param("roomName") String roomName);
+
 }

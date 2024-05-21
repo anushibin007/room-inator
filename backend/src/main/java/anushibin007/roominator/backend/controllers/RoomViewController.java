@@ -36,8 +36,8 @@ public class RoomViewController {
     }
 
     @GetMapping(params = {"room_name", "building_id"})
-    public ResponseEntity<List<RoomDetailsViewDTO>> getRoomDetailsByRoomName(@RequestParam(name = "building_id") String buildingId, @RequestParam(name = "room_name") String roomName) {
-        return  new ResponseEntity<>(roomViewService.getRoomsByNameInABuilding(buildingId, roomName), HttpStatus.OK);
+    public ResponseEntity<List<RoomView>> getRoomDetailsByRoomName(@RequestParam(name = "building_id") String buildingId, @RequestParam(name = "room_name") String roomName) {
+        return  new ResponseEntity<>(roomViewService.findRoomViewsByBuildingIdAndRoomName(buildingId, roomName), HttpStatus.OK);
     }
     
 }

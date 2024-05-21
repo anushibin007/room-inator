@@ -40,7 +40,7 @@ public class RoomViewService {
     }
 
     public List<RoomView> getRoomsByBuildingId(String buildingId) {
-        return roomViewRepository.findRoomViewsByBuildingId(buildingId);
+        return roomViewRepository.findRoomViewsByBuildingIdAndRoomName(buildingId);
     }
 
     public RoomDetailsViewDTO getRoomDetailsViewDTO(String roomId) throws EntityNotFoundException {
@@ -57,11 +57,7 @@ public class RoomViewService {
      * @param roomName Name of the room to search for.
      * @return List of RoomDetailsViewDTO items.
      */
-    public List<RoomDetailsViewDTO> getRoomsByNameInABuilding(String buildingId, String roomName) {
-        String query = String.format(queryRoomsByName, buildingId, "%" + roomName + "%");
-        List result = entityManager.createNativeQuery(query, "RoomDetailsViewDTOMapping").getResultList();
-        if(result.size() == 0)
-            throw new EntityNotFoundException("Room with Name: " + roomName + " does not exist");
-        return result;
+    public List<RoomView> findRoomViewsByBuildingIdAndRoomName(String buildingId, String roomName) {
+        return roomViewRepository.findRoomViewsByBuildingIdAndRoomName(buildingId, "%" + roomName.toUpperCase() + "%");
     }
 }
