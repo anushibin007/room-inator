@@ -12,7 +12,7 @@ import Footer from "./Footer";
 import BaseCriteriaSelector from "./BaseCriteriaSelector";
 
 function MainPage({ display }) {
-	const [rooms, setRooms] = useState([]);
+	const [rooms, setRooms] = useState(undefined);
 	const [darkMode, setDarkMode] = useState(false);
 	const [viewMode, setViewMode] = useState("");
 
@@ -64,6 +64,7 @@ function MainPage({ display }) {
 					{display === "rooms" && (
 						<SearchResultsRoot
 							rooms={rooms}
+							setRooms={setRooms}
 							darkMode={darkMode}
 							dataType={"rooms"}
 							viewMode={viewMode}

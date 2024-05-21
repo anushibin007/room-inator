@@ -8,9 +8,8 @@ import { useParams } from "react-router-dom";
 import { Container, Grid, Typography } from "@mui/joy";
 import NavButtons from "./navbuttons/NavButtons";
 
-function SearchResultsRoot({ darkMode, viewMode }) {
+function SearchResultsRoot({ darkMode, viewMode, rooms, setRooms }) {
 	const { roomId } = useParams();
-	const [rooms, setRooms] = useState(undefined);
 	const [buildingData, setBuildingData] = useState(undefined);
 
 	useEffect(() => {
