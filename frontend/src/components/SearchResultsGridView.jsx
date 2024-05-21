@@ -34,7 +34,7 @@ function SearchResultsGridView({ rooms, buildingData }) {
 	};
 
 	return (
-		<Container>
+		<Container sx={{ marginTop: 2 }}>
 			<Grid container id="search-results-wrapper" marginTop={1} xs={12}>
 				{rooms && rooms.length && (
 					<>

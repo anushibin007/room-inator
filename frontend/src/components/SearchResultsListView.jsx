@@ -25,7 +25,7 @@ function SearchResultsListView({ rooms, buildingData }) {
 	return (
 		<>
 			{rooms && rooms.length > 0 && (
-				<Container>
+				<Container sx={{ marginTop: 2 }}>
 					<Grid container>
 						<Grid mr={1}>
 							<NavButtons />

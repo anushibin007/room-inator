@@ -71,85 +71,87 @@ function BaseCriteriaSelector({ criteria }) {
 
 	return (
 		<>
-			{!errorState && !data && (
-				<>
+			<Container sx={{ marginTop: 2 }}>
+				{!errorState && !data && (
+					<>
+						<Typography id="modal-title" level="title-md" my={1}>
+							Loading. Please wait.
+						</Typography>
+					</>
+				)}
+				{!errorState && data && data.length > 0 && (
+					<>
+						<Grid container>
+							<Grid mr={1}>{criteria != "Country" && <NavButtons />}</Grid>
+							<Grid>
+								<Typography id="modal-title" level="title-md" my={1}>
+									Please pick a {criteria}
+								</Typography>
+							</Grid>
+							{
+								// TODO: Add Breadcrumbs to the base pickers as well
+							}
+							<Grid xs={12}>
+								<Typography level="body-xs">Total count: {data.length}</Typography>
+							</Grid>
+						</Grid>
+						<Table hoverRow>
+							<thead>
+								<tr>
+									<th style={{ width: "10%" }}>Sl No</th>
+									<th>{criteria}</th>
+								</tr>
+							</thead>
+							<tbody>
+								{data?.map((aData, idx) => (
+									<tr key={aData.id}>
+										<td>{idx + 1}</td>
+										<td>
+											<a href={`#${calculateNextHashRoute()}/${aData.id}`}>
+												{aData.name}
+											</a>
+										</td>
+									</tr>
+								))}
+							</tbody>
+						</Table>
+					</>
+				)}
+				{!errorState && !data && (
+					<>
+						<Table>
+							<thead>
+								<tr>
+									<th style={{ width: "10%" }}>
+										<Skeleton variant="text" level="h3" />
+									</th>
+									<th>
+										<Skeleton variant="text" level="h3" />
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								{[...Array(2)].map((_, idx) => (
+									<tr key={idx}>
+										<td>
+											<Skeleton variant="text" level="h4" />
+										</td>
+										<td>
+											<Skeleton variant="text" level="h4" />
+										</td>
+									</tr>
+								))}
+							</tbody>
+						</Table>
+					</>
+				)}
+				{!errorState && data?.length <= 0 && (
 					<Typography id="modal-title" level="title-md" my={1}>
-						Loading. Please wait.
+						Sorry, {criteria} not found for the given query.
 					</Typography>
-				</>
-			)}
-			{!errorState && data && data.length > 0 && (
-				<Container>
-					<Grid container>
-						<Grid mr={1}>{criteria != "Country" && <NavButtons />}</Grid>
-						<Grid>
-							<Typography id="modal-title" level="title-md" my={1}>
-								Please pick a {criteria}
-							</Typography>
-						</Grid>
-						{
-							// TODO: Add Breadcrumbs to the base pickers as well
-						}
-						<Grid xs={12}>
-							<Typography level="body-xs">Total count: {data.length}</Typography>
-						</Grid>
-					</Grid>
-					<Table hoverRow>
-						<thead>
-							<tr>
-								<th style={{ width: "10%" }}>Sl No</th>
-								<th>{criteria}</th>
-							</tr>
-						</thead>
-						<tbody>
-							{data?.map((aData, idx) => (
-								<tr key={aData.id}>
-									<td>{idx + 1}</td>
-									<td>
-										<a href={`#${calculateNextHashRoute()}/${aData.id}`}>
-											{aData.name}
-										</a>
-									</td>
-								</tr>
-							))}
-						</tbody>
-					</Table>
-				</Container>
-			)}
-			{!errorState && !data && (
-				<>
-					<Table>
-						<thead>
-							<tr>
-								<th style={{ width: "10%" }}>
-									<Skeleton variant="text" level="h3" />
-								</th>
-								<th>
-									<Skeleton variant="text" level="h3" />
-								</th>
-							</tr>
-						</thead>
-						<tbody>
-							{[...Array(2)].map((_, idx) => (
-								<tr key={idx}>
-									<td>
-										<Skeleton variant="text" level="h4" />
-									</td>
-									<td>
-										<Skeleton variant="text" level="h4" />
-									</td>
-								</tr>
-							))}
-						</tbody>
-					</Table>
-				</>
-			)}
-			{!errorState && data?.length <= 0 && (
-				<Typography id="modal-title" level="title-md" my={1}>
-					Sorry, {criteria} not found for the given query.
-				</Typography>
-			)}
-			{errorState && <ErrorMessage errorState={errorState} />}
+				)}
+				{errorState && <ErrorMessage errorState={errorState} />}
+			</Container>
 		</>
 	);
 }
