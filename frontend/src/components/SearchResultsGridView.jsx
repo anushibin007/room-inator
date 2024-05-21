@@ -95,7 +95,7 @@ function SearchResultsGridView({ rooms }) {
 											<NonOverflowingTypography
 												startDecorator={<StairsIcon />}
 											>
-												{room.floor}
+												Floor {room.floor}
 											</NonOverflowingTypography>
 										</Grid>
 										<Grid xs={6}>
@@ -104,7 +104,7 @@ function SearchResultsGridView({ rooms }) {
 												textColor="neutral.300"
 												mb={1}
 											>
-												{room.capacity}
+												Capacity {room.capacity}
 											</NonOverflowingTypography>
 										</Grid>
 									</Grid>
