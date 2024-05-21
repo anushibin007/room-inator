@@ -60,4 +60,8 @@ public class RoomViewService {
     public List<RoomView> findRoomViewsByBuildingIdAndRoomName(String buildingId, String roomName) {
         return roomViewRepository.findRoomViewsByBuildingIdAndRoomName(buildingId, "%" + roomName.toUpperCase() + "%");
     }
+
+    public  List<RoomView>  findRoomViewsByBuildingIdAndCapacity(String buildingId, Integer seatingCapacity) {
+        return roomViewRepository.findRoomViewsByBuildingIdAndCapacity(buildingId, seatingCapacity);
+    }
 }

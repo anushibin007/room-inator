@@ -39,5 +39,13 @@ public class RoomViewController {
     public ResponseEntity<List<RoomView>> getRoomDetailsByRoomName(@RequestParam(name = "building_id") String buildingId, @RequestParam(name = "room_name") String roomName) {
         return  new ResponseEntity<>(roomViewService.findRoomViewsByBuildingIdAndRoomName(buildingId, roomName), HttpStatus.OK);
     }
+
+    @GetMapping(params = {"building_id", "seating_capacity"})
+    public ResponseEntity<List<RoomView>> getRoomDetailsByBuildingIdAndSeatingCapacity(@RequestParam(name = "building_id") String buildingId, @RequestParam(name = "seating_capacity", defaultValue = "0") Integer seatingCapacity ) {
+        if(seatingCapacity == 0) {
+            return new ResponseEntity<>(roomViewService.getRoomViews(), HttpStatus.OK);
+        }
+        return  new ResponseEntity<>(roomViewService.findRoomViewsByBuildingIdAndCapacity(buildingId, seatingCapacity), HttpStatus.OK);
+    }
     
 }
