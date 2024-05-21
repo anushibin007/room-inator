@@ -13,6 +13,7 @@ import MeetingRoomIcon from "@mui/icons-material/MeetingRoom";
 
 import { goToUrl } from "../utils/URLHelper";
 import Spacer from "./Spacer";
+import { Link } from "@mui/joy";
 
 function Header({ rooms, setRooms, darkMode, toggleDarkMode, simpleMode, viewMode, setViewMode }) {
 	const setGridViewMode = () => {
@@ -36,16 +37,15 @@ function Header({ rooms, setRooms, darkMode, toggleDarkMode, simpleMode, viewMod
 				<Grid xs={4} md={3}>
 					<Grid container xs={12}>
 						<Grid>
-							<Typography
-								level="title-lg"
-								startDecorator={<MeetingRoomIcon />}
-								onClick={() => {
-									goToUrl(Constants.BASE_PATH);
-								}}
-								sx={{ p: { cursor: "pointer" } }}
+							<Link
+								href={Constants.BASE_PATH}
+								underline="none"
+								sx={{ height: "100%" }}
 							>
-								Room-Inator
-							</Typography>
+								<Typography level="title-lg" startDecorator={<MeetingRoomIcon />}>
+									Room-Inator
+								</Typography>
+							</Link>
 						</Grid>
 					</Grid>
 				</Grid>
