@@ -26,10 +26,10 @@ function RoomDetails({ room }) {
 					<>
 						<Grid container xs={12}>
 							<Grid container xs={12} sx={{ marginTop: 1, marginBottom: 1 }}>
-								<Grid xs={1}>
+								<Grid>
 									<NavButtons href={`#building/${room.buildingId}`} />
 								</Grid>
-								<Grid xs={11}>
+								<Grid xs={10}>
 									<Breadcrumbs aria-label="breadcrumb">
 										<Link underline="hover" href={Constants.BASE_PATH}>
 											Home
