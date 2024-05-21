@@ -10,9 +10,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 public interface CountryViewRepository extends JpaRepository<Country, String> {
-    @Query(value = "SELECT id, name FROM Country", nativeQuery = true)
+    @Query(value = "SELECT id, name FROM Country ORDER BY name", nativeQuery = true)
     List<CountryView> findAllCountryViews();
 
-    @Query(value = "SELECT id, name FROM Country WHERE id= :id", nativeQuery = true)
+    @Query(value = "SELECT id, name FROM Country WHERE id= :id ORDER BY name", nativeQuery = true)
     CountryView findCountryViewById(@Param("id") String id);
 }
