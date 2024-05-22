@@ -5,6 +5,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Constants from "../utils/Constants";
 import NavButtons from "./navbuttons/NavButtons";
+import { buildImageSrcUrl } from "../utils/URLHelper";
 
 function RoomDetails({ room }) {
 	useEffect(() => {
@@ -70,8 +71,11 @@ function RoomDetails({ room }) {
 										justifyContent="center"
 									>
 										<Grid>
+											{
+												// TODO: Support image array
+											}
 											<img
-												src={`${room.images ? room.images[0] : ""}`}
+												src={`${buildImageSrcUrl(room.images[0])}`}
 												style={{ maxWidth: "100%" }}
 											/>
 										</Grid>

@@ -25,4 +25,13 @@ const getURLForCriteriaAndValue = (aCriteria, aCriteriaValue) => {
 	return `${backendRoot}/${jsonKey}${queryFilter ? queryFilter : ""}`;
 };
 
-export { goToUrl, addHashToCurrentPage, getURLForCriteriaAndValue };
+const buildImageSrcUrl = (anImageId) => {
+	var url = "";
+	if (Constants.IMAGE_ROOT_DIR_URL != undefined) {
+		url = url + Constants.IMAGE_ROOT_DIR_URL;
+	}
+	url = url + anImageId;
+	return url;
+};
+
+export { goToUrl, addHashToCurrentPage, getURLForCriteriaAndValue, buildImageSrcUrl };

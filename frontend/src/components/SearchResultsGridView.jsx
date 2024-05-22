@@ -9,7 +9,7 @@ import StairsIcon from "@mui/icons-material/Stairs";
 import PeopleIcon from "@mui/icons-material/People";
 
 import NonOverflowingTypography from "./customcomponent/NonOverflowingTypography";
-import { addHashToCurrentPage } from "../utils/URLHelper";
+import { addHashToCurrentPage, buildImageSrcUrl } from "../utils/URLHelper";
 import Constants from "../utils/Constants";
 
 function SearchResultsGridView({ rooms }) {
@@ -58,7 +58,7 @@ function SearchResultsGridView({ rooms }) {
 									<>
 										<CardCover>
 											<img
-												src={`${room.images[0]}?random=${room.id}`}
+												src={buildImageSrcUrl(room.images[0])}
 												loading="lazy"
 											/>
 										</CardCover>
