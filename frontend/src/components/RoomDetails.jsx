@@ -6,12 +6,15 @@ import Footer from "./Footer";
 import Constants from "../utils/Constants";
 import NavButtons from "./navbuttons/NavButtons";
 import { buildImageSrcUrl } from "../utils/URLHelper";
+import GLightbox from "glightbox";
 
 function RoomDetails({ room }) {
 	useEffect(() => {
 		// Update the Web Page's title
 		// whenever the room's state updates
 		updatePageTitle();
+		// Trigger GLightbox initialization
+		GLightbox();
 	}, [room]);
 
 	const updatePageTitle = () => {
@@ -74,10 +77,15 @@ function RoomDetails({ room }) {
 											{
 												// TODO: Support image array
 											}
-											<img
-												src={`${buildImageSrcUrl(room.images[0])}`}
-												style={{ maxWidth: "100%" }}
-											/>
+											<a
+												href={`${buildImageSrcUrl(room.images[0])}`}
+												className="glightbox"
+											>
+												<img
+													src={`${buildImageSrcUrl(room.images[0])}`}
+													style={{ maxWidth: "100%" }}
+												/>
+											</a>
 										</Grid>
 									</Grid>
 								</Grid>
