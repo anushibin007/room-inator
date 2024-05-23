@@ -19,6 +19,7 @@ jobs:
         runs-on: ubuntu-latest
         env:
             VITE_BUILD_NUMBER: ${{ github.sha }}
+            VITE_BACKEND_SERVER_ROOT: https://room-inator-backend-adxywvifka-uc.a.run.app/
 
         steps:
             - name: Checkout ⏬
