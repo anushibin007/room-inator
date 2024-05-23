@@ -7,6 +7,15 @@ Room-inator is a simple web application to search and find meeting room details 
 -   ✨ React JS frontend
 -   🔥 Spring Boot backend
 -   ⚡ H2 Database
+-   📊 Data view
+    -   Country
+    -   Location
+    -   Building
+    -   Room
+        -   Name
+        -   Directions
+        -   Images
+        -   Stationeries (Whiteboard/Projector/TV availability)
 
 ## Future enhancements
 
