@@ -5,6 +5,7 @@ insert into country (name, id ) values ('Italy', 'IT');
 insert into country (name, id ) values ('Japan', 'JP');
 insert into country (name, id ) values ('Korea', 'KR');
 insert into country (name, id ) values ('Mexico', 'MX');
+insert into country (name, id) values ('Romaina', 'RO');
 
 INSERT INTO LOCATION (COUNTRY_ID, ID, NAME) VALUES ('IN', 'MUM', 'Mumbai');
 INSERT INTO LOCATION (COUNTRY_ID, ID, NAME) VALUES ('IN', 'DL', 'Delhi');
@@ -12,6 +13,7 @@ INSERT INTO LOCATION (COUNTRY_ID, ID, NAME) VALUES ('IN', 'BGLR', 'Bangalore');
 INSERT INTO LOCATION (COUNTRY_ID, ID, NAME) VALUES ('IN', 'CH', 'Chennai');
 INSERT INTO LOCATION (COUNTRY_ID, ID, NAME) VALUES ('FN', 'PAR', 'Paris');
 INSERT INTO LOCATION (COUNTRY_ID, ID, NAME) VALUES ('FN', 'STR', 'Strasbourg');
+INSERT INTO LOCATION (COUNTRY_ID, ID, NAME) VALUES ('RO', 'BUC', 'Bucharest')
 
 INSERT INTO BUILDING (LOCATION_ID, ID, NAME) VALUES ('MUM', 'MUM-B1', 'Building 1');
 INSERT INTO BUILDING (LOCATION_ID, ID, NAME) VALUES ('MUM', 'MUM-B2', 'Building 2');
@@ -19,6 +21,7 @@ INSERT INTO BUILDING (LOCATION_ID, ID, NAME) VALUES ('BGLR', 'BGLR-B1', 'Buildin
 INSERT INTO BUILDING (LOCATION_ID, ID, NAME) VALUES ('BGLR', 'BGLR-B3', 'Building 4');
 INSERT INTO BUILDING (LOCATION_ID, ID, NAME) VALUES ('PAR', 'PAR-B1', 'Paris Building 1');
 INSERT INTO BUILDING (LOCATION_ID, ID, NAME) VALUES ('STR', 'STR-B1', 'Strasbourg Building 1');
+INSERT INTO BUILDING (LOCATION_ID, ID, NAME) VALUES ('BUC', 'BUC-S3', 'Bucharest Building 1');
 
 INSERT INTO ROOM (FLOOR, CAPACITY, BUILDING_ID, ID, NAME, DIRECTIONS, IMAGES, STATIONERY) VALUES ('1', '100', 'MUM-B1', 'BGLR-B1-ID1', 'Room 1', 'Room 1 Directions', ARRAY ['https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024'], ARRAY ['whiteboard', 'projector']);
 
