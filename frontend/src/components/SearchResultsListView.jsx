@@ -2,8 +2,11 @@
 import React from "react";
 // MUI
 import Table from "@mui/joy/Table";
+import StairsIcon from "@mui/icons-material/Stairs";
+import PeopleIcon from "@mui/icons-material/People";
 
 import { addHashToCurrentPage } from "../utils/URLHelper";
+import { Typography } from "@mui/joy";
 
 function SearchResultsListView({ rooms }) {
 	const openRoom = (aRoom, e) => {
@@ -37,8 +40,16 @@ function SearchResultsListView({ rooms }) {
 									<td>
 										<a href={`#room/${aRoom.id}`}>{aRoom.name}</a>
 									</td>
-									<td>{aRoom.floor}</td>
-									<td>{aRoom.capacity}</td>
+									<td>
+										<Typography startDecorator={<StairsIcon />}>
+											{aRoom.floor}
+										</Typography>
+									</td>
+									<td>
+										<Typography startDecorator={<PeopleIcon />}>
+											{aRoom.capacity}
+										</Typography>
+									</td>
 								</tr>
 							))}
 						</tbody>
