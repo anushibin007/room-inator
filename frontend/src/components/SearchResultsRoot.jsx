@@ -9,7 +9,7 @@ import { Container, Grid, Typography } from "@mui/joy";
 import NavButtons from "./navbuttons/NavButtons";
 import SearchResultsFilter from "./SearchResultsFilter";
 
-function SearchResultsRoot({ darkMode, viewMode, rooms }) {
+function SearchResultsRoot({ darkMode, viewMode, rooms, setRooms }) {
 	const [buildingData, setBuildingData] = useState(undefined);
 
 	useEffect(() => {
@@ -41,7 +41,7 @@ function SearchResultsRoot({ darkMode, viewMode, rooms }) {
 					</Grid>
 					<Grid container xs={12}>
 						<Grid xs={12}>
-							<SearchResultsFilter />
+							<SearchResultsFilter rooms={rooms} setRooms={setRooms} />
 						</Grid>
 					</Grid>
 				</>

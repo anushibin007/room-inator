@@ -12,7 +12,9 @@ import Box from "@mui/joy/Box";
 import Checkbox from "@mui/joy/Checkbox";
 import { Typography } from "@mui/joy";
 
-export default function SearchResultsFilter() {
+export default function SearchResultsFilter({ rooms, setRooms }) {
+	const originalRooms = [...rooms];
+
 	const [seatingCapacity, setSeatingCapacity] = useState({
 		All: true,
 		4: true,
@@ -37,6 +39,21 @@ export default function SearchResultsFilter() {
 				[name]: checked,
 			}));
 		}
+	};
+
+	React.useEffect(() => {
+		filterRooms();
+	}, [seatingCapacity]);
+
+	const filterRooms = () => {
+		const filteredRooms = originalRooms.filter((room) => {
+			if (seatingCapacity[4] && room.capacity === 4) return room;
+			if (seatingCapacity[6] && room.capacity === 6) return room;
+			if (seatingCapacity[8] && room.capacity === 8) return room;
+			if (seatingCapacity[12] && room.capacity === 12) return room;
+			if (seatingCapacity[20] && room.capacity === 20) return room;
+		});
+		setRooms(filteredRooms);
 	};
 
 	return (
