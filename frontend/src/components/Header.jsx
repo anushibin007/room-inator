@@ -14,8 +14,9 @@ import MeetingRoomIcon from "@mui/icons-material/MeetingRoom";
 import { goToUrl } from "../utils/URLHelper";
 import Spacer from "./Spacer";
 import { Link } from "@mui/joy";
+import ThemeBtn from "./ThemeBtn";
 
-function Header({ rooms, setRooms, darkMode, toggleDarkMode, simpleMode, viewMode, setViewMode }) {
+function Header({ rooms, setRooms, simpleMode, viewMode, setViewMode }) {
 	const setGridViewMode = () => {
 		setViewMode("grid");
 	};
@@ -88,7 +89,9 @@ function Header({ rooms, setRooms, darkMode, toggleDarkMode, simpleMode, viewMod
 						</>
 					)
 				}
+			<ThemeBtn />
 			</Grid>
+
 			<Spacer spacerForClass="header" />
 		</>
 	);
