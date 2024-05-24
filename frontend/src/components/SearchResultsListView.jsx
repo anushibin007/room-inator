@@ -1,61 +1,57 @@
 // React
 import React from "react";
-// MUI
-import Table from "@mui/joy/Table";
-import StairsIcon from "@mui/icons-material/Stairs";
-import PeopleIcon from "@mui/icons-material/People";
 
 import { addHashToCurrentPage } from "../utils/URLHelper";
-import { Typography } from "@mui/joy";
+
+import "primereact/resources/themes/lara-light-cyan/theme.css";
+import { DataTable } from "primereact/datatable";
+import { Column } from "primereact/column";
+import { Grid } from "@mui/joy";
 
 function SearchResultsListView({ rooms }) {
-	const openRoom = (aRoom, e) => {
-		if (typeof aRoom === "object") {
-			// There is a double redirect happening
-			// here. The first one is not sending a
-			// id. Rather, it is sending an object.
-			// I don't know why it is happening
-			// though. We are simply going to ignore
-			// that call.
-			return;
-		}
-		addHashToCurrentPage(`room/${aRoom}`);
+	const openRoom = (e) => {
+		addHashToCurrentPage(`room/${e.data.id}`);
 	};
 
 	return (
 		<>
-			{rooms && rooms.length > 0 && (
-				<>
-					<Table hoverRow>
-						<thead>
-							<tr>
-								<th>Room Name</th>
-								<th>Floor</th>
-								<th>Seating Capacity</th>
-							</tr>
-						</thead>
-						<tbody>
-							{rooms?.map((aRoom) => (
-								<tr key={aRoom.id}>
-									<td>
-										<a href={`#room/${aRoom.id}`}>{aRoom.name}</a>
-									</td>
-									<td>
-										<Typography startDecorator={<StairsIcon />}>
-											{aRoom.floor}
-										</Typography>
-									</td>
-									<td>
-										<Typography startDecorator={<PeopleIcon />}>
-											{aRoom.capacity}
-										</Typography>
-									</td>
-								</tr>
-							))}
-						</tbody>
-					</Table>
-				</>
-			)}
+			<Grid container xs={12} mt={2}>
+				<Grid xs={12}>
+					<DataTable
+						value={rooms}
+						dataKey="id"
+						sortField="name"
+						removableSort
+						filterDisplay="row"
+						emptyMessage="No rooms found."
+						selectionMode="single"
+						onRowSelect={openRoom}
+					>
+						<Column
+							sortable
+							filter
+							filterPlaceholder="Search by name"
+							field="name"
+							header="Room Name"
+							oncli
+						></Column>
+						<Column
+							sortable
+							filter
+							filterPlaceholder="Filter by floor"
+							field="floor"
+							header="Floor"
+						></Column>
+						<Column
+							sortable
+							filter
+							filterPlaceholder="Filter by seating capacity"
+							field="capacity"
+							header="Seating capacity"
+						></Column>
+					</DataTable>
+				</Grid>
+			</Grid>
 		</>
 	);
 }

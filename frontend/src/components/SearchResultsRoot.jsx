@@ -4,10 +4,8 @@ import React, { useEffect, useState } from "react";
 import SearchResultsGridView from "./SearchResultsGridView";
 import SearchResultsListView from "./SearchResultsListView";
 import Constants from "../utils/Constants";
-import { useParams } from "react-router-dom";
 import { Container, Grid, Typography } from "@mui/joy";
 import NavButtons from "./navbuttons/NavButtons";
-import SearchResultsFilter from "./SearchResultsFilter";
 
 function SearchResultsRoot({ darkMode, viewMode, rooms, setRooms }) {
 	const [buildingData, setBuildingData] = useState(undefined);
@@ -37,11 +35,6 @@ function SearchResultsRoot({ darkMode, viewMode, rooms, setRooms }) {
 								Pick a room {buildingData && <>from {buildingData.name}</>}
 							</Typography>
 							<Typography level="body-xs">Total rooms: {rooms.length}</Typography>
-						</Grid>
-					</Grid>
-					<Grid container xs={12}>
-						<Grid xs={12}>
-							<SearchResultsFilter rooms={rooms} setRooms={setRooms} />
 						</Grid>
 					</Grid>
 				</>
