@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 
 import AccordionGroup from "@mui/joy/AccordionGroup";
 import Accordion from "@mui/joy/Accordion";
@@ -12,6 +13,32 @@ import Checkbox from "@mui/joy/Checkbox";
 import { Typography } from "@mui/joy";
 
 export default function SearchResultsFilter() {
+	const [seatingCapacity, setSeatingCapacity] = useState({
+		All: true,
+		4: true,
+		6: true,
+		8: true,
+		12: true,
+		20: true,
+	});
+
+	const handleSeatingCapacityChange = (event) => {
+		const { name, checked } = event.target;
+
+		if (name === "All") {
+			// If 'All' is checked or unchecked, update all checkboxes accordingly
+			const newCheckboxes = Object.fromEntries(
+				Object.entries(seatingCapacity).map(([key, value]) => [key, checked])
+			);
+			setSeatingCapacity(newCheckboxes);
+		} else {
+			setSeatingCapacity((prevState) => ({
+				...prevState,
+				[name]: checked,
+			}));
+		}
+	};
+
 	return (
 		<>
 			<AccordionGroup transition="0.2s ease">
@@ -30,11 +57,15 @@ export default function SearchResultsFilter() {
 							</Box>
 							<Box sx={{ display: "flex", gap: 3 }} marginTop={2}>
 								<Typography>Seating capacity</Typography>
-								<Checkbox label="4" defaultChecked />
-								<Checkbox label="6" defaultChecked />
-								<Checkbox label="8" defaultChecked />
-								<Checkbox label="12" defaultChecked />
-								<Checkbox label="20" defaultChecked />
+								{Object.keys(seatingCapacity).map((key) => (
+									<Checkbox
+										key={key}
+										label={key}
+										name={key}
+										checked={seatingCapacity[key]}
+										onChange={handleSeatingCapacityChange}
+									/>
+								))}
 							</Box>
 						</>
 					</AccordionDetails>
