@@ -4,11 +4,10 @@ import React, { useEffect, useState } from "react";
 import SearchResultsGridView from "./SearchResultsGridView";
 import SearchResultsListView from "./SearchResultsListView";
 import Constants from "../utils/Constants";
-import { useParams } from "react-router-dom";
 import { Container, Grid, Typography } from "@mui/joy";
 import NavButtons from "./navbuttons/NavButtons";
 
-function SearchResultsRoot({ darkMode, viewMode, rooms }) {
+function SearchResultsRoot({ darkMode, viewMode, rooms, setRooms }) {
 	const [buildingData, setBuildingData] = useState(undefined);
 
 	useEffect(() => {
