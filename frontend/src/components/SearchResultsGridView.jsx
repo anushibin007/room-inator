@@ -11,6 +11,7 @@ import PeopleIcon from "@mui/icons-material/People";
 import NonOverflowingTypography from "./customcomponent/NonOverflowingTypography";
 import { addHashToCurrentPage, buildImageSrcUrl } from "../utils/URLHelper";
 import Constants from "../utils/Constants";
+import SkeletonCardCover from "./customcomponent/SkeletonCardCover";
 
 function SearchResultsGridView({ rooms }) {
 	/**
@@ -56,12 +57,9 @@ function SearchResultsGridView({ rooms }) {
 							>
 								{room.images && (
 									<>
-										<CardCover>
-											<img
-												src={buildImageSrcUrl(room.images[0])}
-												loading="lazy"
-											/>
-										</CardCover>
+										<SkeletonCardCover
+											imgSrc={buildImageSrcUrl(room.images[0])}
+										/>
 									</>
 								)}
 								{!room.images && (
