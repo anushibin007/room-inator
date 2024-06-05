@@ -10,10 +10,9 @@ import IconButton from "@mui/joy/IconButton";
 import ListIcon from "@mui/icons-material/List";
 import WindowIcon from "@mui/icons-material/Window";
 import MeetingRoomIcon from "@mui/icons-material/MeetingRoom";
+import Link from "@mui/joy/Link";
 
-import { goToUrl } from "../utils/URLHelper";
 import Spacer from "./Spacer";
-import { Link } from "@mui/joy";
 
 function Header({ rooms, setRooms, darkMode, toggleDarkMode, simpleMode, viewMode, setViewMode }) {
 	const setGridViewMode = () => {

@@ -6,20 +6,20 @@ import Sheet from "@mui/joy/Sheet";
 import Select from "@mui/joy/Select";
 import Option from "@mui/joy/Option";
 import { useState } from "react";
-import RoomsService from "../service/RoomsService";
+// import RoomsService from "../service/RoomsService";
 import { useEffect } from "react";
 
 export default function AdvancedSearch(props) {
 	const { toggleModal, advancedSeachOpen } = props;
 	const [uniqueCountries, setUniqueCountries] = useState([]);
 	useEffect(() => {
-		setSelectItems();
+		// setSelectItems();
 	}, []);
 
-	const setSelectItems = async () => {
-		const allCountries = await RoomsService.getCountryNames();
-		setUniqueCountries(allCountries);
-	};
+	// const setSelectItems = async () => {
+	// 	const allCountries = await RoomsService.getCountryNames();
+	// 	setUniqueCountries(allCountries);
+	// };
 	return (
 		<React.Fragment>
 			<Modal

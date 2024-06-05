@@ -3,8 +3,9 @@ import React from "react";
 import { Route, Routes, HashRouter } from "react-router-dom";
 
 // MUI
-import { CssBaseline } from "@mui/joy";
-import { CssVarsProvider, extendTheme } from "@mui/joy/styles";
+import CssBaseline from "@mui/joy/CssBaseline";
+import { CssVarsProvider } from "@mui/joy/styles/CssVarsProvider";
+import extendTheme from "@mui/joy/styles/extendTheme";
 
 // Custom CSS
 import "./stylesheets/customstyles.css";

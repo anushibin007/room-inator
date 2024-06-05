@@ -4,7 +4,9 @@ import React, { useEffect, useState } from "react";
 import SearchResultsGridView from "./SearchResultsGridView";
 import SearchResultsListView from "./SearchResultsListView";
 import Constants from "../utils/Constants";
-import { Container, Grid, Typography } from "@mui/joy";
+import Container from "@mui/joy/Container";
+import Grid from "@mui/joy/Grid";
+import Typography from "@mui/joy/Typography";
 import NavButtons from "./navbuttons/NavButtons";
 
 function SearchResultsRoot({ darkMode, viewMode, rooms, setRooms }) {

@@ -1,7 +1,7 @@
 // React
 import React from "react";
 // MUI
-import { Grid } from "@mui/joy";
+import Grid from "@mui/joy/Grid";
 import Card from "@mui/joy/Card";
 import CardCover from "@mui/joy/CardCover";
 import CardContent from "@mui/joy/CardContent";

@@ -1,5 +1,10 @@
 // MUI
-import { Breadcrumbs, Container, Grid, Link, Table, Typography } from "@mui/joy";
+import Breadcrumbs from "@mui/joy/Breadcrumbs";
+import Container from "@mui/joy/Container";
+import Grid from "@mui/joy/Grid";
+import Link from "@mui/joy/Link";
+import Table from "@mui/joy/Table";
+import Typography from "@mui/joy/Typography";
 import React, { useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";

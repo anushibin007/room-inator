@@ -6,7 +6,9 @@ import Table from "@mui/joy/Table";
 import Typography from "@mui/joy/Typography";
 
 import { addHashToCurrentPage, getURLForCriteriaAndValue } from "../utils/URLHelper";
-import { Container, Grid, Skeleton } from "@mui/joy";
+import Container from "@mui/joy/Container";
+import Grid from "@mui/joy/Grid";
+import Skeleton from "@mui/joy/Skeleton";
 import ErrorMessage from "./ErrorMessage";
 import NavButtons from "./navbuttons/NavButtons";
 

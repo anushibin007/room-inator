@@ -1,7 +1,8 @@
 // MUI
 import Alert from "@mui/joy/Alert";
 import Typography from "@mui/joy/Typography";
-import { Grid, Table } from "@mui/joy";
+import Grid from "@mui/joy/Grid";
+import Table from "@mui/joy/Table";
 
 function ErrorMessage({ errorState }) {
 	return (

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 // MUI
 import Chip from "@mui/joy/Chip";
 // DB
-import RoomsService from "../service/RoomsService";
+// import RoomsService from "../service/RoomsService";
 // Utils
 import { sortAscending } from "../utils/SortFunctions";
 
@@ -48,7 +48,8 @@ function QuickFilters({ rooms, setRooms }) {
 	};
 
 	const filterResults = async () => {
-		const allRooms = await RoomsService.getAllRooms();
+		// const allRooms = await RoomsService.getAllRooms();
+		const allRooms = [];
 		var currentRooms = rooms;
 
 		// Get the names of all available filters
@@ -79,7 +80,8 @@ function QuickFilters({ rooms, setRooms }) {
 	};
 
 	const clearAllFilters = async () => {
-		const allRooms = await RoomsService.getAllRooms();
+		// const allRooms = await RoomsService.getAllRooms();
+		const allRooms = [];
 		setRooms(allRooms);
 		updateFilterBar(allRooms);
 		setQuickFilter({

@@ -4,7 +4,10 @@ import ModalClose from "@mui/joy/ModalClose";
 import ModalDialog from "@mui/joy/ModalDialog";
 import DialogTitle from "@mui/joy/DialogTitle";
 import DialogContent from "@mui/joy/DialogContent";
-import { Grid, List, ListItem, Typography, Link } from "@mui/joy";
+import Grid from "@mui/joy/Grid";
+import List from "@mui/joy/List";
+import Typography from "@mui/joy/Typography";
+import Link from "@mui/joy/Link";
 
 export default function AboutUs({ open, setOpen }) {
 	return (

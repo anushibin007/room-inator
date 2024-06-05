@@ -1,6 +1,6 @@
 // Bootstrap
 import { useEffect, useState } from "react";
-import { Input } from "@mui/joy";
+import Input from "@mui/joy/Input";
 import { useParams } from "react-router-dom";
 import Constants from "../utils/Constants";
 import SearchIcon from "@mui/icons-material/Search";
