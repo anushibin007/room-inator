@@ -4,6 +4,7 @@ import Container from "@mui/joy/Container";
 import Grid from "@mui/joy/Grid";
 import Link from "@mui/joy/Link";
 import Table from "@mui/joy/Table";
+import Skeleton from "@mui/joy/Skeleton";
 import Typography from "@mui/joy/Typography";
 import React, { useEffect } from "react";
 import Header from "./Header";
@@ -12,8 +13,9 @@ import Constants from "../utils/Constants";
 import NavButtons from "./navbuttons/NavButtons";
 import { buildImageSrcUrl } from "../utils/URLHelper";
 import GLightbox from "glightbox";
+import ErrorMessage from "./ErrorMessage";
 
-function RoomDetails({ room }) {
+function RoomDetails({ room, errorState }) {
 	useEffect(() => {
 		// Update the Web Page's title
 		// whenever the room's state updates
@@ -31,7 +33,14 @@ function RoomDetails({ room }) {
 		<>
 			<Header simpleMode={true} />
 			<Container>
-				{room && Object.keys(room).length > 0 && (
+				{!errorState && !room && (
+					<>
+						<Typography level="title-md" my={3}>
+							Loading. Please wait.
+						</Typography>
+					</>
+				)}
+				{!errorState && room && Object.keys(room).length > 0 && (
 					<>
 						<Grid container xs={12}>
 							<Grid container xs={12} sx={{ marginTop: 1, marginBottom: 1 }}>
@@ -183,11 +192,78 @@ function RoomDetails({ room }) {
 						</Grid>
 					</>
 				)}
-				{(!room || Object.keys(room).length <= 0) && (
-					<Typography component="h2" id="modal-title" level="h4" fontWeight="lg" mb={3}>
+				{!errorState && !room && (
+					<>
+						<Grid container xs={12}>
+							<Grid container xs={12} md={6}>
+								<Grid
+									container
+									xs={12}
+									sx={{ padding: 3 }}
+									alignItems="center"
+									justifyContent="center"
+								>
+									<Skeleton variant="rectangular" width={300} height={300} />
+								</Grid>
+							</Grid>
+							<Grid container xs={12} md={6} alignItems="center">
+								<Grid xs={12} sx={{ padding: 3 }}>
+									<Table>
+										<thead>
+											<tr>
+												<th style={{ width: "10%" }}>
+													<Skeleton variant="text" level="h3" />
+												</th>
+												<th>
+													<Skeleton variant="text" level="h3" />
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											{[...Array(5)].map((_, idx) => (
+												<tr key={idx}>
+													<td>
+														<Skeleton variant="text" level="h4" />
+													</td>
+													<td>
+														<Skeleton variant="text" level="h4" />
+													</td>
+												</tr>
+											))}
+											<tr>
+												<td
+													colSpan={2}
+													style={{
+														borderBottom: "none",
+													}}
+												>
+													<Skeleton variant="text" level="h4" />
+												</td>
+											</tr>
+											<tr>
+												<td colSpan={2}>
+													<ol>
+														{[...Array(5)].map((_, idx) => (
+															<li key={idx}>
+																<Skeleton variant="text" />
+															</li>
+														))}
+													</ol>
+												</td>
+											</tr>
+										</tbody>
+									</Table>
+								</Grid>
+							</Grid>
+						</Grid>
+					</>
+				)}
+				{!errorState && room && Object.keys(room).length <= 0 && (
+					<Typography component="h2" level="h4" fontWeight="lg" mb={3}>
 						No such room!
 					</Typography>
 				)}
+				{errorState && <ErrorMessage errorState={errorState} />}
 			</Container>
 			<Grid container>
 				<Footer />
