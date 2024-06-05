@@ -1,7 +1,7 @@
 // React
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, lazy, Suspense } from "react";
 // Internal components
-import SearchResultsRoot from "./SearchResultsRoot";
+const SearchResultsRoot = lazy(() => import("./SearchResultsRoot"));
 import Header from "./Header";
 // MUI
 import Grid from "@mui/joy/Grid";
@@ -62,13 +62,16 @@ function MainPage({ display }) {
 					{display === "locations" && <BaseCriteriaSelector criteria="Location" />}
 					{display === "buildings" && <BaseCriteriaSelector criteria="Building" />}
 					{display === "rooms" && (
-						<SearchResultsRoot
-							rooms={rooms}
-							setRooms={setRooms}
-							darkMode={darkMode}
-							dataType={"rooms"}
-							viewMode={viewMode}
-						/>
+						// TODO: Add a proper loading spinner or something like that
+						<Suspense fallback={<>Loading search results...</>}>
+							<SearchResultsRoot
+								rooms={rooms}
+								setRooms={setRooms}
+								darkMode={darkMode}
+								dataType={"rooms"}
+								viewMode={viewMode}
+							/>
+						</Suspense>
 					)}
 				</Grid>
 				<ToastContainer
