@@ -9,6 +9,7 @@ import Grid from "@mui/joy/Grid";
 import Typography from "@mui/joy/Typography";
 import NavButtons from "./navbuttons/NavButtons";
 import GenericLoading from "./GenericLoading";
+import WarningIcon from "@mui/icons-material/Warning";
 
 function SearchResultsRoot({ darkMode, viewMode, rooms, setRooms }) {
 	const [errorState, setErrorState] = useState(undefined);
@@ -28,21 +29,21 @@ function SearchResultsRoot({ darkMode, viewMode, rooms, setRooms }) {
 
 	return (
 		<Container sx={{ marginTop: 2 }}>
-			{rooms && rooms.length > 0 && (
-				<>
-					<Grid container xs={12}>
-						<Grid mr={1}>
-							<NavButtons />
-						</Grid>
-						<Grid>
-							<Typography level="title-md" mt={1}>
-								Pick a room {buildingData && <>from {buildingData.name}</>}
-							</Typography>
-							<Typography level="body-xs">Total rooms: {rooms.length}</Typography>
-						</Grid>
+			<>
+				<Grid container xs={12}>
+					<Grid mr={1}>
+						<NavButtons />
 					</Grid>
-				</>
-			)}
+					<Grid>
+						<Typography level="title-md" mt={1}>
+							Pick a room {buildingData && <>from {buildingData.name}</>}
+						</Typography>
+						<Typography level="body-xs">
+							Total rooms: {`${rooms ? rooms.length : 0}`}
+						</Typography>
+					</Grid>
+				</Grid>
+			</>
 			{viewMode === "grid" && <SearchResultsGridView rooms={rooms} darkMode={darkMode} />}
 			{viewMode === "list" && <SearchResultsListView rooms={rooms} darkMode={darkMode} />}
 			{viewMode != "grid" && viewMode != "list" && (
@@ -54,8 +55,14 @@ function SearchResultsRoot({ darkMode, viewMode, rooms, setRooms }) {
 				</>
 			)}
 			{!errorState && rooms && rooms.length <= 0 && (
-				<Typography component="h2" level="h4" fontWeight="lg" mb={3}>
-					No such room!
+				<Typography
+					component="h2"
+					level="h4"
+					fontWeight="lg"
+					mb={3}
+					startDecorator={<WarningIcon />}
+				>
+					No rooms were found with the given name
 				</Typography>
 			)}
 		</Container>
