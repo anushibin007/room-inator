@@ -102,8 +102,8 @@ function RoomDetailsRoute() {
 						</Grid>
 					</>
 				)}
-				{!errorState && room && Object.keys(room).length <= 0 && (
-					<Typography component="h2" level="h4" fontWeight="lg" mb={3}>
+				{!errorState && room && room.error && (
+					<Typography component="h2" level="h4" fontWeight="lg">
 						No such room!
 					</Typography>
 				)}

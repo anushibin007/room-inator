@@ -34,6 +34,9 @@ function RoomDetails({ room, errorState }) {
 			)}
 			{!errorState && room && Object.keys(room).length > 0 && (
 				<>
+					{
+						// TODO: Hide the below Grid with breadcrumbs when no rooms are found
+					}
 					<Grid container xs={12}>
 						<Grid container xs={12} sx={{ marginTop: 1, marginBottom: 1 }}>
 							<Grid>
