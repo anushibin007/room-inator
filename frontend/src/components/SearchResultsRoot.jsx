@@ -8,8 +8,10 @@ import Container from "@mui/joy/Container";
 import Grid from "@mui/joy/Grid";
 import Typography from "@mui/joy/Typography";
 import NavButtons from "./navbuttons/NavButtons";
+import GenericLoading from "./GenericLoading";
 
 function SearchResultsRoot({ darkMode, viewMode, rooms, setRooms }) {
+	const [errorState, setErrorState] = useState(undefined);
 	const [buildingData, setBuildingData] = useState(undefined);
 
 	useEffect(() => {
@@ -46,9 +48,14 @@ function SearchResultsRoot({ darkMode, viewMode, rooms, setRooms }) {
 			{viewMode != "grid" && viewMode != "list" && (
 				<p>Invalid view mode selected - [{viewMode}]</p>
 			)}
-			{(!rooms || rooms.length <= 0) && (
-				<Typography component="h2" level="h4" fontWeight="lg">
-					Sorry, no rooms were found for the given query.
+			{!errorState && !rooms && (
+				<>
+					<GenericLoading />
+				</>
+			)}
+			{!errorState && rooms && rooms.length <= 0 && (
+				<Typography component="h2" level="h4" fontWeight="lg" mb={3}>
+					No such room!
 				</Typography>
 			)}
 		</Container>

@@ -16,41 +16,43 @@ function SearchResultsListView({ rooms }) {
 	return (
 		<>
 			<Grid container xs={12} mt={2}>
-				<Grid xs={12}>
-					<DataTable
-						value={rooms}
-						dataKey="id"
-						sortField="name"
-						removableSort
-						filterDisplay="row"
-						emptyMessage="No rooms found."
-						selectionMode="single"
-						onRowSelect={openRoom}
-					>
-						<Column
-							sortable
-							filter
-							filterPlaceholder="Search by name"
-							field="name"
-							header="Room Name"
-							oncli
-						></Column>
-						<Column
-							sortable
-							filter
-							filterPlaceholder="Filter by floor"
-							field="floor"
-							header="Floor"
-						></Column>
-						<Column
-							sortable
-							filter
-							filterPlaceholder="Filter by seating capacity"
-							field="capacity"
-							header="Seating capacity"
-						></Column>
-					</DataTable>
-				</Grid>
+				{rooms && rooms.length > 0 && (
+					<Grid xs={12}>
+						<DataTable
+							value={rooms}
+							dataKey="id"
+							sortField="name"
+							removableSort
+							filterDisplay="row"
+							emptyMessage="No rooms found."
+							selectionMode="single"
+							onRowSelect={openRoom}
+						>
+							<Column
+								sortable
+								filter
+								filterPlaceholder="Search by name"
+								field="name"
+								header="Room Name"
+								oncli
+							></Column>
+							<Column
+								sortable
+								filter
+								filterPlaceholder="Filter by floor"
+								field="floor"
+								header="Floor"
+							></Column>
+							<Column
+								sortable
+								filter
+								filterPlaceholder="Filter by seating capacity"
+								field="capacity"
+								header="Seating capacity"
+							></Column>
+						</DataTable>
+					</Grid>
+				)}
 			</Grid>
 		</>
 	);
