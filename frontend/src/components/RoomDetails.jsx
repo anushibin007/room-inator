@@ -14,6 +14,7 @@ import NavButtons from "./navbuttons/NavButtons";
 import { buildImageSrcUrl } from "../utils/URLHelper";
 import GLightbox from "glightbox";
 import ErrorMessage from "./ErrorMessage";
+import GenericLoading from "./GenericLoading";
 
 function RoomDetails({ room, errorState }) {
 	useEffect(() => {
@@ -35,9 +36,7 @@ function RoomDetails({ room, errorState }) {
 			<Container>
 				{!errorState && !room && (
 					<>
-						<Typography level="title-md" my={3}>
-							Loading. Please wait.
-						</Typography>
+						<GenericLoading />
 					</>
 				)}
 				{!errorState && room && Object.keys(room).length > 0 && (

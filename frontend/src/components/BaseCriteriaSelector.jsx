@@ -11,6 +11,7 @@ import Grid from "@mui/joy/Grid";
 import Skeleton from "@mui/joy/Skeleton";
 import ErrorMessage from "./ErrorMessage";
 import NavButtons from "./navbuttons/NavButtons";
+import GenericLoading from "./GenericLoading";
 
 /**
  * This class is a common class to select Country, Location and Building
@@ -76,9 +77,7 @@ function BaseCriteriaSelector({ criteria }) {
 			<Container sx={{ marginTop: 2 }}>
 				{!errorState && !data && (
 					<>
-						<Typography id="modal-title" level="title-md" my={1}>
-							Loading. Please wait.
-						</Typography>
+						<GenericLoading />
 					</>
 				)}
 				{!errorState && data && data.length > 0 && (

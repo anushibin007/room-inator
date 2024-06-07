@@ -10,6 +10,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./Footer";
 import BaseCriteriaSelector from "./BaseCriteriaSelector";
+import GenericLoading from "./GenericLoading";
 
 function MainPage({ display }) {
 	const [rooms, setRooms] = useState(undefined);
@@ -63,7 +64,13 @@ function MainPage({ display }) {
 					{display === "buildings" && <BaseCriteriaSelector criteria="Building" />}
 					{display === "rooms" && (
 						// TODO: Add a proper loading spinner or something like that
-						<Suspense fallback={<>Loading search results...</>}>
+						<Suspense
+							fallback={
+								<>
+									<GenericLoading />
+								</>
+							}
+						>
 							<SearchResultsRoot
 								rooms={rooms}
 								setRooms={setRooms}
