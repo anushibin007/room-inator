@@ -10,6 +10,7 @@ import NavButtons from "./navbuttons/NavButtons";
 import { buildImageSrcUrl } from "../utils/URLHelper";
 import GLightbox from "glightbox";
 import GenericLoading from "./GenericLoading";
+import CustomHighlightedText from "./customcomponent/CustomHighlightedText";
 
 function RoomDetails({ room, errorState }) {
 	useEffect(() => {
@@ -159,7 +160,9 @@ function RoomDetails({ room, errorState }) {
 																	<React.Fragment key={index}>
 																		<li>
 																			<Typography level="body-md">
-																				{direction}
+																				<CustomHighlightedText
+																					text={direction}
+																				/>
 																			</Typography>
 																		</li>
 																	</React.Fragment>
