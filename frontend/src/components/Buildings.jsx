@@ -69,7 +69,7 @@ export default function Buildings() {
 		if (!filteredLocation || !filteredCountry) {
 			return "";
 		}
-		return `${filteredLocation[0].name} / ${filteredCountry[0].name}`;
+		return `${filteredCountry[0].name} / ${filteredLocation[0].name}`;
 	};
 
 	return (
