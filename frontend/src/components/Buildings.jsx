@@ -91,7 +91,7 @@ export default function Buildings() {
 						</Grid>
 						<Grid container mt={2}>
 							{buildings?.map((aData) => (
-								<Grid key={aData.id}>
+								<Grid key={aData.id} padding={2}>
 									<Card
 										sx={{
 											width: 320,
