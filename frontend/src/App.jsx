@@ -25,23 +25,7 @@ function App() {
 				<CssBaseline />
 				<HashRouter>
 					<Routes>
-						<Route exact path="/" element={<MainPage display={"countries"} />} />
-						<Route path="/">
-							<Route path={"country"}>
-								<Route
-									path={":criteriaValue"}
-									element={<MainPage display={"locations"} />}
-								/>
-							</Route>
-						</Route>
-						<Route path="/">
-							<Route path={"location"}>
-								<Route
-									path={":criteriaValue"}
-									element={<MainPage display={"buildings"} />}
-								/>
-							</Route>
-						</Route>
+						<Route exact path="/" element={<MainPage display={"buildings"} />} />
 						<Route path="/">
 							<Route path={"building"}>
 								<Route path={":roomId"} element={<MainPage display={"rooms"} />} />

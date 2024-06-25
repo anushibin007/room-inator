@@ -16,6 +16,11 @@ const getJSONKeyForCriteria = (aCriteria) => {
 };
 
 const getQueryForCriteriaAndValue = (aCriteria, aCriteriaValue) => {
+	if (!aCriteriaValue) {
+		// if no criteria is requested, make no query
+		return "";
+	}
+
 	var queryFilter = undefined;
 	if (aCriteria === "Country") {
 		queryFilter = undefined;

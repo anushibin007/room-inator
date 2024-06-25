@@ -9,8 +9,8 @@ import Grid from "@mui/joy/Grid";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./Footer";
-import BaseCriteriaSelector from "./BaseCriteriaSelector";
 import GenericLoading from "./GenericLoading";
+import Buildings from "./Buildings";
 
 function MainPage({ display }) {
 	const [rooms, setRooms] = useState(undefined);
@@ -59,9 +59,7 @@ function MainPage({ display }) {
 			/>
 			<Grid container paddingX={3}>
 				<Grid xs={12}>
-					{display === "countries" && <BaseCriteriaSelector criteria="Country" />}
-					{display === "locations" && <BaseCriteriaSelector criteria="Location" />}
-					{display === "buildings" && <BaseCriteriaSelector criteria="Building" />}
+					{display === "buildings" && <Buildings />}
 					{display === "rooms" && (
 						// TODO: Add a proper loading spinner or something like that
 						<Suspense
