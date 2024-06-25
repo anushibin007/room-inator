@@ -21,6 +21,10 @@ function SearchResultsListView({ rooms }) {
 			// TODO: This needs to be fetched from the backend
 			filters: [
 				{
+					text: "8",
+					value: 8,
+				},
+				{
 					text: "9",
 					value: 9,
 				},
