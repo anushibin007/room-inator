@@ -2,6 +2,10 @@
 import React, { useEffect, useState } from "react";
 // MUI
 import Table from "@mui/joy/Table";
+import Button from "@mui/joy/Button";
+import Card from "@mui/joy/Card";
+import CardContent from "@mui/joy/CardContent";
+import CardOverflow from "@mui/joy/CardOverflow";
 import Typography from "@mui/joy/Typography";
 
 import { getURLForCriteriaAndValue } from "../utils/URLHelper";
@@ -9,47 +13,74 @@ import Container from "@mui/joy/Container";
 import Grid from "@mui/joy/Grid";
 import Skeleton from "@mui/joy/Skeleton";
 import ErrorMessage from "./ErrorMessage";
-import NavButtons from "./navbuttons/NavButtons";
 import GenericLoading from "./GenericLoading";
+import Constants from "../utils/Constants";
 
 export default function Buildings() {
 	const criteria = "Building";
-	const [data, setData] = useState(undefined);
+	const [buildings, setBuildings] = useState(undefined);
+	const [locations, setLocations] = useState(undefined);
+	const [countries, setCountries] = useState(undefined);
 	const [errorState, setErrorState] = useState(undefined);
 
 	useEffect(() => {
-		loadData();
+		loadBuildings();
+		loadLocations();
+		loadCountries();
 	}, []);
 
-	const loadData = async () => {
+	const loadBuildings = async () => {
 		try {
 			const response = await fetch(getURLForCriteriaAndValue(criteria));
 			const responseData = await response.json();
-			setData(responseData);
+			setBuildings(responseData);
 		} catch (err) {
 			console.error({ error: err });
 			setErrorState({ error: err });
 		}
 	};
 
-	useEffect(() => {
-		// If there is only one row of data,
-		// just open it directly
-		if (data && data.length == 1) {
-			// TODO: Don't make this primary
-			// openItem(data[0].id);
+	const loadLocations = async () => {
+		try {
+			const response = await fetch(`${Constants.BACKEND_SERVER_ROOT}/locations`);
+			const responseData = await response.json();
+			setLocations(responseData);
+		} catch (err) {
+			console.error({ error: err });
+			setErrorState({ error: err });
 		}
-	}, [data]);
+	};
+	const loadCountries = async () => {
+		try {
+			const response = await fetch(`${Constants.BACKEND_SERVER_ROOT}/countries`);
+			const responseData = await response.json();
+			setCountries(responseData);
+		} catch (err) {
+			console.error({ error: err });
+			setErrorState({ error: err });
+		}
+	};
+
+	const getCountryAndLocationNames = (locationId) => {
+		const filteredLocation = locations?.filter((aLoc) => aLoc.id === locationId);
+		const filteredCountry =
+			filteredLocation &&
+			countries?.filter((aCountry) => aCountry.id === filteredLocation[0].countryId);
+		if (!filteredLocation || !filteredCountry) {
+			return "";
+		}
+		return `${filteredLocation[0].name} / ${filteredCountry[0].name}`;
+	};
 
 	return (
 		<>
 			<Container sx={{ marginTop: 2 }}>
-				{!errorState && !data && (
+				{!errorState && !buildings && (
 					<>
 						<GenericLoading />
 					</>
 				)}
-				{!errorState && data && data.length > 0 && (
+				{!errorState && buildings && buildings.length > 0 && (
 					<>
 						<Grid container>
 							<Grid>
@@ -57,36 +88,46 @@ export default function Buildings() {
 									Please pick a {criteria}
 								</Typography>
 							</Grid>
-							{
-								// TODO: Add Breadcrumbs to the base pickers as well
-							}
-							<Grid xs={12}>
-								<Typography level="body-xs">
-									Total buildings: {data.length}
-								</Typography>
-							</Grid>
 						</Grid>
-						<Table hoverRow>
-							<thead>
-								<tr>
-									<th style={{ width: "10%" }}>Sl No</th>
-									<th>{criteria}</th>
-								</tr>
-							</thead>
-							<tbody>
-								{data?.map((aData, idx) => (
-									<tr key={aData.id}>
-										<td>{idx + 1}</td>
-										<td>
-											<a href={`#building/${aData.id}`}>{aData.name}</a>
-										</td>
-									</tr>
-								))}
-							</tbody>
-						</Table>
+						<Grid container mt={2}>
+							{buildings?.map((aData) => (
+								<Grid key={aData.id}>
+									<Card
+										sx={{
+											width: 320,
+											maxWidth: "100%",
+											boxShadow: "lg",
+										}}
+									>
+										<CardContent>
+											<Typography level="body-xs">
+												{getCountryAndLocationNames(aData.locationId)}
+											</Typography>
+											<Typography
+												level="title-lg"
+												sx={{ mt: 1, fontWeight: "xl" }}
+											>
+												{aData.name}
+											</Typography>
+										</CardContent>
+										<CardOverflow>
+											<Button
+												variant="solid"
+												color="primary"
+												size="lg"
+												component="a"
+												href={`#building/${aData.id}`}
+											>
+												Visit
+											</Button>
+										</CardOverflow>
+									</Card>
+								</Grid>
+							))}
+						</Grid>
 					</>
 				)}
-				{!errorState && !data && (
+				{!errorState && !buildings && (
 					<>
 						<Table>
 							<thead>
@@ -114,7 +155,7 @@ export default function Buildings() {
 						</Table>
 					</>
 				)}
-				{!errorState && data?.length <= 0 && (
+				{!errorState && buildings?.length <= 0 && (
 					<Typography id="modal-title" level="title-md" my={1}>
 						Sorry, {criteria} not found for the given query.
 					</Typography>
