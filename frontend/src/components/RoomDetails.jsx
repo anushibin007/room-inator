@@ -45,18 +45,16 @@ function RoomDetails({ room, errorState }) {
 							</Grid>
 							<Grid xs={10}>
 								<Breadcrumbs aria-label="breadcrumb">
-									<Link underline="hover" href={Constants.BASE_PATH}>
-										Home
-									</Link>
-									<Link underline="hover" href={`#country/${room.countryId}`}>
+									<Typography color="text.secondary">
 										{room.countryName}
-									</Link>
-									<Link underline="hover" href={`#location/${room.locationId}`}>
+									</Typography>
+									<Typography color="text.secondary">
 										{room.locationName}
-									</Link>
-									<Link underline="hover" href={`#building/${room.buildingId}`}>
+									</Typography>
+									<Typography color="text.secondary">
 										{room.buildingName}
-									</Link>
+									</Typography>
+									<Typography color="text.secondary">{room.floor}F</Typography>
 									<Typography color="text.primary">{room.roomName}</Typography>
 								</Breadcrumbs>
 							</Grid>
