@@ -41,7 +41,7 @@ function RoomDetails({ room, errorState }) {
 					<Grid container xs={12}>
 						<Grid container xs={12} sx={{ marginTop: 1, marginBottom: 1 }}>
 							<Grid>
-								<NavButtons href={`#building/${room.buildingId}`} />
+								<NavButtons />
 							</Grid>
 							<Grid xs={10}>
 								<Breadcrumbs aria-label="breadcrumb">
