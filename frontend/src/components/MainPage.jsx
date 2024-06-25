@@ -1,6 +1,7 @@
 // React
 import React, { useEffect, useState, lazy, Suspense } from "react";
 // Internal components
+const Buildings = lazy(() => import("./Buildings"));
 const SearchResultsRoot = lazy(() => import("./SearchResultsRoot"));
 import Header from "./Header";
 // MUI
@@ -10,7 +11,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./Footer";
 import GenericLoading from "./GenericLoading";
-import Buildings from "./Buildings";
 
 function MainPage({ display }) {
 	const [rooms, setRooms] = useState(undefined);
@@ -59,7 +59,17 @@ function MainPage({ display }) {
 			/>
 			<Grid container paddingX={3}>
 				<Grid xs={12}>
-					{display === "buildings" && <Buildings />}
+					{display === "buildings" && (
+						<Suspense
+							fallback={
+								<>
+									<GenericLoading />
+								</>
+							}
+						>
+							<Buildings />
+						</Suspense>
+					)}
 					{display === "rooms" && (
 						// TODO: Add a proper loading spinner or something like that
 						<Suspense

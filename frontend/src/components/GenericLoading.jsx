@@ -2,7 +2,7 @@ import React from "react";
 import Typography from "@mui/joy/Typography";
 import CircularProgress from "@mui/joy/CircularProgress";
 
-export default function GenericLoading() {
+export default function GenericLoading({ text }) {
 	return (
 		<>
 			<Typography
@@ -10,7 +10,8 @@ export default function GenericLoading() {
 				level="title-md"
 				sx={{ p: 1, m: 3 }}
 			>
-				Loading. Please wait.
+				{text}
+				{!text && <>Loading. Please wait.</>}
 			</Typography>
 		</>
 	);
