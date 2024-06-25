@@ -75,7 +75,7 @@ function RoomDetails({ room, errorState }) {
 									alignItems="center"
 									justifyContent="center"
 								>
-									<Grid>
+									<Grid border={1}>
 										{
 											// TODO: Support image array
 										}
