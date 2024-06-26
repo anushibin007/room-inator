@@ -16,6 +16,15 @@ export default function RoomCard({ room }) {
 		}
 		return `${Constants.IMAGE_PLACEHOLDER_URL}`;
 	};
+	const getSeatTagColor = () => {
+		if (room?.capacity <= 6) {
+			return "success";
+		} else if (room?.capacity <= 12) {
+			return "warning";
+		} else {
+			return "danger";
+		}
+	};
 	return (
 		<>
 			<Card sx={{ width: 320, maxWidth: "100%", boxShadow: "lg" }}>
@@ -34,7 +43,12 @@ export default function RoomCard({ room }) {
 						level="title-lg"
 						sx={{ fontWeight: "xl" }}
 						endDecorator={
-							<Chip component="span" size="sm" variant="soft" color="success">
+							<Chip
+								component="span"
+								size="sm"
+								variant="soft"
+								color={getSeatTagColor()}
+							>
 								{room.capacity} Seater
 							</Chip>
 						}
