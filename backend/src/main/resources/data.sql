@@ -201,28 +201,3 @@ VALUES
         ARRAY ['https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024'],
         ARRAY ['projector']
     );
-
-INSERT INTO
-    ROOM (
-        FLOOR,
-        CAPACITY,
-        BUILDING_ID,
-        ID,
-        NAME,
-        DIRECTIONS,
-        IMAGES,
-        STATIONERY
-    )
-VALUES
-    (
-        '15',
-        '100',
-        'BGLR-B3',
-        'BGLR-B3-ID1',
-        'Meeting Room 1',
-        ARRAY ['Enter the building',
-        'Turn left',
-        'Turn right'],
-        ARRAY ['https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024'],
-        ARRAY ['projector']
-    );
