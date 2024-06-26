@@ -11,7 +11,7 @@ import { Link } from "@mui/joy";
 
 export default function RoomCard({ room }) {
 	const getImageUrl = () => {
-		if (room.images && room.images.length > 0) {
+		if (room?.images?.length > 0) {
 			return buildImageSrcUrl(room.images[0]);
 		}
 		return `${Constants.IMAGE_PLACEHOLDER_URL}`;
@@ -37,7 +37,7 @@ export default function RoomCard({ room }) {
 				</CardOverflow>
 				<CardContent>
 					<NonOverflowingTypography level="body-xs">
-						Floor {room.floor}
+						Floor {room?.floor}
 					</NonOverflowingTypography>
 					<NonOverflowingTypography
 						level="title-lg"
@@ -49,17 +49,17 @@ export default function RoomCard({ room }) {
 								variant="soft"
 								color={getSeatTagColor()}
 							>
-								{room.capacity} Seater
+								{room?.capacity} Seater
 							</Chip>
 						}
 					>
-						{room.name}
+						{room?.name}
 					</NonOverflowingTypography>
 				</CardContent>
 				<CardOverflow>
 					<Button
 						as="a"
-						href={`#room/${room.id}`}
+						href={`#room/${room?.id}`}
 						variant="solid"
 						color="primary"
 						size="lg"
