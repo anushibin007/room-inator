@@ -32,7 +32,7 @@ function SearchResultsRoot({ darkMode, viewMode, rooms, setRooms }) {
 			<>
 				<Grid container xs={12}>
 					<Grid mr={1}>
-						<NavButtons />
+						<NavButtons hideBackButton={true} />
 					</Grid>
 					<Grid>
 						<Typography level="title-md" mt={1}>

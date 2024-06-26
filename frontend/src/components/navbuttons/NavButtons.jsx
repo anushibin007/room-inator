@@ -3,7 +3,7 @@ import BackButton from "./BackButton";
 import HomeButton from "./HomeButton";
 import { Grid } from "@mui/joy";
 
-const NavButtons = ({ href }) => {
+const NavButtons = ({ href, hideBackButton }) => {
 	return (
 		<>
 			<Grid
@@ -13,9 +13,13 @@ const NavButtons = ({ href }) => {
 				alignItems="center"
 				sx={{ height: "100%" }}
 			>
-				<Grid>
-					<BackButton href={href} />
-				</Grid>
+				{!hideBackButton && (
+					<>
+						<Grid>
+							<BackButton href={href} />
+						</Grid>
+					</>
+				)}
 				<Grid>
 					<HomeButton />
 				</Grid>
