@@ -8,7 +8,7 @@ import Grid from "@mui/joy/Grid";
 import Typography from "@mui/joy/Typography";
 import QRCode from "react-qr-code";
 
-export default function QRModal({ open, setOpen, qrData }) {
+export default function QRModal({ open, setOpen, modalTitle, qrData }) {
 	return (
 		<React.Fragment>
 			<Modal
@@ -21,7 +21,7 @@ export default function QRModal({ open, setOpen, qrData }) {
 				<ModalDialog>
 					<ModalClose variant="plain" sx={{ m: 1 }} />
 					<DialogTitle>
-						<Typography level="title-lg">Share via QR</Typography>
+						<Typography level="title-lg">{modalTitle}</Typography>
 					</DialogTitle>
 					<DialogContent>
 						<Grid

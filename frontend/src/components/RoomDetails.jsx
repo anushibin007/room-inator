@@ -207,6 +207,7 @@ function RoomDetails({ room, errorState }) {
 					<QRModal
 						open={qrModalOpen}
 						setOpen={setQrModalOpen}
+						modalTitle={`Scan to access "${room.roomName} (${room.floor}F)"`}
 						qrData={document.location.href}
 					/>
 				</>
