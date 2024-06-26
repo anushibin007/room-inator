@@ -5,7 +5,7 @@ import Grid from "@mui/joy/Grid";
 import { Table } from "antd";
 
 function SearchResultsListView({ rooms }) {
-	const dataSource = rooms;
+	const dataSource = rooms?.map((room) => ({ ...room, key: room.id }));
 	const columns = [
 		{
 			title: "Name",
