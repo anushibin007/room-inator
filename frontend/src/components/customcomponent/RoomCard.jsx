@@ -27,9 +27,15 @@ export default function RoomCard({ room }) {
 	};
 	return (
 		<>
-			<Card sx={{ width: 320, maxWidth: "100%", boxShadow: "lg" }}>
+			<Card sx={{ maxWidth: "100%", boxShadow: "lg" }}>
 				<CardOverflow>
-					<AspectRatio sx={{ minWidth: 200 }}>
+					<AspectRatio
+						sx={{
+							minWidth: 200,
+							borderBottom: 1,
+							borderBottomStyle: "solid",
+						}}
+					>
 						<Link overlay href={`#room/${room.id}`}>
 							<img src={getImageUrl()} loading="lazy" alt={`Image of ${room.name}`} />
 						</Link>
