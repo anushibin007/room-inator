@@ -1,11 +1,9 @@
 // MUI
 import Breadcrumbs from "@mui/joy/Breadcrumbs";
 import Grid from "@mui/joy/Grid";
-import Link from "@mui/joy/Link";
 import Table from "@mui/joy/Table";
 import Typography from "@mui/joy/Typography";
 import React, { useEffect } from "react";
-import Constants from "../utils/Constants";
 import NavButtons from "./navbuttons/NavButtons";
 import { buildImageSrcUrl } from "../utils/URLHelper";
 import GLightbox from "glightbox";
