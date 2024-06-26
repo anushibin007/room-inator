@@ -3,14 +3,18 @@ import Breadcrumbs from "@mui/joy/Breadcrumbs";
 import Grid from "@mui/joy/Grid";
 import Table from "@mui/joy/Table";
 import Typography from "@mui/joy/Typography";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import NavButtons from "./navbuttons/NavButtons";
 import { buildImageSrcUrl } from "../utils/URLHelper";
 import GLightbox from "glightbox";
 import GenericLoading from "./GenericLoading";
 import CustomHighlightedText from "./customcomponent/CustomHighlightedText";
+import { Button } from "@mui/joy";
+import QrCodeIcon from "@mui/icons-material/QrCode";
+import QRModal from "./QRModal";
 
 function RoomDetails({ room, errorState }) {
+	const [qrModalOpen, setQrModalOpen] = useState(false);
 	useEffect(() => {
 		// Update the Web Page's title
 		// whenever the room's state updates
@@ -36,12 +40,19 @@ function RoomDetails({ room, errorState }) {
 					{
 						// TODO: Hide the below Grid with breadcrumbs when no rooms are found
 					}
-					<Grid container xs={12}>
-						<Grid container xs={12} sx={{ marginTop: 1, marginBottom: 1 }}>
+					<Grid container>
+						<Grid
+							container
+							direction="row"
+							justifyContent="space-between"
+							alignItems="center"
+							xs={12}
+							sx={{ marginTop: 1, marginBottom: 1 }}
+						>
 							<Grid>
 								<NavButtons />
 							</Grid>
-							<Grid xs={10}>
+							<Grid>
 								<Breadcrumbs aria-label="breadcrumb">
 									<Typography color="text.secondary">
 										{room.countryName}
@@ -55,6 +66,25 @@ function RoomDetails({ room, errorState }) {
 									<Typography color="text.secondary">{room.floor}F</Typography>
 									<Typography color="text.primary">{room.roomName}</Typography>
 								</Breadcrumbs>
+							</Grid>
+							<Grid>
+								<Grid
+									container
+									direction="row"
+									justifyContent="center"
+									alignItems="center"
+									sx={{ height: "100%" }}
+								>
+									<Grid>
+										<Button
+											startDecorator={<QrCodeIcon />}
+											variant="outlined"
+											onClick={() => setQrModalOpen(true)}
+										>
+											Share room via QR
+										</Button>
+									</Grid>
+								</Grid>
 							</Grid>
 						</Grid>
 						{room.images && (
@@ -174,6 +204,11 @@ function RoomDetails({ room, errorState }) {
 							</Grid>
 						</Grid>
 					</Grid>
+					<QRModal
+						open={qrModalOpen}
+						setOpen={setQrModalOpen}
+						qrData={document.location.href}
+					/>
 				</>
 			)}
 		</>
