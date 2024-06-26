@@ -65,9 +65,9 @@ INSERT INTO
 VALUES
     (
         '1',
-        '100',
-        'MUM-B1',
-        'MUM-B1-ID1',
+        '5',
+        'BGLR-B3',
+        'BGLR-B3-ID1',
         'Meeting Room 1',
         ARRAY ['Enter the building',
         'Turn right',
@@ -91,9 +91,9 @@ INSERT INTO
 VALUES
     (
         '1',
-        '100',
-        'MUM-B2',
-        'MUM-B2-ID1',
+        '10',
+        'BGLR-B3',
+        'BGLR-B3-ID2',
         'Meeting Room 2',
         ARRAY ['Enter the building',
         'Turn left',
@@ -115,10 +115,110 @@ INSERT INTO
     )
 VALUES
     (
+        '1',
         '15',
-        '100',
+        'BGLR-B3',
+        'BGLR-B3-ID3',
+        'Meeting Room 3',
+        ARRAY ['Enter the building',
+        'Turn left',
+        'Turn right'],
+        ARRAY ['https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024'],
+        ARRAY ['whiteboard']
+    );
+
+INSERT INTO
+    ROOM (
+        FLOOR,
+        CAPACITY,
+        BUILDING_ID,
+        ID,
+        NAME,
+        DIRECTIONS,
+        IMAGES,
+        STATIONERY
+    )
+VALUES
+    (
+        '1',
+        '20',
+        'BGLR-B3',
+        'BGLR-B3-ID4',
+        'Meeting Room 4',
+        ARRAY ['Enter the building',
+        'Turn left',
+        'Turn right'],
+        ARRAY ['https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024'],
+        ARRAY ['whiteboard']
+    );
+
+INSERT INTO
+    ROOM (
+        FLOOR,
+        CAPACITY,
+        BUILDING_ID,
+        ID,
+        NAME,
+        DIRECTIONS,
+        IMAGES,
+        STATIONERY
+    )
+VALUES
+    (
+        '15',
+        '80',
         'GC-B1',
         'GC-B1-ID1',
+        'Meeting Room 1',
+        ARRAY ['Enter the building',
+        'Turn left',
+        'Turn right'],
+        ARRAY ['https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024'],
+        ARRAY ['projector']
+    );
+
+INSERT INTO
+    ROOM (
+        FLOOR,
+        CAPACITY,
+        BUILDING_ID,
+        ID,
+        NAME,
+        DIRECTIONS,
+        IMAGES,
+        STATIONERY
+    )
+VALUES
+    (
+        '15',
+        '25',
+        'GC-B1',
+        'GC-B1-ID2',
+        'Meeting Room 1',
+        ARRAY ['Enter the building',
+        'Turn left',
+        'Turn right'],
+        ARRAY ['https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024', 'https://picsum.photos/1024/1024'],
+        ARRAY ['projector']
+    );
+
+INSERT INTO
+    ROOM (
+        FLOOR,
+        CAPACITY,
+        BUILDING_ID,
+        ID,
+        NAME,
+        DIRECTIONS,
+        IMAGES,
+        STATIONERY
+    )
+VALUES
+    (
+        '15',
+        '100',
+        'BGLR-B3',
+        'BGLR-B3-ID1',
         'Meeting Room 1',
         ARRAY ['Enter the building',
         'Turn left',
