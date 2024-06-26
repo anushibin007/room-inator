@@ -1,62 +1,58 @@
-import Grid from "@mui/joy/Grid";
+import AspectRatio from "@mui/joy/AspectRatio";
 import Card from "@mui/joy/Card";
-import CardCover from "@mui/joy/CardCover";
+import CardOverflow from "@mui/joy/CardOverflow";
 import CardContent from "@mui/joy/CardContent";
-import StairsIcon from "@mui/icons-material/Stairs";
-import PeopleIcon from "@mui/icons-material/People";
 import NonOverflowingTypography from "./NonOverflowingTypography";
 import { buildImageSrcUrl } from "../../utils/URLHelper";
 import Constants from "../../utils/Constants";
-import SkeletonCardCover from "./SkeletonCardCover";
-import Link from "@mui/joy/Link";
+import Chip from "@mui/joy/Chip";
+import Button from "@mui/joy/Button";
+import { Link } from "@mui/joy";
 
 export default function RoomCard({ room }) {
+	const getImageUrl = () => {
+		if (room.images && room.images.length > 0) {
+			return buildImageSrcUrl(room.images[0]);
+		}
+		return `${Constants.IMAGE_PLACEHOLDER_URL}`;
+	};
 	return (
 		<>
-			<Card variant="outlined" sx={{ height: "250px", div: { cursor: "pointer" } }}>
-				{room.images && (
-					<>
-						<SkeletonCardCover imgSrc={buildImageSrcUrl(room.images[0])} />
-					</>
-				)}
-				{!room.images && (
-					<>
-						<CardCover>
-							<img src={`${Constants.IMAGE_PLACEHOLDER_URL}`} loading="lazy" />
-						</CardCover>
-					</>
-				)}
-				<CardCover
-					sx={{
-						background:
-							"linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)",
-					}}
-				/>
-				<CardContent sx={{ justifyContent: "flex-end" }}>
-					<Link overlay href={`#room/${room.id}`}>
-						<Grid container xs={12}>
-							<Grid xs={12}>
-								<NonOverflowingTypography level="title-lg" textColor="#fff" mb={1}>
-									{room.name}
-								</NonOverflowingTypography>
-							</Grid>
-							<Grid xs={6}>
-								<NonOverflowingTypography startDecorator={<StairsIcon />}>
-									Floor {room.floor}
-								</NonOverflowingTypography>
-							</Grid>
-							<Grid xs={6}>
-								<NonOverflowingTypography
-									startDecorator={<PeopleIcon />}
-									textColor="neutral.300"
-									mb={1}
-								>
-									Capacity {room.capacity}
-								</NonOverflowingTypography>
-							</Grid>
-						</Grid>
-					</Link>
+			<Card sx={{ width: 320, maxWidth: "100%", boxShadow: "lg" }}>
+				<CardOverflow>
+					<AspectRatio sx={{ minWidth: 200 }}>
+						<Link overlay href={`#room/${room.id}`}>
+							<img src={getImageUrl()} loading="lazy" alt={`Image of ${room.name}`} />
+						</Link>
+					</AspectRatio>
+				</CardOverflow>
+				<CardContent>
+					<NonOverflowingTypography level="body-xs">
+						Floor {room.floor}
+					</NonOverflowingTypography>
+					<NonOverflowingTypography
+						level="title-lg"
+						sx={{ fontWeight: "xl" }}
+						endDecorator={
+							<Chip component="span" size="sm" variant="soft" color="success">
+								{room.capacity} Seater
+							</Chip>
+						}
+					>
+						{room.name}
+					</NonOverflowingTypography>
 				</CardContent>
+				<CardOverflow>
+					<Button
+						as="a"
+						href={`#room/${room.id}`}
+						variant="solid"
+						color="primary"
+						size="lg"
+					>
+						Visit
+					</Button>
+				</CardOverflow>
 			</Card>
 		</>
 	);
