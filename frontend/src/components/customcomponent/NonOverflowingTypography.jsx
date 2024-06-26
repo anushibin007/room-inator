@@ -4,7 +4,6 @@ function NonOverflowingTypography(props) {
 	return (
 		<Typography
 			{...props}
-			textColor="neutral.300"
 			textOverflow="ellipsis"
 			whiteSpace="nowrap"
 			overflow="hidden"
