@@ -15,6 +15,7 @@ import Skeleton from "@mui/joy/Skeleton";
 import ErrorMessage from "./ErrorMessage";
 import GenericLoading from "./GenericLoading";
 import Constants from "../utils/Constants";
+import ReactGA from "react-ga4";
 
 export default function Buildings() {
 	const criteria = "Building";
@@ -27,6 +28,7 @@ export default function Buildings() {
 		loadBuildings();
 		loadLocations();
 		loadCountries();
+		logGoogleAnalytics();
 	}, []);
 
 	const loadBuildings = async () => {
@@ -70,6 +72,18 @@ export default function Buildings() {
 			return "";
 		}
 		return `${filteredCountry[0].name} / ${filteredLocation[0].name}`;
+	};
+
+	const logGoogleAnalytics = () => {
+		if (Constants.GOOGLE_ANALYTICS_TAG) {
+			if (room && Object.keys(room).length > 0) {
+				ReactGA.send({
+					hitType: "pageview",
+					page: window.location.hash,
+					title: `Home`,
+				});
+			}
+		}
 	};
 
 	return (
