@@ -13,6 +13,7 @@ import WarningIcon from "@mui/icons-material/Warning";
 import ShareIcon from "@mui/icons-material/Share";
 import Button from "@mui/joy/Button";
 import QRModal from "./QRModal";
+import ReactGA from "react-ga4";
 
 function SearchResultsRoot({ darkMode, viewMode, rooms, setRooms }) {
 	const [errorState, setErrorState] = useState(undefined);
@@ -22,6 +23,7 @@ function SearchResultsRoot({ darkMode, viewMode, rooms, setRooms }) {
 	useEffect(() => {
 		if (!buildingData && rooms && rooms[0]) {
 			loadBuildingData(rooms[0].buildingId);
+			logGoogleAnalytics(rooms[0].buildingId);
 		}
 	}, [rooms]);
 
@@ -29,6 +31,16 @@ function SearchResultsRoot({ darkMode, viewMode, rooms, setRooms }) {
 		const response = await fetch(`${Constants.BACKEND_SERVER_ROOT}/buildings/${aBuildingId}`);
 		const responseData = await response.json();
 		setBuildingData(responseData);
+	};
+
+	const logGoogleAnalytics = (aBuildingId) => {
+		if (Constants.GOOGLE_ANALYTICS_TAG) {
+			ReactGA.send({
+				hitType: "pageview",
+				page: window.location.hash,
+				title: `${aBuildingId} - Building - room-inator`,
+			});
+		}
 	};
 
 	return (
