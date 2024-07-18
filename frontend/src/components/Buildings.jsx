@@ -79,7 +79,7 @@ export default function Buildings() {
 			if (room && Object.keys(room).length > 0) {
 				ReactGA.send({
 					hitType: "pageview",
-					page: window.location.hash,
+					page: window.location.href,
 					title: `Home`,
 				});
 			}
