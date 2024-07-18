@@ -37,7 +37,7 @@ function SearchResultsRoot({ darkMode, viewMode, rooms, setRooms }) {
 		if (Constants.GOOGLE_ANALYTICS_TAG) {
 			ReactGA.send({
 				hitType: "pageview",
-				page: window.location.hash,
+				page: window.location.href,
 				title: `${aBuildingId} - Building - room-inator`,
 			});
 		}

@@ -37,7 +37,7 @@ function RoomDetails({ room, errorState }) {
 			if (room && Object.keys(room).length > 0) {
 				ReactGA.send({
 					hitType: "pageview",
-					page: window.location.hash,
+					page: window.location.href,
 					title: `${room?.roomName} - room-inator`,
 				});
 			}
