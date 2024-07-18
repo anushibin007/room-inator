@@ -76,13 +76,11 @@ export default function Buildings() {
 
 	const logGoogleAnalytics = () => {
 		if (Constants.GOOGLE_ANALYTICS_TAG) {
-			if (room && Object.keys(room).length > 0) {
-				ReactGA.send({
-					hitType: "pageview",
-					page: window.location.href,
-					title: `Home`,
-				});
-			}
+			ReactGA.send({
+				hitType: "pageview",
+				page: window.location.href,
+				title: `Home`,
+			});
 		}
 	};
 
