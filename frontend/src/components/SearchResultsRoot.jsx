@@ -10,10 +10,14 @@ import Typography from "@mui/joy/Typography";
 import NavButtons from "./navbuttons/NavButtons";
 import GenericLoading from "./GenericLoading";
 import WarningIcon from "@mui/icons-material/Warning";
+import ShareIcon from "@mui/icons-material/Share";
+import Button from "@mui/joy/Button";
+import QRModal from "./QRModal";
 
 function SearchResultsRoot({ darkMode, viewMode, rooms, setRooms }) {
 	const [errorState, setErrorState] = useState(undefined);
 	const [buildingData, setBuildingData] = useState(undefined);
+	const [qrModalOpen, setQrModalOpen] = useState(false);
 
 	useEffect(() => {
 		if (!buildingData && rooms && rooms[0]) {
@@ -30,17 +34,34 @@ function SearchResultsRoot({ darkMode, viewMode, rooms, setRooms }) {
 	return (
 		<Container sx={{ marginTop: 2 }}>
 			<>
-				<Grid container xs={12}>
-					<Grid mr={1}>
-						<NavButtons hideBackButton={true} />
+				<Grid
+					container
+					direction="row"
+					alignItems="center"
+					justifyContent="space-between"
+					xs={12}
+				>
+					<Grid container>
+						<Grid mr={1}>
+							<NavButtons hideBackButton={true} />
+						</Grid>
+						<Grid>
+							<Typography level="title-md" mt={1}>
+								Pick a room {buildingData && <>from {buildingData.name}</>}
+							</Typography>
+							<Typography level="body-xs">
+								Total rooms: {`${rooms ? rooms.length : 0}`}
+							</Typography>
+						</Grid>
 					</Grid>
 					<Grid>
-						<Typography level="title-md" mt={1}>
-							Pick a room {buildingData && <>from {buildingData.name}</>}
-						</Typography>
-						<Typography level="body-xs">
-							Total rooms: {`${rooms ? rooms.length : 0}`}
-						</Typography>
+						<Button
+							startDecorator={<ShareIcon />}
+							variant="outlined"
+							onClick={() => setQrModalOpen(true)}
+						>
+							Share
+						</Button>
 					</Grid>
 				</Grid>
 			</>
@@ -65,6 +86,12 @@ function SearchResultsRoot({ darkMode, viewMode, rooms, setRooms }) {
 					No rooms were found with the given name
 				</Typography>
 			)}
+			<QRModal
+				open={qrModalOpen}
+				setOpen={setQrModalOpen}
+				modalTitle={`Share building "${buildingData?.name}"`}
+				qrData={document.location.href}
+			/>
 		</Container>
 	);
 }
