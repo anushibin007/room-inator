@@ -10,7 +10,7 @@ import GLightbox from "glightbox";
 import GenericLoading from "./GenericLoading";
 import CustomHighlightedText from "./customcomponent/CustomHighlightedText";
 import { Button } from "@mui/joy";
-import QrCodeIcon from "@mui/icons-material/QrCode";
+import ShareIcon from "@mui/icons-material/Share";
 import QRModal from "./QRModal";
 
 function RoomDetails({ room, errorState }) {
@@ -77,11 +77,11 @@ function RoomDetails({ room, errorState }) {
 								>
 									<Grid>
 										<Button
-											startDecorator={<QrCodeIcon />}
+											startDecorator={<ShareIcon />}
 											variant="outlined"
 											onClick={() => setQrModalOpen(true)}
 										>
-											Share room via QR
+											Share
 										</Button>
 									</Grid>
 								</Grid>
@@ -207,7 +207,7 @@ function RoomDetails({ room, errorState }) {
 					<QRModal
 						open={qrModalOpen}
 						setOpen={setQrModalOpen}
-						modalTitle={`Scan to access "${room.roomName} (${room.floor}F)"`}
+						modalTitle={`Share room "${room.roomName} (${room.floor}F)"`}
 						qrData={document.location.href}
 					/>
 				</>
