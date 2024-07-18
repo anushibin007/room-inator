@@ -5,6 +5,7 @@ const IMAGE_PLACEHOLDER_URL =
 	import.meta.env.VITE_IMAGE_PLACEHOLDER_URL ||
 	"https://images.pexels.com/photos/416320/pexels-photo-416320.jpeg";
 const IMAGE_ROOT_DIR_URL = import.meta.env.VITE_IMAGE_ROOT_DIR_URL || undefined;
+const GOOGLE_ANALYTICS_TAG = import.meta.env.VITE_GOOGLE_ANALYTICS_TAG || undefined;
 
 export default {
 	BASE_PATH,
@@ -12,4 +13,5 @@ export default {
 	BACKEND_SERVER_ROOT,
 	IMAGE_PLACEHOLDER_URL,
 	IMAGE_ROOT_DIR_URL,
+	GOOGLE_ANALYTICS_TAG,
 };

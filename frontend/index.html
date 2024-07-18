@@ -20,6 +20,23 @@
 			href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
 		/>
 		<script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+
+		<!-- Google tag (gtag.js) -->
+		<!-- Set an environment variable with VITE_GOOGLE_ANALYTICS_TAG with the value of your Google Analytics Tag to enable analytics -->
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=%VITE_GOOGLE_ANALYTICS_TAG%"
+		></script>
+		<script>
+			const VITE_GOOGLE_ANALYTICS_TAG = "%VITE_GOOGLE_ANALYTICS_TAG%";
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
+
+			gtag("config", VITE_GOOGLE_ANALYTICS_TAG);
+		</script>
 	</head>
 	<body class="bg-image">
 		<div id="root"></div>
