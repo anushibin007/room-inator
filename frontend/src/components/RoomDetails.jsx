@@ -12,6 +12,8 @@ import CustomHighlightedText from "./customcomponent/CustomHighlightedText";
 import { Button } from "@mui/joy";
 import ShareIcon from "@mui/icons-material/Share";
 import QRModal from "./QRModal";
+import ReactGA from "react-ga4";
+import Constants from "../utils/Constants";
 
 function RoomDetails({ room, errorState }) {
 	const [qrModalOpen, setQrModalOpen] = useState(false);
@@ -21,11 +23,24 @@ function RoomDetails({ room, errorState }) {
 		updatePageTitle();
 		// Trigger GLightbox initialization
 		GLightbox();
+		logGoogleAnalytics();
 	}, [room]);
 
 	const updatePageTitle = () => {
 		if (room && Object.keys(room).length > 0) {
 			document.title = `${room.roomName} - room-inator`;
+		}
+	};
+
+	const logGoogleAnalytics = () => {
+		if (Constants.GOOGLE_ANALYTICS_TAG) {
+			if (room && Object.keys(room).length > 0) {
+				ReactGA.send({
+					hitType: "pageview",
+					page: window.location.hash,
+					title: `${room?.roomName} - room-inator`,
+				});
+			}
 		}
 	};
 	return (
