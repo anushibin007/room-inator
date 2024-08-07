@@ -1,8 +1,7 @@
-// React
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, lazy, Suspense } from "react";
 
-import SearchResultsGridView from "./SearchResultsGridView";
-import SearchResultsListView from "./SearchResultsListView";
+const SearchResultsGridView = lazy(() => import("./SearchResultsGridView"));
+const SearchResultsListView = lazy(() => import("./SearchResultsListView"));
 import Constants from "../utils/Constants";
 import Container from "@mui/joy/Container";
 import Grid from "@mui/joy/Grid";
@@ -77,8 +76,28 @@ function SearchResultsRoot({ darkMode, viewMode, rooms, setRooms }) {
 					</Grid>
 				</Grid>
 			</>
-			{viewMode === "grid" && <SearchResultsGridView rooms={rooms} darkMode={darkMode} />}
-			{viewMode === "list" && <SearchResultsListView rooms={rooms} darkMode={darkMode} />}
+			{viewMode === "grid" && (
+				<Suspense
+					fallback={
+						<>
+							<GenericLoading />
+						</>
+					}
+				>
+					<SearchResultsGridView rooms={rooms} darkMode={darkMode} />
+				</Suspense>
+			)}
+			{viewMode === "list" && (
+				<Suspense
+					fallback={
+						<>
+							<GenericLoading />
+						</>
+					}
+				>
+					<SearchResultsListView rooms={rooms} darkMode={darkMode} />
+				</Suspense>
+			)}
 			{viewMode != "grid" && viewMode != "list" && (
 				<p>Invalid view mode selected - [{viewMode}]</p>
 			)}
