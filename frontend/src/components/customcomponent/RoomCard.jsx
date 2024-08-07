@@ -8,6 +8,7 @@ import Constants from "../../utils/Constants";
 import Chip from "@mui/joy/Chip";
 import Button from "@mui/joy/Button";
 import { Link } from "@mui/joy";
+import MeetingRoomAvailability from "../MeetingRoomAvailability";
 
 export default function RoomCard({ room }) {
 	const getImageUrl = () => {
@@ -61,6 +62,7 @@ export default function RoomCard({ room }) {
 					>
 						{room?.name}
 					</NonOverflowingTypography>
+					<MeetingRoomAvailability roomAvailability={room?.roomAvailability} />
 				</CardContent>
 				<CardOverflow>
 					<Button
