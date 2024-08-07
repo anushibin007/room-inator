@@ -63,7 +63,9 @@ function MainPage({ display }) {
 						<Suspense
 							fallback={
 								<>
-									<GenericLoading />
+									<GenericLoading
+										text={"Loading the list of Buildings. Please wait."}
+									/>
 								</>
 							}
 						>
@@ -75,7 +77,9 @@ function MainPage({ display }) {
 						<Suspense
 							fallback={
 								<>
-									<GenericLoading />
+									<GenericLoading
+										text={"Loading rooms in this building. Please wait."}
+									/>
 								</>
 							}
 						>

@@ -80,7 +80,9 @@ function SearchResultsRoot({ darkMode, viewMode, rooms, setRooms }) {
 				<Suspense
 					fallback={
 						<>
-							<GenericLoading />
+							<GenericLoading
+								text={"Loading the Grid view for rooms. Please wait."}
+							/>
 						</>
 					}
 				>
@@ -91,7 +93,9 @@ function SearchResultsRoot({ darkMode, viewMode, rooms, setRooms }) {
 				<Suspense
 					fallback={
 						<>
-							<GenericLoading />
+							<GenericLoading
+								text={"Loading the List view for rooms. Please wait."}
+							/>
 						</>
 					}
 				>

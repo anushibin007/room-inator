@@ -75,7 +75,7 @@ function App() {
 										<Suspense
 											fallback={
 												<>
-													<GenericLoading />
+													<GenericLoading text="Loading room details. Please wait." />
 												</>
 											}
 										>
