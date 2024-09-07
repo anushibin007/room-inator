@@ -13,8 +13,10 @@ public class CORSConfiguration {
 	@Bean
 	public FilterRegistrationBean corsFilter() {
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-		CorsConfiguration config = new CorsConfiguration().applyPermitDefaultValues();
-		source.registerCorsConfiguration("/**", config);
+		CorsConfiguration defaultConfig = new CorsConfiguration().applyPermitDefaultValues();
+		defaultConfig.setMaxAge((long) 1600);
+
+		source.registerCorsConfiguration("/**", defaultConfig);
 		FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
 		bean.setOrder(0);
 		return bean;
