@@ -18,25 +18,7 @@ function SearchResultsListView({ rooms }) {
 			title: "Floor",
 			dataIndex: "floor",
 			key: "floor",
-			// TODO: This needs to be fetched from the backend
-			filters: [
-				{
-					text: "7",
-					value: 7,
-				},
-				{
-					text: "8",
-					value: 8,
-				},
-				{
-					text: "9",
-					value: 9,
-				},
-				{
-					text: "10",
-					value: 10,
-				},
-			],
+			filters: getUniqueFloors(),
 			onFilter: (value, record) => record.floor === value,
 			sorter: (a, b) => a.floor - b.floor,
 			defaultSortOrder: "ascend",
@@ -45,37 +27,38 @@ function SearchResultsListView({ rooms }) {
 			title: "Seating capacity",
 			dataIndex: "capacity",
 			key: "capacity",
-			// TODO: This needs to be fetched from the backend
-			filters: [
-				{
-					text: "4",
-					value: 4,
-				},
-				{
-					text: "6",
-					value: 6,
-				},
-				{
-					text: "8",
-					value: 8,
-				},
-				{
-					text: "10",
-					value: 10,
-				},
-				{
-					text: "12",
-					value: 12,
-				},
-				{
-					text: "20",
-					value: 20,
-				},
-			],
+			filters: getUniqueSeatingCapacities(),
 			onFilter: (value, record) => record.capacity === value,
 			sorter: (a, b) => a.capacity - b.capacity,
 		},
 	];
+
+	function getUniqueSeatingCapacities() {
+		return getUniqueValuesByKeyForFilter("capacity");
+	}
+
+	function getUniqueFloors() {
+		return getUniqueValuesByKeyForFilter("floor");
+	}
+
+	/**
+	 * This function constructs the required
+	 * JS Array for the filters in the list view.
+	 * The filters such as unique room capacity
+	 * and floor number, etc.
+	 *
+	 * @param {*} key The key in the rooms array
+	 * @returns An array in the format [{text: "value", value: "value"}]
+	 */
+	function getUniqueValuesByKeyForFilter(key) {
+		const uniqueValues = new Set();
+		rooms?.forEach((room) => uniqueValues.add(room[key]));
+		return Array.from(uniqueValues)
+			.sort((a, b) => a - b)
+			.map((aValue) => {
+				return { text: aValue, value: aValue };
+			});
+	}
 
 	return (
 		<>
