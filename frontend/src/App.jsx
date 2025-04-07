@@ -1,5 +1,5 @@
 // React
-import React, { Suspense, lazy } from "react";
+import React, { useEffect, Suspense, lazy } from "react";
 import { Route, Routes, HashRouter } from "react-router-dom";
 
 // MUI
@@ -15,6 +15,13 @@ const RoomDetailsRoute = lazy(() => import("./components/RoomDetailsRoute"));
 
 function App() {
 	const theme = extendTheme({ cssVarPrefix: "dark" });
+
+	useEffect(() => {
+		// pre-load heavy components
+		import("./components/SearchResultsGridView");
+		import("./components/SearchResultsListView");
+		import("./components/RoomDetails");
+	}, []);
 
 	return (
 		<>
