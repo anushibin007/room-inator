@@ -141,7 +141,7 @@ export default function Buildings() {
 													letterSpacing: "0.8px",
 													mb: 1.5
 												}}
-											><Typography>
+                      </div><Typography>
 												{getCountryAndLocationNames(aData.locationId)}
 											</Typography>
 											<Typography level="body-xs">
