@@ -101,10 +101,24 @@ export default function MeetingRoomAvailability({ roomAvailability }) {
 	return (
 		<>
 			{message.text != "No availableSlots data" && (
-				// If there was no availableSlots data from the server, don't render this Chip
 				<>
 					<Tooltip title={getSlotsAsText()} variant="solid" placement="right">
-						<Chip component="span" size="sm" variant="solid" color={getChipColor()}>
+						<Chip 
+							component="span" 
+							size="sm" 
+							variant="solid" 
+							color={getChipColor()}
+							sx={{
+								fontWeight: 600,
+								borderRadius: "12px",
+								px: 1.5,
+								py: 0.5,
+								fontSize: "0.75rem",
+								boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+								backdropFilter: "blur(10px)",
+								border: "1px solid rgba(255,255,255,0.2)"
+							}}
+						>
 							{message.text}
 						</Chip>
 					</Tooltip>

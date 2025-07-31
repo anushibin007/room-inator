@@ -39,9 +39,26 @@ function Header({ rooms, setRooms, darkMode, toggleDarkMode, simpleMode, viewMod
 							<Link
 								href={Constants.BASE_PATH}
 								underline="none"
-								sx={{ height: "100%" }}
+								sx={{ 
+									height: "100%",
+									transition: "all 0.2s ease",
+									"&:hover": {
+										transform: "scale(1.05)"
+									}
+								}}
 							>
-								<Typography level="title-lg" startDecorator={<MeetingRoomIcon />}>
+								<Typography 
+									level="title-lg" 
+									startDecorator={<MeetingRoomIcon sx={{ color: "#667eea" }} />}
+									sx={{
+										fontWeight: 700,
+										background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+										backgroundClip: "text",
+										WebkitBackgroundClip: "text",
+										WebkitTextFillColor: "transparent",
+										fontSize: "1.5rem"
+									}}
+								>
 									Room-Inator
 								</Typography>
 							</Link>
@@ -64,16 +81,30 @@ function Header({ rooms, setRooms, darkMode, toggleDarkMode, simpleMode, viewMod
 									<Grid>
 										<ButtonGroup aria-label="outlined primary button group">
 											<IconButton
-												variant={viewMode === "grid" ? `solid` : ""}
+												variant={viewMode === "grid" ? `solid` : "outlined"}
 												onClick={setGridViewMode}
 												size="sm"
+												sx={{
+													borderRadius: "8px",
+													transition: "all 0.2s ease",
+													...(viewMode === "grid" && {
+														background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+													})
+												}}
 											>
 												<WindowIcon />
 											</IconButton>
 											<IconButton
-												variant={viewMode === "list" ? `solid` : ""}
+												variant={viewMode === "list" ? `solid` : "outlined"}
 												onClick={setListViewMode}
 												size="sm"
+												sx={{
+													borderRadius: "8px",
+													transition: "all 0.2s ease",
+													...(viewMode === "list" && {
+														background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+													})
+												}}
 											>
 												<ListIcon />
 											</IconButton>

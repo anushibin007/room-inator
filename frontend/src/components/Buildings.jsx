@@ -103,34 +103,83 @@ export default function Buildings() {
 						</Grid>
 						<Grid container mt={2}>
 							{buildings?.map((aData) => (
-								<Grid key={aData.id} padding={2}>
+								<Grid key={aData.id} xs={12} sm={6} md={4} lg={3} padding={2}>
 									<Card
 										sx={{
-											width: 320,
-											maxWidth: "100%",
-											boxShadow: "lg",
+											width: "100%",
+											height: "100%",
+											minHeight: 200,
+											boxShadow: "0 8px 32px rgba(0,0,0,0.08)",
+											borderRadius: "20px",
+											background: "linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)",
+											border: "1px solid rgba(0,0,0,0.04)",
+											transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+											position: "relative",
+											overflow: "hidden",
+											"&:hover": {
+												transform: "translateY(-8px)",
+												boxShadow: "0 20px 40px rgba(0,0,0,0.12)",
+											},
+											"&::before": {
+												content: '""',
+												position: "absolute",
+												top: 0,
+												left: 0,
+												right: 0,
+												height: "4px",
+												background: "linear-gradient(90deg, #667eea 0%, #764ba2 100%)",
+											}
 										}}
 									>
-										<CardContent>
+										<CardContent sx={{ p: 3, height: "100%", display: "flex", flexDirection: "column" }}>
+											<div style={{ flexGrow: 1 }}>
+												level="body-xs"
+												sx={{ 
+													color: "text.secondary",
+													fontWeight: 500,
+													textTransform: "uppercase",
+													letterSpacing: "0.8px",
+													mb: 1.5
+												}}
+											>
+												{getCountryAndLocationNames(aData.locationId)}
+											</Typography>
 											<Typography level="body-xs">
 												{getCountryAndLocationNames(aData.locationId)}
 											</Typography>
 											<Typography
 												level="title-lg"
-												sx={{ mt: 1, fontWeight: "xl" }}
+												sx={{ 
+													fontWeight: 700,
+													fontSize: "1.4rem",
+													lineHeight: 1.3,
+													color: "text.primary"
+												}}
 											>
 												{aData.name}
 											</Typography>
+											</div>
 										</CardContent>
 										<CardOverflow>
 											<Button
 												variant="solid"
-												color="primary"
 												size="lg"
 												component="a"
 												href={`#building/${aData.id}`}
+												sx={{
+													background: "linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)",
+													borderRadius: 0,
+													py: 1.5,
+													fontSize: "0.95rem",
+													fontWeight: 600,
+													textTransform: "none",
+													letterSpacing: "0.3px",
+													"&:hover": {
+														background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+													}
+												}}
 											>
-												Visit
+												Explore Rooms
 											</Button>
 										</CardOverflow>
 									</Card>
